@@ -8,8 +8,8 @@ Tecnica 53, on the other hand, employs a 5x3 dot matrix, offering a sleeker, mor
 
 Together, the two typefaces serve as a versatile pair that seamlessly blend form and function. They are perfect for technical, digital, or sci-fi-themed designs, evoking a nostalgic yet futuristic sensibility. Whether you’re creating software interfaces, branding for tech products, or even pixel art-inspired designs, Tecnica 55 and Tecnica 53 provide an aesthetic steeped in precision, technology, and innovation.
 
-![TecnicaTypeface05](https://github.com/user-attachments/assets/4fc1680c-71da-4d02-8eb4-d8e44a1fa82c)
-![TecnicaTypeface04](https://github.com/user-attachments/assets/f14f699b-a795-4cb5-9368-4824a13085e6)
-![TecnicaTypeface03](https://github.com/user-attachments/assets/b081cf33-1f7e-41ca-8f33-695dd4e3b736)
-![TecnicaTypeface02](https://github.com/user-attachments/assets/a139fb0c-b90d-42bf-912e-884f45700351)
-![TecnicaTypeface01](https://github.com/user-attachments/assets/dda42423-bf67-4276-a1b7-e55862766932)
+![TecnicaTypeface01](https://github.com/user-attachments/assets/5cdbc083-f003-4f1a-8051-14b17b9e95a5)
+![TecnicaTypeface02](https://github.com/user-attachments/assets/aa2fc0b8-333c-456b-9333-65a595b6c40d)
+![TecnicaTypeface03](https://github.com/user-attachments/assets/70871aa8-ddc8-4355-ace7-5898f1147b7e)
+![TecnicaTypeface04](https://github.com/user-attachments/assets/bd9bcae0-074d-4c5a-aae8-4868497fe2b9)
+![TecnicaTypeface05](https://github.com/user-attachments/assets/43032b5a-b59d-4f5d-8284-053a14d9d4d6)
