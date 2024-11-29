@@ -37,6 +37,7 @@ Davide Piscitelli is a Visual Designer specialized in UX/UI Design, contributing
 
 
 
+
 # Copyright
 
 Copyright 2024 Davide Piscitelli (davidepscll@gmail.com)
