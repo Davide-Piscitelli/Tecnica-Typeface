@@ -25,7 +25,7 @@ Together, the two typefaces serve as a versatile pair that seamlessly blend form
 
 # Designer
 
-  • Davide Piscitelli
+* Davide Piscitelli
 
 Copyright 2024 Davide Piscitelli (davidepscll@gmail.com)
 
