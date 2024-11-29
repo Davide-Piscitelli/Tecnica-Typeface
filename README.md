@@ -23,11 +23,24 @@ Together, the two typefaces serve as a versatile pair that seamlessly blend form
 
 
 
+
 # Designer
 
 * Davide Piscitelli
 
+
+
+
+# About Author
+
+Davide Piscitelli is a Visual Designer specialized in UX/UI Design, contributing to the development of experimental typefaces (https://davidepiscitelli.framer.ai).
+
+
+
+# Copyright
+
 Copyright 2024 Davide Piscitelli (davidepscll@gmail.com)
+
 
 
 
