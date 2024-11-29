@@ -13,7 +13,11 @@ Together, the two typefaces serve as a versatile pair that seamlessly blend form
 
 
 ![TecnicaTypeface01](https://github.com/user-attachments/assets/5cdbc083-f003-4f1a-8051-14b17b9e95a5)
+
 ![TecnicaTypeface02](https://github.com/user-attachments/assets/aa2fc0b8-333c-456b-9333-65a595b6c40d)
+
 ![TecnicaTypeface03](https://github.com/user-attachments/assets/70871aa8-ddc8-4355-ace7-5898f1147b7e)
+
 ![TecnicaTypeface04](https://github.com/user-attachments/assets/bd9bcae0-074d-4c5a-aae8-4868497fe2b9)
+
 ![TecnicaTypeface05](https://github.com/user-attachments/assets/43032b5a-b59d-4f5d-8284-053a14d9d4d6)
