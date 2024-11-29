@@ -1,1 +1,1 @@
-# Tecnica-Typeface
+# Tecnica Typeface
