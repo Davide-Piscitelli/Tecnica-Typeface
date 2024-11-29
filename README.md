@@ -1,6 +1,5 @@
 # Tecnica Typeface
 
-
 Tecnica 55 and Tecnica 53 are typographic designs deeply rooted in the aesthetics of dot matrix printing, a technology once pivotal in early printers and digital displays. This system relied on grids of dots to form characters and images, enabling legibility and functionality on low-resolution devices. The charm of this method lies in its balance of efficiency and geometric simplicity, which these fonts celebrate.
 
 Tecnica 55 is based on a 5x5 dot matrix grid. Its bold, modular design captures a strong geometric structure, resulting in characters that are strikingly robust and visually impactful. The consistent spacing and proportions make it ideal for applications where clarity and boldness are paramount.
@@ -21,3 +20,17 @@ Together, the two typefaces serve as a versatile pair that seamlessly blend form
 ![TecnicaTypeface04](https://github.com/user-attachments/assets/bd9bcae0-074d-4c5a-aae8-4868497fe2b9)
 
 ![TecnicaTypeface05](https://github.com/user-attachments/assets/43032b5a-b59d-4f5d-8284-053a14d9d4d6)
+
+
+
+# Designer
+
+  • Davide Piscitelli
+
+Copyright 2024 Davide Piscitelli (davidepscll@gmail.com)
+
+
+
+# License
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is copied below, and is also available with a FAQ at: https://scripts.sil.org/OFL
