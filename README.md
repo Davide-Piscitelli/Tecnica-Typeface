@@ -9,17 +9,15 @@ Tecnica 53, on the other hand, employs a 5x3 dot matrix, offering a sleeker, mor
 Together, the two typefaces serve as a versatile pair that seamlessly blend form and function. They are perfect for technical, digital, or sci-fi-themed designs, evoking a nostalgic yet futuristic sensibility. Whether you’re creating software interfaces, branding for tech products, or even pixel art-inspired designs, Tecnica 55 and Tecnica 53 provide an aesthetic steeped in precision, technology, and innovation.
 
 
-
-![T05](https://github.com/user-attachments/assets/09621581-f63a-4b91-bc8b-144d34330fc7)
-
-![T04](https://github.com/user-attachments/assets/35397ad4-34ba-44e2-9a30-6da40081254d)
-
-![T03](https://github.com/user-attachments/assets/7233d6e9-1929-4f46-b160-857ec49e2a8a)
+![T01](https://github.com/user-attachments/assets/549c5e97-d76d-4295-9677-9c8ecab85af6)
 
 ![T02](https://github.com/user-attachments/assets/9a816d27-7ec9-4eb4-ac30-52283586e077)
 
-![T01](https://github.com/user-attachments/assets/549c5e97-d76d-4295-9677-9c8ecab85af6)
+![T03](https://github.com/user-attachments/assets/7233d6e9-1929-4f46-b160-857ec49e2a8a)
 
+![T04](https://github.com/user-attachments/assets/35397ad4-34ba-44e2-9a30-6da40081254d)
+
+![T05](https://github.com/user-attachments/assets/09621581-f63a-4b91-bc8b-144d34330fc7)
 
 
 # Designer
@@ -27,18 +25,14 @@ Together, the two typefaces serve as a versatile pair that seamlessly blend form
 * Davide Piscitelli
 
 
-
 # About Author
 
 Davide Piscitelli is a Visual Designer specialized in UX/UI Design, contributing to the development of experimental typefaces (https://davidepiscitelli.framer.ai).
 
 
-
 # Copyright
 
 Copyright 2024 Davide Piscitelli (davidepscll@gmail.com)
-
-
 
 
 # License
