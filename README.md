@@ -10,17 +10,15 @@ Together, the two typefaces serve as a versatile pair that seamlessly blend form
 
 
 
+![T05](https://github.com/user-attachments/assets/09621581-f63a-4b91-bc8b-144d34330fc7)
 
-![TecnicaTypeface01](https://github.com/user-attachments/assets/5cdbc083-f003-4f1a-8051-14b17b9e95a5)
+![T04](https://github.com/user-attachments/assets/35397ad4-34ba-44e2-9a30-6da40081254d)
 
-![TecnicaTypeface02](https://github.com/user-attachments/assets/aa2fc0b8-333c-456b-9333-65a595b6c40d)
+![T03](https://github.com/user-attachments/assets/7233d6e9-1929-4f46-b160-857ec49e2a8a)
 
-![TecnicaTypeface03](https://github.com/user-attachments/assets/70871aa8-ddc8-4355-ace7-5898f1147b7e)
+![T02](https://github.com/user-attachments/assets/9a816d27-7ec9-4eb4-ac30-52283586e077)
 
-![TecnicaTypeface04](https://github.com/user-attachments/assets/bd9bcae0-074d-4c5a-aae8-4868497fe2b9)
-
-![TecnicaTypeface05](https://github.com/user-attachments/assets/43032b5a-b59d-4f5d-8284-053a14d9d4d6)
-
+![T01](https://github.com/user-attachments/assets/549c5e97-d76d-4295-9677-9c8ecab85af6)
 
 
 
@@ -30,11 +28,9 @@ Together, the two typefaces serve as a versatile pair that seamlessly blend form
 
 
 
-
 # About Author
 
 Davide Piscitelli is a Visual Designer specialized in UX/UI Design, contributing to the development of experimental typefaces (https://davidepiscitelli.framer.ai).
-
 
 
 
