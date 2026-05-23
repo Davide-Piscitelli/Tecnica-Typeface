@@ -27,7 +27,7 @@ Together, the two typefaces serve as a versatile pair that seamlessly blend form
 
 # About Author
 
-Davide Piscitelli is a Visual Designer specialized in UX/UI Design, contributing to the development of experimental typefaces (https://davidepiscitelli.framer.ai).
+Davide Piscitelli is a STEM Teacher and Designer, contributing to the development of experimental and open source typefaces.
 
 
 # Copyright
