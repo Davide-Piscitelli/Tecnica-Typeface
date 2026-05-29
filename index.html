@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnica Typeface - Advanced Font Tester</title>
+    <title>Tecnica Typeface - Font Tester</title>
     <style>
-        /* Caricamento dei Font dalla tua repository */
+        /* Font Loading from your GitHub Repository */
         @font-face {
             font-family: 'Tecnica-53';
             src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-53.woff2') format('woff2');
-            font-weight: 400; /* Regular */
+            font-weight: 400;
         }
         @font-face {
             font-family: 'Tecnica-55';
             src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-55.woff2') format('woff2');
-            font-weight: 700; /* Bold */
+            font-weight: 700;
         }
         @font-face {
             font-family: 'Tecnica-53Line';
@@ -28,17 +28,23 @@
         }
 
         body { 
-            font-family: system-ui, sans-serif; 
-            padding: 30px; 
+            font-family: system-ui, -apple-system, sans-serif; 
+            padding: 40px; 
             background: #f8f9fa; 
             color: #212529;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+        header { margin-bottom: 40px; }
+        h1 { margin: 0 0 5px 0; font-size: 32px; font-weight: 800; }
+        .subtitle { margin: 0; font-size: 18px; color: #6c757d; text-transform: uppercase; letter-spacing: 1px; }
+        
         .panel {
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 30px;
         }
         .controls { 
             display: flex;
@@ -46,123 +52,211 @@
             align-items: center;
             flex-wrap: wrap;
         }
-        input[type="text"], select { 
-            padding: 10px; 
+        select, input[type="text"] { 
+            padding: 12px; 
             font-size: 16px; 
             border: 1px solid #ced4da;
-            border-radius: 4px;
+            border-radius: 6px;
+            background-color: #fff;
         }
-        input[type="text"] { flex-grow: 1; min-width: 250px; }
+        input[type="text"] { flex-grow: 1; min-width: 300px; }
+        label { font-size: 14px; font-weight: 600; color: #495057; margin-right: 5px; }
+
+        /* Sections */
+        h3 { font-size: 16px; color: #495057; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
         
-        /* Area Testo Libero */
+        /* Interactive Preview */
         #preview { 
             font-family: 'Tecnica-53', sans-serif; 
             font-size: 48px; 
-            font-weight: 400;
             border: 1px solid #dee2e6; 
-            border-radius: 4px;
-            padding: 20px; 
+            border-radius: 6px;
+            padding: 25px; 
             background: white; 
-            min-height: 120px;
+            min-height: 100px;
+            outline: none;
+            word-wrap: break-word;
+        }
+
+        /* Type Sizes Cascade */
+        .size-row {
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid #f1f3f5;
+            padding: 15px 0;
+        }
+        .size-label {
+            width: 80px;
+            font-size: 12px;
+            color: #adb5bd;
+            font-family: monospace;
+            padding-top: 5px;
+        }
+        .size-text {
+            flex-grow: 1;
+            word-wrap: break-word;
             outline: none;
         }
 
-        /* Mappa dei Glifi */
+        /* Glyph Palette */
+        .glyph-section { margin-bottom: 20px; }
+        .glyph-section h4 { font-size: 13px; color: #6c757d; margin: 0 0 10px 0; }
         .glyph-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+            gap: 8px;
         }
         .glyph-box {
             font-family: 'Tecnica-53', sans-serif;
-            font-size: 24px;
+            font-size: 22px;
             text-align: center;
-            padding: 10px;
+            padding: 10px 0;
             background: #f1f3f5;
             border-radius: 4px;
             border: 1px solid #e9ecef;
+            user-select: all;
         }
     </style>
 </head>
 <body>
 
-    <h1>Tecnica Typeface Interactive Tester</h1>
+    <header>
+        <h1>Tecnica Typeface</h1>
+        <p class="subtitle">Font Tester</p>
+    </header>
     
     <div class="panel controls">
-        <select id="familySelect">
-            <option value="Tecnica">Tecnica (Standard)</option>
-            <option value="TecnicaLine">Tecnica Line</option>
-        </select>
-
-        <select id="weightSelect">
-            <option value="400">53 (Regular)</option>
-            <option value="700">55 (Bold)</option>
-        </select>
+        <div>
+            <label for="familySelect">Family:</label>
+            <select id="familySelect">
+                <option value="Tecnica">Tecnica (Standard)</option>
+                <option value="TecnicaLine">Tecnica Line</option>
+            </select>
+        </div>
 
         <div>
-            <label style="font-size:14px; font-weight:bold;">Dimensione: </label>
-            <input type="range" id="sizeInput" min="16" max="144" value="48">
-            <span id="sizeValue">48px</span>
+            <label for="weightSelect">Weight:</label>
+            <select id="weightSelect">
+                <option value="400">53 (Regular)</option>
+                <option value="700">55 (Bold)</option>
+            </select>
         </div>
+
+        <input type="text" id="textInput" value="The quick brown fox jumps over the lazy dog" placeholder="Type custom text...">
     </div>
 
-    <h3>1. Testo di prova (clicca sotto per modificare)</h3>
-    <div id="preview" contenteditable="true">Abc 123 Tecnica Typeface</div>
-
-    <h3>2. Ispezione Glifi</h3>
+    <h3>1. Interactive Text Preview</h3>
     <div class="panel">
-        <div class="glyph-grid" id="glyphGrid"></div>
+        <div id="preview" contenteditable="true">The quick brown fox jumps over the lazy dog</div>
     </div>
+
+    <h3>2. Graphic Design Sizes</h3>
+    <div class="panel" id="sizeCascade"></div>
+
+    <h3>3. Complete Glyph Palette</h3>
+    <div class="panel" id="glyphPalette"></div>
 
     <script>
         const familySelect = document.getElementById('familySelect');
         const weightSelect = document.getElementById('weightSelect');
-        const sizeInput = document.getElementById('sizeInput');
-        const sizeValue = document.getElementById('sizeValue');
+        const textInput = document.getElementById('textInput');
         const preview = document.getElementById('preview');
-        const glyphGrid = document.getElementById('glyphGrid');
+        const sizeCascade = document.getElementById('sizeCascade');
+        const glyphPalette = document.getElementById('glyphPalette');
 
-        // Funzione unica per aggiornare lo stile del tester e dei glifi
-        function updateStyles() {
+        // Graphics software standard font sizes
+        const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
+
+        // Defined character sets for full glyph inspection
+        const glyphGroups = {
+            "Uppercase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "Lowercase": "abcdefghijklmnopqrstuvwxyz",
+            "Numbers": "0123456789",
+            "Punctuation & Symbols": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿–—‘’“”„†‡•…‰‹›⁄€−∙√∞¬∩∫≈≠≤≥",
+            "Extended & Accented": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
+        };
+
+        // Render standard sizes rows
+        standardSizes.forEach(size => {
+            const row = document.createElement('div');
+            row.className = 'size-row';
+            
+            const label = document.createElement('div');
+            label.className = 'size-label';
+            label.textContent = size + ' pt';
+            
+            const text = document.createElement('div');
+            text.className = 'size-text';
+            text.style.fontSize = size + 'px';
+            text.contentEditable = true;
+            text.textContent = textInput.value;
+            
+            row.appendChild(label);
+            row.appendChild(text);
+            sizeCascade.appendChild(row);
+        });
+
+        // Render full glyph palette categorized
+        for (const [groupName, chars] of Object.entries(glyphGroups)) {
+            const section = document.createElement('div');
+            section.className = 'glyph-section';
+            
+            const heading = document.createElement('h4');
+            heading.textContent = groupName;
+            section.appendChild(heading);
+            
+            const grid = document.createElement('div');
+            grid.className = 'glyph-grid';
+            
+            chars.split("").forEach(char => {
+                const box = document.createElement('div');
+                box.className = 'glyph-box';
+                box.textContent = char;
+                grid.appendChild(box);
+            });
+            
+            section.appendChild(grid);
+            glyphPalette.appendChild(section);
+        }
+
+        // Global font update logic
+        function updateFontSettings() {
             const family = familySelect.value;
             const weight = weightSelect.value;
-            const size = sizeInput.value + 'px';
 
-            // Determina il font esatto in base a Famiglia + Peso
             let fontName = 'Tecnica-53';
             if (family === 'Tecnica' && weight === '700') fontName = 'Tecnica-55';
             if (family === 'TecnicaLine' && weight === '400') fontName = 'Tecnica-53Line';
             if (family === 'TecnicaLine' && weight === '700') fontName = 'Tecnica-55Line';
 
-            // Applica all'area di testo
+            // Apply to main preview
             preview.style.fontFamily = fontName + ', sans-serif';
-            preview.style.fontSize = size;
-            sizeValue.textContent = size;
 
-            // Applica a tutti i glifi della mappa
-            const boxes = document.querySelectorAll('.glyph-box');
-            boxes.forEach(box => {
-                box.style.fontFamily = fontName + ', sans-serif';
+            // Apply to all design sizes text rows
+            document.querySelectorAll('.size-text').forEach(el => {
+                el.style.fontFamily = fontName + ', sans-serif';
+            });
+
+            // Apply to all glyph boxes
+            document.querySelectorAll('.glyph-box').forEach(el => {
+                el.style.fontFamily = fontName + ', sans-serif';
             });
         }
 
-        // Generatore automatico della mappa dei glifi (Lettere, numeri, simboli principali)
-        const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$%&*()[]{}.,;:+-=/<>".split("");
-        glyphs.forEach(char => {
-            const box = document.createElement('div');
-            box.className = 'glyph-box';
-            box.textContent = char;
-            glyphGrid.appendChild(box);
+        // Synchronize input text changes across views
+        textInput.addEventListener('input', () => {
+            preview.textContent = textInput.value || ' ';
+            document.querySelectorAll('.size-text').forEach(el => {
+                el.textContent = textInput.value || ' ';
+            });
         });
 
-        // Event Listeners
-        familySelect.addEventListener('change', updateStyles);
-        weightSelect.addEventListener('change', updateStyles);
-        sizeInput.addEventListener('input', updateStyles);
+        // Event listeners for drop-downs
+        familySelect.addEventListener('change', updateFontSettings);
+        weightSelect.addEventListener('change', updateFontSettings);
 
-        // Inizializzazione iniziale
-        updateStyles();
+        // Run on load
+        updateFontSettings();
     </script>
 </body>
 </html>
