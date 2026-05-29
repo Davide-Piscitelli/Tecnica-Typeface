@@ -48,9 +48,14 @@
         }
         .controls { 
             display: flex;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
             flex-wrap: wrap;
+        }
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         select, input[type="text"] { 
             padding: 12px; 
@@ -60,7 +65,8 @@
             background-color: #fff;
         }
         input[type="text"] { flex-grow: 1; min-width: 300px; }
-        label { font-size: 14px; font-weight: 600; color: #495057; margin-right: 5px; }
+        label { font-size: 14px; font-weight: 600; color: #495057; }
+        .value-display { font-size: 14px; font-weight: 600; color: #6c757d; min-width: 45px; }
 
         /* Sections */
         h3 { font-size: 16px; color: #495057; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
@@ -99,22 +105,26 @@
         }
 
         /* Glyph Palette */
-        .glyph-section { margin-bottom: 20px; }
-        .glyph-section h4 { font-size: 13px; color: #6c757d; margin: 0 0 10px 0; }
+        .glyph-section { margin-bottom: 30px; }
+        .glyph-section h4 { font-size: 13px; color: #6c757d; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; }
         .glyph-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
-            gap: 8px;
+            grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+            gap: 10px;
         }
         .glyph-box {
             font-family: 'Tecnica-53', sans-serif;
-            font-size: 22px;
+            font-size: 32px; /* Increased default size for better accessibility */
             text-align: center;
-            padding: 10px 0;
+            padding: 15px 0;
             background: #f1f3f5;
-            border-radius: 4px;
+            border-radius: 6px;
             border: 1px solid #e9ecef;
             user-select: all;
+            transition: background 0.2s;
+        }
+        .glyph-box:hover {
+            background: #e9ecef;
         }
     </style>
 </head>
@@ -126,7 +136,7 @@
     </header>
     
     <div class="panel controls">
-        <div>
+        <div class="control-group">
             <label for="familySelect">Family:</label>
             <select id="familySelect">
                 <option value="Tecnica">Tecnica (Standard)</option>
@@ -134,12 +144,24 @@
             </select>
         </div>
 
-        <div>
+        <div class="control-group">
             <label for="weightSelect">Weight:</label>
             <select id="weightSelect">
                 <option value="400">53 (Regular)</option>
                 <option value="700">55 (Bold)</option>
             </select>
+        </div>
+
+        <div class="control-group">
+            <label for="textSizeInput">Text Size:</label>
+            <input type="range" id="textSizeInput" min="16" max="144" value="48">
+            <span id="textSizeValue" class="value-display">48px</span>
+        </div>
+
+        <div class="control-group">
+            <label for="glyphSizeInput">Glyph Size:</label>
+            <input type="range" id="glyphSizeInput" min="24" max="72" value="32">
+            <span id="glyphSizeValue" class="value-display">32px</span>
         </div>
 
         <input type="text" id="textInput" value="The quick brown fox jumps over the lazy dog" placeholder="Type custom text...">
@@ -159,6 +181,10 @@
     <script>
         const familySelect = document.getElementById('familySelect');
         const weightSelect = document.getElementById('weightSelect');
+        const textSizeInput = document.getElementById('textSizeInput');
+        const textSizeValue = document.getElementById('textSizeValue');
+        const glyphSizeInput = document.getElementById('glyphSizeInput');
+        const glyphSizeValue = document.getElementById('glyphSizeValue');
         const textInput = document.getElementById('textInput');
         const preview = document.getElementById('preview');
         const sizeCascade = document.getElementById('sizeCascade');
@@ -167,12 +193,12 @@
         // Graphics software standard font sizes
         const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
 
-        // Defined character sets for full glyph inspection
+        // Character sets with 'mu' removed from symbols
         const glyphGroups = {
             "Uppercase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
             "Lowercase": "abcdefghijklmnopqrstuvwxyz",
             "Numbers": "0123456789",
-            "Punctuation & Symbols": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿–—‘’“”„†‡•…‰‹›⁄€−∙√∞¬∩∫≈≠≤≥",
+            "Punctuation & Symbols": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´¶·¸¹º»¼½¾¿–—‘’“”„†‡•…‰‹›⁄€−∙√∞¬∩∫≈≠≤≥",
             "Extended & Accented": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
         };
 
@@ -242,6 +268,20 @@
                 el.style.fontFamily = fontName + ', sans-serif';
             });
         }
+
+        // Handle text size slider
+        textSizeInput.addEventListener('input', () => {
+            preview.style.fontSize = textSizeInput.value + 'px';
+            textSizeValue.textContent = textSizeInput.value + 'px';
+        });
+
+        // Handle glyph size slider
+        glyphSizeInput.addEventListener('input', () => {
+            document.querySelectorAll('.glyph-box').forEach(el => {
+                el.style.fontSize = glyphSizeInput.value + 'px';
+            });
+            glyphSizeValue.textContent = glyphSizeInput.value + 'px';
+        });
 
         // Synchronize input text changes across views
         textInput.addEventListener('input', () => {
