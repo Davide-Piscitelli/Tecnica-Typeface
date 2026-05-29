@@ -190,19 +190,18 @@
         const sizeCascade = document.getElementById('sizeCascade');
         const glyphPalette = document.getElementById('glyphPalette');
 
-        // Graphics software standard font sizes
         const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
 
-        // Character sets with '¿' added back, '·', '∙', '∩' removed
+        // Cleaned string with inverted question mark correctly set
         const glyphGroups = {
             "Uppercase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
             "Lowercase": "abcdefghijklmnopqrstuvwxyz",
             "Numbers": "0123456789",
-            "Punctuation & Symbols": "¿!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~¡¢£¤¥¦§¨©ª«¬®¯°±²³´¶¹º»¼½¾–—‘’“”„†‡•…‰‹›⁄€−√∞λ∫≈≠≤≥",
+            "Punctuation & Symbols": "\u00BF!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\u00A1\u00A2\u00A3\u00A4\u00A5\u00A6\u00A7\u00A8\u00A9\u00AA\u00AB\u00AC\u00AE\u00AF\u00B0\u00B1\u00B2\u00B3\u00B4\u00B6\u00B9\u00BA\u00BB\u00BC\u00BD\u00BE\u2013\u2014\u2018\u2019\u201C\u201D\u201E\u2020\u2021\u2022\u2026\u2030\u2039\u203A\u2044\u20AC\u2212\u221A\u221E\u00AC\u222B\u2248\u2260\u2264\u2266",
             "Extended & Accented": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
         };
 
-        // Render standard sizes rows
+        // Render rows
         standardSizes.forEach(size => {
             const row = document.createElement('div');
             row.className = 'size-row';
@@ -222,7 +221,7 @@
             sizeCascade.appendChild(row);
         });
 
-        // Render full glyph palette categorized
+        // Render glyph palette
         for (const [groupName, chars] of Object.entries(glyphGroups)) {
             const section = document.createElement('div');
             section.className = 'glyph-section';
@@ -245,7 +244,6 @@
             glyphPalette.appendChild(section);
         }
 
-        // Global font update logic
         function updateFontSettings() {
             const family = familySelect.value;
             const weight = weightSelect.value;
@@ -255,27 +253,22 @@
             if (family === 'TecnicaLine' && weight === '400') fontName = 'Tecnica-53Line';
             if (family === 'TecnicaLine' && weight === '700') fontName = 'Tecnica-55Line';
 
-            // Apply to main preview
             preview.style.fontFamily = fontName + ', sans-serif';
 
-            // Apply to all design sizes text rows
             document.querySelectorAll('.size-text').forEach(el => {
                 el.style.fontFamily = fontName + ', sans-serif';
             });
 
-            // Apply to all glyph boxes
             document.querySelectorAll('.glyph-box').forEach(el => {
                 el.style.fontFamily = fontName + ', sans-serif';
             });
         }
 
-        // Handle text size slider
         textSizeInput.addEventListener('input', () => {
             preview.style.fontSize = textSizeInput.value + 'px';
             textSizeValue.textContent = textSizeInput.value + 'px';
         });
 
-        // Handle glyph size slider
         glyphSizeInput.addEventListener('input', () => {
             document.querySelectorAll('.glyph-box').forEach(el => {
                 el.style.fontSize = glyphSizeInput.value + 'px';
@@ -283,7 +276,6 @@
             glyphSizeValue.textContent = glyphSizeInput.value + 'px';
         });
 
-        // Synchronize input text changes across views
         textInput.addEventListener('input', () => {
             preview.textContent = textInput.value || ' ';
             document.querySelectorAll('.size-text').forEach(el => {
@@ -291,11 +283,9 @@
             });
         });
 
-        // Event listeners for drop-downs
         familySelect.addEventListener('change', updateFontSettings);
         weightSelect.addEventListener('change', updateFontSettings);
 
-        // Run on load
         updateFontSettings();
     </script>
 </body>
