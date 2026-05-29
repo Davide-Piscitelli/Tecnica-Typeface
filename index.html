@@ -3,80 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnica Typeface - Font Tester</title>
+    <title>Tecnica Typeface - Specimen & Technical Tester</title>
     <style>
         /* Font Loading from your GitHub Repository */
         @font-face {
             font-family: 'Tecnica-53';
-            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-53.woff2') format('woff2');
+            src: url('fonts/webfonts/Tecnica-53.woff2') format('woff2'),
+                 url('fonts/webfonts/Tecnica-53.woff') format('woff');
             font-weight: 400;
         }
         @font-face {
             font-family: 'Tecnica-55';
-            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-55.woff2') format('woff2');
+            src: url('fonts/webfonts/Tecnica-55.woff2') format('woff2'),
+                 url('fonts/webfonts/Tecnica-55.woff') format('woff');
             font-weight: 700;
         }
         @font-face {
             font-family: 'Tecnica-53Line';
-            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-53Line.woff2') format('woff2');
+            src: url('fonts/webfonts/Tecnica-53Line.woff2') format('woff2'),
+                 url('fonts/webfonts/Tecnica-53Line.woff') format('woff');
             font-weight: 400;
         }
         @font-face {
             font-family: 'Tecnica-55Line';
-            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-55Line.woff2') format('woff2');
+            src: url('fonts/webfonts/Tecnica-55Line.woff2') format('woff2'),
+                 url('fonts/webfonts/Tecnica-55Line.woff') format('woff');
             font-weight: 700;
         }
 
+        /* Technical Blueprint System Fonts (Monospace) */
         body { 
-            font-family: system-ui, -apple-system, sans-serif; 
+            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace; 
             padding: 40px; 
-            background: #f8f9fa; 
-            color: #212529;
+            background: #fafafa; 
+            color: #1a1a1a;
             max-width: 1200px;
             margin: 0 auto;
+            letter-spacing: -0.02em;
         }
-        header { margin-bottom: 40px; }
-        h1 { margin: 0 0 5px 0; font-size: 32px; font-weight: 800; }
-        .subtitle { margin: 0; font-size: 18px; color: #6c757d; text-transform: uppercase; letter-spacing: 1px; }
+        
+        header { 
+            border-bottom: 2px dashed #1a1a1a;
+            padding-bottom: 20px;
+            margin-bottom: 40px; 
+        }
+        h1 { margin: 0 0 5px 0; font-size: 28px; font-weight: 700; text-transform: uppercase; }
+        .subtitle { margin: 0; font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 2px; }
         
         .panel {
-            background: white;
+            background: #ffffff;
             padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #1a1a1a;
+            border-radius: 0px; /* Sharp corners for a technical blueprint look */
             margin-bottom: 30px;
         }
+        
         .controls { 
             display: flex;
             gap: 25px;
             align-items: center;
             flex-wrap: wrap;
+            background: #f0f0f0;
         }
+        
         .control-group {
             display: flex;
             align-items: center;
             gap: 10px;
         }
+        
         select, input[type="text"] { 
-            padding: 12px; 
-            font-size: 16px; 
-            border: 1px solid #ced4da;
-            border-radius: 6px;
+            font-family: inherit;
+            padding: 8px 12px; 
+            font-size: 14px; 
+            border: 1px solid #1a1a1a;
+            border-radius: 0px;
             background-color: #fff;
         }
         input[type="text"] { flex-grow: 1; min-width: 300px; }
-        label { font-size: 14px; font-weight: 600; color: #495057; }
-        .value-display { font-size: 14px; font-weight: 600; color: #6c757d; min-width: 45px; }
+        label { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #1a1a1a; }
+        .value-display { font-size: 12px; font-weight: 700; color: #666; min-width: 45px; }
 
-        /* Sections */
-        h3 { font-size: 16px; color: #495057; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 0.5px; }
+        /* Input Range Styling (Technical look) */
+        input[type="range"] {
+            accent-color: #1a1a1a;
+        }
+
+        /* Sections Titles */
+        h3 { 
+            font-family: inherit;
+            font-size: 14px; 
+            font-weight: 700;
+            color: #1a1a1a; 
+            text-transform: uppercase; 
+            margin-bottom: 15px; 
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+        h3::before {
+            content: "[■] ";
+            margin-right: 5px;
+            color: #666;
+        }
         
-        /* Interactive Preview */
+        /* Interactive Preview Area */
         #preview { 
             font-family: 'Tecnica-53', sans-serif; 
             font-size: 48px; 
-            border: 1px solid #dee2e6; 
-            border-radius: 6px;
+            border: 1px solid #1a1a1a; 
+            border-radius: 0px;
             padding: 25px; 
             background: white; 
             min-height: 100px;
@@ -88,14 +124,15 @@
         .size-row {
             display: flex;
             align-items: flex-start;
-            border-bottom: 1px solid #f1f3f5;
+            border-bottom: 1px dashed #e0e0e0;
             padding: 15px 0;
         }
+        .size-row:last-child { border-bottom: none; }
         .size-label {
-            width: 80px;
+            width: 100px;
             font-size: 12px;
-            color: #adb5bd;
-            font-family: monospace;
+            color: #666;
+            font-weight: 700;
             padding-top: 5px;
         }
         .size-text {
@@ -106,7 +143,15 @@
 
         /* Glyph Palette */
         .glyph-section { margin-bottom: 30px; }
-        .glyph-section h4 { font-size: 13px; color: #6c757d; margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .glyph-section h4 { 
+            font-size: 11px; 
+            color: #666; 
+            margin: 0 0 15px 0; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border-left: 3px solid #1a1a1a;
+            padding-left: 8px;
+        }
         .glyph-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
@@ -117,14 +162,16 @@
             font-size: 32px; 
             text-align: center;
             padding: 15px 0;
-            background: #f1f3f5;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
+            background: #ffffff;
+            border-radius: 0px;
+            border: 1px solid #e0e0e0;
             user-select: all;
-            transition: background 0.2s;
+            transition: all 0.15s ease;
         }
         .glyph-box:hover {
-            background: #e9ecef;
+            background: #1a1a1a;
+            color: #ffffff;
+            border-color: #1a1a1a;
         }
     </style>
 </head>
@@ -132,12 +179,12 @@
 
     <header>
         <h1>Tecnica Typeface</h1>
-        <p class="subtitle">Font Tester</p>
+        <p class="subtitle">Data Sheet & Interactive Font Specimen // Ver. 1.0</p>
     </header>
     
     <div class="panel controls">
         <div class="control-group">
-            <label for="familySelect">Family:</label>
+            <label for="familySelect">Family_</label>
             <select id="familySelect">
                 <option value="Tecnica">Tecnica (Standard)</option>
                 <option value="TecnicaLine">Tecnica Line</option>
@@ -145,7 +192,7 @@
         </div>
 
         <div class="control-group">
-            <label for="weightSelect">Weight:</label>
+            <label for="weightSelect">Weight_</label>
             <select id="weightSelect">
                 <option value="400">53 (Regular)</option>
                 <option value="700">55 (Bold)</option>
@@ -153,29 +200,29 @@
         </div>
 
         <div class="control-group">
-            <label for="textSizeInput">Text Size:</label>
+            <label for="textSizeInput">Size_</label>
             <input type="range" id="textSizeInput" min="16" max="144" value="48">
             <span id="textSizeValue" class="value-display">48px</span>
         </div>
 
         <div class="control-group">
-            <label for="glyphSizeInput">Glyph Size:</label>
+            <label for="glyphSizeInput">Glyph_</label>
             <input type="range" id="glyphSizeInput" min="24" max="72" value="32">
             <span id="glyphSizeValue" class="value-display">32px</span>
         </div>
 
-        <input type="text" id="textInput" value="The quick brown fox jumps over the lazy dog" placeholder="Type custom text...">
+        <input type="text" id="textInput" value="The quick brown fox jumps over the lazy dog" placeholder="Type custom string...">
     </div>
 
-    <h3>1. Interactive Text Preview</h3>
+    <h3>01 / Interactive Specimen Matrix</h3>
     <div class="panel">
         <div id="preview" contenteditable="true">The quick brown fox jumps over the lazy dog</div>
     </div>
 
-    <h3>2. Graphic Design Sizes</h3>
+    <h3>02 / Typeface Scale Cascade</h3>
     <div class="panel" id="sizeCascade"></div>
 
-    <h3>3. Complete Glyph Palette</h3>
+    <h3>03 / Core Glyph Component Palette</h3>
     <div class="panel" id="glyphPalette"></div>
 
     <script>
@@ -192,13 +239,12 @@
 
         const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
 
-        // Cleaned string with inverted question mark correctly set
         const glyphGroups = {
-            "Uppercase": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-            "Lowercase": "abcdefghijklmnopqrstuvwxyz",
-            "Numbers": "0123456789",
-            "Punctuation & Symbols": "\u00BF!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\u00A1\u00A2\u00A3\u00A4\u00A5\u00A6\u00A7\u00A8\u00A9\u00AA\u00AB\u00AC\u00AE\u00AF\u00B0\u00B1\u00B2\u00B3\u00B4\u00B6\u00B9\u00BA\u00BB\u00BC\u00BD\u00BE\u2013\u2014\u2018\u2019\u201C\u201D\u201E\u2020\u2021\u2022\u2026\u2030\u2039\u203A\u2044\u20AC\u2212\u221A\u221E\u00AC\u222B\u2248\u2260\u2264\u2266",
-            "Extended & Accented": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
+            "03.A // Uppercase Characters": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "03.B // Lowercase Characters": "abcdefghijklmnopqrstuvwxyz",
+            "03.C // Numeric Data System": "0123456789",
+            "03.D // Symbols & Operational Operators": "\u00BF!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\u00A1\u00A2\u00A3\u00A4\u00A5\u00A6\u00A7\u00A8\u00A9\u00AA\u00AB\u00AC\u00AE\u00AF\u00B0\u00B1\u00B2\u00B3\u00B4\u00B6\u00B9\u00BA\u00BB\u00BC\u00BD\u00BE\u2013\u2014\u2018\u2019\u201C\u201D\u201E\u2020\u2021\u2022\u2026\u2030\u2039\u203A\u2044\u20AC\u2212\u221A\u221E\u00AC\u222B\u2248\u2260\u2264\u2266",
+            "03.E // Diacritics & Extended Set": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
         };
 
         // Render rows
@@ -208,7 +254,7 @@
             
             const label = document.createElement('div');
             label.className = 'size-label';
-            label.textContent = size + ' pt';
+            label.textContent = 'PICA_' + size + 'pt';
             
             const text = document.createElement('div');
             text.className = 'size-text';
