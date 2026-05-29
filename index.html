@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnica Typeface - Advanced Font Tester</title>
+    <style>
+        /* Caricamento dei Font dalla tua repository */
+        @font-face {
+            font-family: 'Tecnica-53';
+            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-53.woff2') format('woff2');
+            font-weight: 400; /* Regular */
+        }
+        @font-face {
+            font-family: 'Tecnica-55';
+            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-55.woff2') format('woff2');
+            font-weight: 700; /* Bold */
+        }
+        @font-face {
+            font-family: 'Tecnica-53Line';
+            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-53Line.woff2') format('woff2');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Tecnica-55Line';
+            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-55Line.woff2') format('woff2');
+            font-weight: 700;
+        }
+
+        body { 
+            font-family: system-ui, sans-serif; 
+            padding: 30px; 
+            background: #f8f9fa; 
+            color: #212529;
+        }
+        .panel {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .controls { 
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        input[type="text"], select { 
+            padding: 10px; 
+            font-size: 16px; 
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        input[type="text"] { flex-grow: 1; min-width: 250px; }
+        
+        /* Area Testo Libero */
+        #preview { 
+            font-family: 'Tecnica-53', sans-serif; 
+            font-size: 48px; 
+            font-weight: 400;
+            border: 1px solid #dee2e6; 
+            border-radius: 4px;
+            padding: 20px; 
+            background: white; 
+            min-height: 120px;
+            outline: none;
+        }
+
+        /* Mappa dei Glifi */
+        .glyph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .glyph-box {
+            font-family: 'Tecnica-53', sans-serif;
+            font-size: 24px;
+            text-align: center;
+            padding: 10px;
+            background: #f1f3f5;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tecnica Typeface Interactive Tester</h1>
+    
+    <div class="panel controls">
+        <select id="familySelect">
+            <option value="Tecnica">Tecnica (Standard)</option>
+            <option value="TecnicaLine">Tecnica Line</option>
+        </select>
+
+        <select id="weightSelect">
+            <option value="400">53 (Regular)</option>
+            <option value="700">55 (Bold)</option>
+        </select>
+
+        <div>
+            <label style="font-size:14px; font-weight:bold;">Dimensione: </label>
+            <input type="range" id="sizeInput" min="16" max="144" value="48">
+            <span id="sizeValue">48px</span>
+        </div>
+    </div>
+
+    <h3>1. Testo di prova (clicca sotto per modificare)</h3>
+    <div id="preview" contenteditable="true">Abc 123 Tecnica Typeface</div>
+
+    <h3>2. Ispezione Glifi</h3>
+    <div class="panel">
+        <div class="glyph-grid" id="glyphGrid"></div>
+    </div>
+
+    <script>
+        const familySelect = document.getElementById('familySelect');
+        const weightSelect = document.getElementById('weightSelect');
+        const sizeInput = document.getElementById('sizeInput');
+        const sizeValue = document.getElementById('sizeValue');
+        const preview = document.getElementById('preview');
+        const glyphGrid = document.getElementById('glyphGrid');
+
+        // Funzione unica per aggiornare lo stile del tester e dei glifi
+        function updateStyles() {
+            const family = familySelect.value;
+            const weight = weightSelect.value;
+            const size = sizeInput.value + 'px';
+
+            // Determina il font esatto in base a Famiglia + Peso
+            let fontName = 'Tecnica-53';
+            if (family === 'Tecnica' && weight === '700') fontName = 'Tecnica-55';
+            if (family === 'TecnicaLine' && weight === '400') fontName = 'Tecnica-53Line';
+            if (family === 'TecnicaLine' && weight === '700') fontName = 'Tecnica-55Line';
+
+            // Applica all'area di testo
+            preview.style.fontFamily = fontName + ', sans-serif';
+            preview.style.fontSize = size;
+            sizeValue.textContent = size;
+
+            // Applica a tutti i glifi della mappa
+            const boxes = document.querySelectorAll('.glyph-box');
+            boxes.forEach(box => {
+                box.style.fontFamily = fontName + ', sans-serif';
+            });
+        }
+
+        // Generatore automatico della mappa dei glifi (Lettere, numeri, simboli principali)
+        const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$%&*()[]{}.,;:+-=/<>".split("");
+        glyphs.forEach(char => {
+            const box = document.createElement('div');
+            box.className = 'glyph-box';
+            box.textContent = char;
+            glyphGrid.appendChild(box);
+        });
+
+        // Event Listeners
+        familySelect.addEventListener('change', updateStyles);
+        weightSelect.addEventListener('change', updateStyles);
+        sizeInput.addEventListener('input', updateStyles);
+
+        // Inizializzazione iniziale
+        updateStyles();
+    </script>
+</body>
+</html>
