@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnica Typeface - Font Tester</title>
+    <style>
+        /* Collegamento diretto ai file .woff2 della tua repository GitHub */
+        @font-face {
+            font-family: 'Tecnica-53';
+            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-53.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Tecnica-55';
+            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-55.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Tecnica-53Line';
+            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-53Line.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Tecnica-55Line';
+            src: url('https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts/webfonts/Tecnica-55Line.woff2') format('woff2');
+        }
+
+        /* Grafica della pagina */
+        body { 
+            font-family: system-ui, -apple-system, sans-serif; 
+            padding: 40px; 
+            background: #f4f4f9; 
+            color: #333;
+        }
+        .controls { 
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 30px; 
+            flex-wrap: wrap;
+        }
+        input[type="text"], select { 
+            padding: 10px; 
+            font-size: 16px; 
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        input[type="text"] { width: 300px; }
+        .size-label { font-size: 14px; font-weight: bold; }
+        
+        /* Area di anteprima */
+        #preview { 
+            font-family: 'Tecnica-53', sans-serif; 
+            font-size: 48px; 
+            border: 2px dashed #bbb; 
+            border-radius: 8px;
+            padding: 30px; 
+            background: white; 
+            min-height: 100px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tecnica Typeface Tester</h1>
+    
+    <div class="controls">
+        <select id="fontSelect">
+            <option value="Tecnica-53">Tecnica 53 (Regular)</option>
+            <option value="Tecnica-55">Tecnica 55 (Bold)</option>
+            <option value="Tecnica-53Line">Tecnica 53 Line</option>
+            <option value="Tecnica-55Line">Tecnica 55 Line</option>
+        </select>
+
+        <input type="text" id="textInput" placeholder="Scrivi qui per testare il font...">
+        
+        <span class="size-label">Dimensione:</span>
+        <input type="range" id="sizeInput" min="16" max="120" value="48">
+        <span id="sizeValue">48px</span>
+    </div>
+
+    <div id="preview">Abc 123 Tecnica</div>
+
+    <script>
+        const fontSelect = document.getElementById('fontSelect');
+        const textInput = document.getElementById('textInput');
+        const sizeInput = document.getElementById('sizeInput');
+        const sizeValue = document.getElementById('sizeValue');
+        const preview = document.getElementById('preview');
+
+        textInput.addEventListener('input', () => {
+            preview.textContent = textInput.value || 'Abc 123 Tecnica';
+        });
+
+        sizeInput.addEventListener('input', () => {
+            preview.style.fontSize = sizeInput.value + 'px';
+            sizeValue.textContent = sizeInput.value + 'px';
+        });
+
+        fontSelect.addEventListener('change', () => {
+            preview.style.fontFamily = fontSelect.value + ', sans-serif';
+        });
+    </script>
+</body>
+</html>
