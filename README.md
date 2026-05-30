@@ -42,7 +42,7 @@ Experience and test all variants of **Tecnica Typeface** directly in your browse
 
 ---
 
-### About Author
+## About Author
 
 Davide Piscitelli is a STEM Teacher and Designer, contributing to the development of experimental and open source typefaces.
 
