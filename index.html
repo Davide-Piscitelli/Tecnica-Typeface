@@ -5,91 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecnica Typeface — ISO-Standard Certification Sheet</title>
     <style>
-        /* Font Loading from your GitHub Repository */
+        /* Font Loading from your GitHub Repository with Cache Busting for iOS */
         @font-face {
             font-family: 'Tecnica-53';
-            src: url('fonts/webfonts/Tecnica-53.woff2') format('woff2'),
-                 url('fonts/webfonts/Tecnica-53.woff') format('woff');
+            src: url('fonts/webfonts/Tecnica-53.woff2?v=1.0') format('woff2'),
+                 url('fonts/webfonts/Tecnica-53.woff?v=1.0') format('woff');
             font-weight: 400;
         }
         @font-face {
             font-family: 'Tecnica-55';
-            src: url('fonts/webfonts/Tecnica-55.woff2') format('woff2'),
-                 url('fonts/webfonts/Tecnica-55.woff') format('woff');
+            src: url('fonts/webfonts/Tecnica-55.woff2?v=1.0') format('woff2'),
+                 url('fonts/webfonts/Tecnica-55.woff?v=1.0') format('woff');
             font-weight: 700;
         }
         @font-face {
             font-family: 'Tecnica-53Line';
-            src: url('fonts/webfonts/Tecnica-53Line.woff2') format('woff2'),
-                 url('fonts/webfonts/Tecnica-53Line.woff') format('woff');
+            src: url('fonts/webfonts/Tecnica-53Line.woff2?v=1.0') format('woff2'),
+                 url('fonts/webfonts/Tecnica-53Line.woff?v=1.0') format('woff');
             font-weight: 400;
         }
         @font-face {
             font-family: 'Tecnica-55Line';
-            src: url('fonts/webfonts/Tecnica-55Line.woff2') format('woff2'),
-                 url('fonts/webfonts/Tecnica-55Line.woff') format('woff');
+            src: url('fonts/webfonts/Tecnica-55Line.woff2?v=1.0') format('woff2'),
+                 url('fonts/webfonts/Tecnica-55Line.woff?v=1.0') format('woff');
             font-weight: 700;
         }
 
-        /* Isonorm / Technical Document Blueprint Style */
+        /* Isonorm / Technical Document Blueprint Style - Accessible Focus */
         body { 
             font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace; 
-            padding: 30px; 
+            padding: 2rem; 
             background: #ffffff; 
             color: #000000;
             max-width: 1300px;
             margin: 0 auto;
-            font-size: 13px;
-            line-height: 1.4;
+            font-size: 1rem; /* Accessible base size (usually 16px) */
+            line-height: 1.5;
         }
 
         /* ISO Technical Header Table */
         .iso-header-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 40px;
-            font-size: 11px;
+            margin-bottom: 2.5rem;
+            font-size: 0.875rem; /* WCAG AAA readable for data tables */
         }
         .iso-header-table td {
             border: 2px solid #000000;
-            padding: 10px 15px;
+            padding: 0.75rem 1rem;
             vertical-align: top;
         }
         .iso-title {
-            font-size: 22px;
+            font-size: 1.5rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin: 0;
         }
         .label-muted {
-            color: #666666;
+            color: #595959; /* WCAG Compliant high-contrast gray (4.5:1 min met) */
             text-transform: uppercase;
-            font-size: 9px;
+            font-size: 0.75rem;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 0.25rem;
             font-weight: 700;
         }
 
         /* Technical Content Blocks */
         .section-title {
-            font-size: 13px;
+            font-size: 0.875rem;
             font-weight: 700;
             text-transform: uppercase;
             border-bottom: 2px solid #000000;
-            padding-bottom: 5px;
-            margin: 40px 0 20px 0;
+            padding-bottom: 0.5rem;
+            margin: 2.5rem 0 1.25rem 0;
             display: flex;
             justify-content: space-between;
+        }
+        .section-subtitle-text {
+            color: #595959; /* WCAG compliant contrast */
         }
 
         .panel-controls {
             background: #f7f7f7;
             border: 2px solid #000000;
-            padding: 20px;
-            margin-bottom: 30px;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
             display: flex;
-            gap: 30px;
+            gap: 2rem;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -97,13 +100,13 @@
         .control-group {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.75rem;
         }
         
         select, input[type="text"] { 
             font-family: inherit;
-            padding: 6px 10px; 
-            font-size: 13px; 
+            padding: 0.5rem 0.75rem; 
+            font-size: 0.875rem; 
             border: 1px solid #000000;
             border-radius: 0px;
             background-color: #fff;
@@ -111,18 +114,19 @@
         }
         select:focus, input[type="text"]:focus {
             background-color: #fffbdf;
+            outline: 2px solid #000000; /* Visible focus indicator for accessibility */
         }
         input[type="text"] { min-width: 320px; flex-grow: 1; }
-        label { font-weight: 700; text-transform: uppercase; font-size: 11px; }
-        .value-display { font-weight: 700; color: #000000; min-width: 45px; }
+        label { font-weight: 700; text-transform: uppercase; font-size: 0.813rem; }
+        .value-display { font-weight: 700; color: #000000; min-width: 45px; font-size: 0.813rem; }
         input[type="range"] { accent-color: #000000; }
 
-        /* Document Display Areas (Background grid removed) */
+        /* Document Display Areas */
         .specimen-box {
-            border: 1px solid #cccccc;
+            border: 1px solid #000000;
             background: #ffffff;
-            padding: 40px;
-            margin-bottom: 30px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
             position: relative;
         }
         .specimen-box::before {
@@ -130,31 +134,34 @@
             position: absolute;
             top: 5px;
             right: 10px;
-            font-size: 8px;
-            color: #999999;
+            font-size: 0.688rem;
+            color: #595959; /* WCAG Compliant contrast */
             font-weight: 700;
         }
 
         #preview { 
             font-family: 'Tecnica-53', sans-serif; 
             font-size: 48px; 
-            line-height: 1.2; /* Default active line-height */
+            line-height: 1.2; 
             background: transparent;
             outline: none;
             word-wrap: break-word;
             color: #000000;
+        }
+        #preview:focus {
+            outline: 1px dashed #000000;
         }
 
         /* Micro-Reduction Test Grid */
         .microfilm-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
         }
         .microfilm-cell {
             border: 1px solid #000000;
-            padding: 15px;
+            padding: 1rem;
             background: #ffffff;
         }
 
@@ -167,13 +174,13 @@
             border-bottom: 1px solid #dddddd;
             display: flex;
             align-items: flex-start;
-            padding: 12px 0;
+            padding: 0.75rem 0;
         }
         .size-row:last-child { border-bottom: none; }
         .size-label {
             width: 140px;
-            font-size: 11px;
-            color: #555555;
+            font-size: 0.813rem;
+            color: #595959; /* WCAG Compliant contrast */
             font-weight: 700;
         }
         .size-text {
@@ -183,31 +190,29 @@
         }
 
         /* Type Foundry Style Glyph Component Map */
-        .glyph-section { margin-bottom: 40px; }
+        .glyph-section { margin-bottom: 2.5rem; }
         .glyph-section h4 { 
-            font-size: 11px; 
+            font-size: 0.813rem; 
             color: #000000; 
-            margin: 0 0 15px 0; 
+            margin: 0 0 1rem 0; 
             text-transform: uppercase; 
             font-weight: 700;
             background: #f0f0f0;
-            padding: 6px 10px;
+            padding: 0.375rem 0.625rem;
             border-left: 4px solid #000000;
         }
         .glyph-grid {
             display: grid;
-            /* Large fixed sizes typical of high-end type foundry specimens */
             grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 8px;
+            gap: 0.5rem;
         }
         .glyph-box {
             font-family: 'Tecnica-53', sans-serif;
-            /* Big fixed font-size for structural and precision evaluation */
             font-size: 42px; 
             text-align: center;
-            padding: 20px 0;
+            padding: 1.25rem 0;
             background: #ffffff;
-            border: 1px solid #cccccc;
+            border: 1px solid #000000; /* Sharper accessible frame */
             user-select: all;
             transition: all 0.1s ease;
         }
@@ -219,11 +224,11 @@
 
         /* Custom Technical Footer Stamp */
         .iso-footer {
-            margin-top: 60px;
+            margin-top: 3.75rem;
             border-top: 1px solid #000000;
-            padding-top: 15px;
-            font-size: 10px;
-            color: #444444;
+            padding-top: 1rem;
+            font-size: 0.75rem;
+            color: #595959; /* WCAG Compliant contrast */
             display: flex;
             justify-content: space-between;
         }
@@ -236,17 +241,17 @@
             <td style="width: 50%;">
                 <span class="label-muted">Standard Registry Document</span>
                 <h1 class="iso-title">TECNICA TYPEFACE</h1>
-                <span style="font-size: 11px; font-weight: 700; margin-top: 5px; display: inline-block;">DOT-MATRIX ALPHABET CONFIGURATION</span>
+                <span style="font-size: 0.813rem; font-weight: 700; margin-top: 0.3rem; display: inline-block;">DOT-MATRIX ALPHABET CONFIGURATION</span>
             </td>
             <td style="width: 25%;">
                 <span class="label-muted">Technical Reference</span>
-                <strong>ISO-3098 / DIN 1451</strong><br>
+                <strong>GRID 5x3 &amp; 5x5 ARCHITECTURE</strong><br>
                 Geometric Blueprint Matrix
             </td>
             <td style="width: 25%;">
                 <span class="label-muted">Document State</span>
                 <strong>VERIFICATION SHEET</strong><br>
-                Release: May 2026 // Rev. 1.2
+                Release: May 2026 // Rev. 1.3
             </td>
         </tr>
     </table>
@@ -285,47 +290,47 @@
             <span id="glyphSizeValue">42px</span>
         </div>
 
-        <input type="text" id="textInput" value="The quick brown fox jumps over the lazy dog" placeholder="Inject custom matrix string...">
+        <input type="text" id="textInput" value="FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX" placeholder="Inject custom matrix string...">
     </div>
 
     <div class="section-title">
-        <span>01 // Primary Output & Mathematical Legibility Field</span>
-        <span>Standard: Type B</span>
+        <span>01 // Primary Output &amp; Mathematical Legibility Field</span>
+        <span class="section-subtitle-text">Standard: Type B</span>
     </div>
     <div class="specimen-box">
-        <div id="preview" contenteditable="true">The quick brown fox jumps over the lazy dog</div>
+        <div id="preview" contenteditable="true">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
     </div>
 
     <div class="section-title">
         <span>02 // Micro-Reduction Legibility Test Grid</span>
-        <span>Down-scaling limit evaluation</span>
+        <span class="section-subtitle-text">Down-scaling limit evaluation</span>
     </div>
     <div class="microfilm-grid">
         <div class="microfilm-cell">
             <span class="label-muted">Reduction Ratio 1:10 (10 pt)</span>
-            <div class="size-text" style="font-size: 10px; font-family: 'Tecnica-53';">The quick brown fox jumps over the lazy dog</div>
+            <div class="size-text" style="font-size: 10px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
         </div>
         <div class="microfilm-cell">
             <span class="label-muted">Reduction Ratio 1:20 (7 pt)</span>
-            <div class="size-text" style="font-size: 7px; font-family: 'Tecnica-53';">The quick brown fox jumps over the lazy dog</div>
+            <div class="size-text" style="font-size: 7px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
         </div>
         <div class="microfilm-cell">
             <span class="label-muted">Reduction Ratio 1:30 (5 pt)</span>
-            <div class="size-text" style="font-size: 5px; font-family: 'Tecnica-53';">The quick brown fox jumps over the lazy dog</div>
+            <div class="size-text" style="font-size: 5px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
         </div>
     </div>
 
     <div class="section-title">
         <span>03 // Normalized Dimensional Ratios Cascade</span>
-        <span>ISO-Scale values</span>
+        <span class="section-subtitle-text">ISO-Scale values</span>
     </div>
-    <div style="border: 1px solid #000000; padding: 0 20px; background: #ffffff; margin-bottom: 30px;">
+    <div style="border: 2px solid #000000; padding: 0 20px; background: #ffffff; margin-bottom: 30px;">
         <div id="sizeCascade" class="size-table"></div>
     </div>
 
     <div class="section-title">
         <span>04 // Component Glyph Inventory</span>
-        <span>Complete Character Matrix</span>
+        <span class="section-subtitle-text">Complete Character Matrix</span>
     </div>
     <div id="glyphPalette"></div>
 
@@ -376,7 +381,7 @@
             sizeCascade.appendChild(row);
         });
 
-        // Render glyph palette with large fixed type foundry proportions
+        // Render glyph palette
         for (const [groupName, chars] of Object.entries(glyphGroups)) {
             const section = document.createElement('div');
             section.className = 'glyph-section';
