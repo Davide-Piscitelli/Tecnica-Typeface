@@ -13,7 +13,7 @@ Together, Tecnica 55 and Tecnica 53 offer a versatile typographic system suited 
 
 ---
 
-## 🌐 Live Type Specimen
+## Live Type Specimen
 
 Experience and test all variants of **Tecnica Typeface** directly in your browser:
 **[Visit the Interactive Specimen](https://github.com/Davide-Piscitelli/specimen-builder)**
