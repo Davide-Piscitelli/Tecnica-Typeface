@@ -123,7 +123,7 @@
 
         /* Document Display Areas */
         .specimen-box {
-            border: 1px solid #000000;
+            border: 2px solid #000000;
             background: #ffffff;
             padding: 2.5rem;
             margin-bottom: 2rem;
@@ -165,7 +165,7 @@
             background: #ffffff;
         }
 
-        /* Type Sizes Scale Cascade */
+        /* Type Sizes Scale Cascade (Left Aligned Fix) */
         .size-table {
             width: 100%;
             border-collapse: collapse;
@@ -173,18 +173,21 @@
         .size-row {
             border-bottom: 1px solid #dddddd;
             display: flex;
-            align-items: flex-start;
+            align-items: center; /* Ensures precise baseline matching */
             padding: 0.75rem 0;
         }
         .size-row:last-child { border-bottom: none; }
         .size-label {
-            width: 140px;
+            width: 150px;
+            min-width: 150px;
             font-size: 0.813rem;
             color: #595959; /* WCAG Compliant contrast */
             font-weight: 700;
+            text-align: left; /* Strict left alignment */
         }
         .size-text {
             flex-grow: 1;
+            text-align: left; /* Forces left-alignment across all sizes */
             word-wrap: break-word;
             outline: none;
         }
@@ -251,7 +254,7 @@
             <td style="width: 25%;">
                 <span class="label-muted">Document State</span>
                 <strong>VERIFICATION SHEET</strong><br>
-                Release: May 2026 // Rev. 1.3
+                Release: May 2026 // Rev. 1.4
             </td>
         </tr>
     </table>
@@ -303,20 +306,20 @@
 
     <div class="section-title">
         <span>02 // Micro-Reduction Legibility Test Grid</span>
-        <span class="section-subtitle-text">Down-scaling limit evaluation</span>
+        <span class="section-subtitle-text">Pica-Standard Typewriter Scaling</span>
     </div>
     <div class="microfilm-grid">
         <div class="microfilm-cell">
-            <span class="label-muted">Reduction Ratio 1:10 (10 pt)</span>
-            <div class="size-text" style="font-size: 10px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
+            <span class="label-muted">Scale Ratio: 2 Pica (24 pt)</span>
+            <div class="size-text" style="font-size: 24px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
         </div>
         <div class="microfilm-cell">
-            <span class="label-muted">Reduction Ratio 1:20 (7 pt)</span>
-            <div class="size-text" style="font-size: 7px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
+            <span class="label-muted">Scale Ratio: 1 Pica (12 pt)</span>
+            <div class="size-text" style="font-size: 12px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
         </div>
         <div class="microfilm-cell">
-            <span class="label-muted">Reduction Ratio 1:30 (5 pt)</span>
-            <div class="size-text" style="font-size: 5px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
+            <span class="label-muted">Scale Ratio: 0.5 Pica (6 pt)</span>
+            <div class="size-text" style="font-size: 6px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
         </div>
     </div>
 
@@ -353,11 +356,12 @@
 
         const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
 
+        // "≦" has been successfully removed from this technical dictionary
         const glyphGroups = {
             "04.A // Uppercase Matrix Block": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
             "04.B // Lowercase Matrix Block": "abcdefghijklmnopqrstuvwxyz",
             "04.C // Numeric Data Subsystem": "0123456789",
-            "04.D // Typographic Operators & Logic Core": "\u00BF!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\u00A1\u00A2\u00A3\u00A4\u00A5\u00A6\u00A7\u00A8\u00A9\u00AA\u00AB\u00AC\u00AE\u00AF\u00B0\u00B1\u00B2\u00B3\u00B4\u00B6\u00B9\u00BA\u00BB\u00BC\u00BD\u00BE\u2013\u2014\u2018\u2019\u201C\u201D\u201E\u2020\u2021\u2022\u2026\u2030\u2039\u203A\u2044\u20AC\u2212\u221A\u221E\u00AC\u222B\u2248\u2260\u2264\u2266",
+            "04.D // Typographic Operators & Logic Core": "\u00BF!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\u00A1\u00A2\u00A3\u00A4\u00A5\u00A6\u00A7\u00A8\u00A9\u00AA\u00AB\u00AC\u00AE\u00AF\u00B0\u00B1\u00B2\u00B3\u00B4\u00B6\u00B9\u00BA\u00BB\u00BC\u00BD\u00BE\u2013\u2014\u2018\u2019\u201C\u201D\u201E\u2020\u2021\u2022\u2026\u2030\u2039\u203A\u2044\u20AC\u2212\u221A\u221E\u00AC\u222B\u2248\u2260\u2264",
             "04.E // Extended Glyphs & Accents Array": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
         };
 
