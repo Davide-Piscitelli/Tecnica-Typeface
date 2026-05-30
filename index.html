@@ -31,9 +31,9 @@
             font-weight: 700;
         }
 
-        /* Isonorm / Technical Document Blueprint Style - Accessible Focus */
+        /* Technical Document Blueprint Style - Courier New Integration */
         body { 
-            font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace; 
+            font-family: 'Courier New', Courier, monospace; 
             padding: 2rem; 
             background: #ffffff; 
             color: #000000;
@@ -41,6 +41,7 @@
             margin: 0 auto;
             font-size: 1rem; 
             line-height: 1.5;
+            letter-spacing: -0.02em;
         }
 
         /* ISO Technical Header Table */
@@ -61,6 +62,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin: 0;
+            font-family: 'Courier New', Courier, monospace;
         }
         .label-muted {
             color: #595959; 
@@ -74,8 +76,8 @@
         /* Technical Blueprint Grid Background */
         .blueprint-bg {
             background-color: #ffffff;
-            background-image: linear-gradient(#f0f0f0 1px, transparent 1px), linear-gradient(90deg, #f0f0f0 1px, transparent 1px);
-            background-size: 10px 10px;
+            background-image: linear-gradient(#edeec4 1px, transparent 1px), linear-gradient(90deg, #edeec4 1px, transparent 1px);
+            background-size: 12px 12px;
         }
 
         /* Technical Content Blocks */
@@ -94,7 +96,7 @@
         }
 
         .panel-controls {
-            background: #f7f7f7;
+            background: #fcfcfc;
             border: 2px solid #000000;
             padding: 1.25rem;
             margin-bottom: 2rem;
@@ -111,17 +113,18 @@
         }
         
         select, input[type="text"] { 
-            font-family: inherit;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
             padding: 0.5rem 0.75rem; 
             font-size: 0.875rem; 
-            border: 1px solid #000000;
+            border: 2px solid #000000;
             border-radius: 0px;
             background-color: #fff;
             outline: none;
         }
         select:focus, input[type="text"]:focus {
             background-color: #fffbdf;
-            outline: 2px solid #000000; 
+            outline: none; 
         }
         input[type="text"] { min-width: 320px; flex-grow: 1; }
         label { font-weight: 700; text-transform: uppercase; font-size: 0.813rem; }
@@ -146,7 +149,7 @@
         }
 
         #preview { 
-            font-family: 'Tecnica-53', sans-serif; 
+            font-family: 'Tecnica-53', monospace; 
             font-size: 48px; 
             line-height: 1.2; 
             background: transparent;
@@ -176,17 +179,17 @@
             border-collapse: collapse;
         }
         .size-row {
-            border-bottom: 1px solid #dddddd;
+            border-bottom: 1px solid #000000;
             display: flex;
             align-items: center; 
             padding: 0.75rem 0;
         }
         .size-row:last-child { border-bottom: none; }
         .size-label {
-            width: 150px;
-            min-width: 150px;
+            width: 160px;
+            min-width: 160px;
             font-size: 0.813rem;
-            color: #595959; 
+            color: #000000; 
             font-weight: 700;
             text-align: left; 
         }
@@ -206,11 +209,8 @@
             text-transform: uppercase; 
             font-weight: 700;
             background: #f0f0f0;
-            padding: 0.375rem 0.625rem;
-            border-left: 4px solid #000000;
-            border-right: 1px solid #000000;
-            border-top: 1px solid #000000;
-            border-bottom: 1px solid #000000;
+            padding: 0.5rem 0.625rem;
+            border: 2px solid #000000;
         }
         .glyph-grid {
             display: grid;
@@ -218,7 +218,7 @@
             gap: 0.5rem;
         }
         .glyph-box {
-            font-family: 'Tecnica-53', sans-serif;
+            font-family: 'Tecnica-53', monospace;
             font-size: 42px; 
             text-align: center;
             padding: 1.25rem 0;
@@ -239,7 +239,8 @@
             border-top: 2px solid #000000;
             padding-top: 1rem;
             font-size: 0.75rem;
-            color: #595959; 
+            color: #000000; 
+            font-weight: bold;
             display: flex;
             justify-content: space-between;
         }
@@ -372,7 +373,6 @@
         const sizeCascade = document.getElementById('sizeCascade');
         const glyphPalette = document.getElementById('glyphPalette');
 
-        // Specific technical strings for the ISO cascade matrix (independent from the main input)
         const technicalTexts = {
             12: "MINIMUM OPTICAL RESOLUTION LIMIT FOR MICROFILM CONFORMANCE // CRITICAL TOLERANCE ±0.02MM",
             14: "GRID UNIT STRUCTURAL VALUE REFERENCE — RATIO CONFIGURATION BASE DELTA 14PT",
@@ -392,11 +392,10 @@
             "4.1 // Uppercase Matrix Block": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
             "4.2 // Lowercase Matrix Block": "abcdefghijklmnopqrstuvwxyz",
             "4.3 // Numeric Data Subsystem": "0123456789",
-            "4.4 // Typographic Operators & Logic Core": "\u00BF!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\u00A1\u00A2\u00A3\u00A4\u00A5\u00A6\u00A7\u00A8\u00A9\u00AA\u00AB\u00AC\u00AE\u00AF\u00B0\u00B1\u00B2\u00B3\u00B4\u00B6\u00B9\u00BA\u00BB\u00BC\u00BD\u00BE\u2013\u2014\u2018\u2019\u201C\u201D\u201E\u2020\u2021\u2022\u2026\u2030\u2039\u203A\u2044\u20AC\u2212\u221A\u221E\u00AC\u222B\u2248\u2260\u2264",
+            "4.4 // Typographic Operators & Logic Core": "\\u00BF!\\\"#$%&'()*+,-./:;<=>?@[\\\\]^_`{|}~\\u00A1\\u00A2\\u00A3\\u00A4\\u00A5\\u00A6\\u00A7\\u00A8\\u00A9\\u00AA\\u00AB\\u00AC\\u00AE\\u00AF\\u00B0\\u00B1\\u00B2\\u00B3\\u00B4\\u00B6\\u00B9\\u00BA\\u00BB\\u00BC\\u00BD\\u00BE\\u2013\\u2014\\u2018\\u2019\\u201C\\u201D\\u201E\\u2020\\u2021\\u2022\\u2026\\u2030\\u2039\\u203A\\u2044\\u20AC\\u2212\\u221A\\u221E\\u00AC\\u222B\\u2248\\u2260\\u2264",
             "4.5 // Extended Glyphs & Accents Array": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
         };
 
-        // Render rows with non-copied technical texts
         standardSizes.forEach(size => {
             const row = document.createElement('div');
             row.className = 'size-row';
@@ -416,7 +415,6 @@
             sizeCascade.appendChild(row);
         });
 
-        // Render glyph palette
         for (const [groupName, chars] of Object.entries(glyphGroups)) {
             const section = document.createElement('div');
             section.className = 'glyph-section';
@@ -448,30 +446,27 @@
             if (family === 'TecnicaLine' && weight === '400') fontName = 'Tecnica-53Line';
             if (family === 'TecnicaLine' && weight === '700') fontName = 'Tecnica-55Line';
 
-            preview.style.fontFamily = fontName + ', sans-serif';
+            preview.style.fontFamily = fontName + ', monospace';
 
             document.querySelectorAll('.size-text').forEach(el => {
-                el.style.fontFamily = fontName + ', sans-serif';
+                el.style.fontFamily = fontName + ', monospace';
             });
 
             document.querySelectorAll('.glyph-box').forEach(el => {
-                el.style.fontFamily = fontName + ', sans-serif';
+                el.style.fontFamily = fontName + ', monospace';
             });
         }
 
-        // Handle text size slider
         textSizeInput.addEventListener('input', () => {
             preview.style.fontSize = textSizeInput.value + 'px';
             textSizeValue.textContent = textSizeInput.value + 'px';
         });
 
-        // Handle line height slider
         lineHeightInput.addEventListener('input', () => {
             preview.style.lineHeight = lineHeightInput.value;
             lineHeightValue.textContent = lineHeightInput.value;
         });
 
-        // Main input updates only preview and microfilm cells, cascade remains hardcoded technical
         textInput.addEventListener('input', () => {
             preview.textContent = textInput.value || ' ';
             document.querySelectorAll('.microfilm-cell .size-text').forEach(el => {
