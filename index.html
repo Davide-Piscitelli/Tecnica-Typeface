@@ -149,7 +149,7 @@
         }
 
         #preview { 
-            font-family: 'Tecnica-53', monospace; 
+            font-family: 'Tecnica-53', 'Courier New', Courier, monospace; 
             font-size: 48px; 
             line-height: 1.2; 
             background: transparent;
@@ -218,7 +218,7 @@
             gap: 0.5rem;
         }
         .glyph-box {
-            font-family: 'Tecnica-53', monospace;
+            font-family: 'Tecnica-53', 'Courier New', Courier, monospace;
             font-size: 42px; 
             text-align: center;
             padding: 1.25rem 0;
@@ -273,7 +273,7 @@
             <td>
                 <span class="label-muted">Document State &amp; Stage Code</span>
                 <strong>STAGE: 60.60 // PUBLISHED</strong><br>
-                Release: May 2026 // Rev. 1.4
+                Release: May 2026 // Rev. 1.5
             </td>
         </tr>
     </table>
@@ -305,11 +305,6 @@
             <label for="lineHeightInput">Line_Height</label>
             <input type="range" id="lineHeightInput" min="0.8" max="2.5" step="0.1" value="1.2">
             <span id="lineHeightValue" class="value-display">1.2</span>
-        </div>
-
-        <div class="control-group" style="display: none;">
-            <input type="range" id="glyphSizeInput" value="42">
-            <span id="glyphSizeValue">42px</span>
         </div>
 
         <input type="text" id="textInput" value="FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX" placeholder="Inject custom matrix string...">
@@ -388,12 +383,13 @@
 
         const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
 
+        // Group 4.4 and 4.5 optimized to prevent visual duplicates/redundancies
         const glyphGroups = {
             "4.1 // Uppercase Matrix Block": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
             "4.2 // Lowercase Matrix Block": "abcdefghijklmnopqrstuvwxyz",
             "4.3 // Numeric Data Subsystem": "0123456789",
-            "4.4 // Typographic Operators & Logic Core": "\\u00BF!\\\"#$%&'()*+,-./:;<=>?@[\\\\]^_`{|}~\\u00A1\\u00A2\\u00A3\\u00A4\\u00A5\\u00A6\\u00A7\\u00A8\\u00A9\\u00AA\\u00AB\\u00AC\\u00AE\\u00AF\\u00B0\\u00B1\\u00B2\\u00B3\\u00B4\\u00B6\\u00B9\\u00BA\\u00BB\\u00BC\\u00BD\\u00BE\\u2013\\u2014\\u2018\\u2019\\u201C\\u201D\\u201E\\u2020\\u2021\\u2022\\u2026\\u2030\\u2039\\u203A\\u2044\\u20AC\\u2212\\u221A\\u221E\\u00AC\\u222B\\u2248\\u2260\\u2264",
-            "4.5 // Extended Glyphs & Accents Array": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
+            "4.4 // Standard Typographic Operators": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+            "4.5 // Math & ISO Essential Logic": "¿¡¢£¥§°±¶€√∞∫≈≠≤≥¬"
         };
 
         standardSizes.forEach(size => {
@@ -446,14 +442,14 @@
             if (family === 'TecnicaLine' && weight === '400') fontName = 'Tecnica-53Line';
             if (family === 'TecnicaLine' && weight === '700') fontName = 'Tecnica-55Line';
 
-            preview.style.fontFamily = fontName + ', monospace';
+            preview.style.fontFamily = fontName + ", 'Courier New', Courier, monospace";
 
             document.querySelectorAll('.size-text').forEach(el => {
-                el.style.fontFamily = fontName + ', monospace';
+                el.style.fontFamily = fontName + ", 'Courier New', Courier, monospace";
             });
 
             document.querySelectorAll('.glyph-box').forEach(el => {
-                el.style.fontFamily = fontName + ', monospace';
+                el.style.fontFamily = fontName + ", 'Courier New', Courier, monospace";
             });
         }
 
