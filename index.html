@@ -372,6 +372,20 @@
         const sizeCascade = document.getElementById('sizeCascade');
         const glyphPalette = document.getElementById('glyphPalette');
 
+        // Specific technical strings for the ISO cascade matrix (independent from the main input)
+        const technicalTexts = {
+            12: "MINIMUM OPTICAL RESOLUTION LIMIT FOR MICROFILM CONFORMANCE // CRITICAL TOLERANCE ±0.02MM",
+            14: "GRID UNIT STRUCTURAL VALUE REFERENCE — RATIO CONFIGURATION BASE DELTA 14PT",
+            18: "ISO-IEC 9541 RASTERIZATION SUBSYSTEM VERIFICATION DATA MATRIX TRACE",
+            24: "GEOMETRIC BLUEPRINT MESH: 5x3 AND 5x5 ELEMENTARY VECTOR DISPLACEMENT",
+            36: "SPECIFICATION PARAMETER FOR HIGH-CONTRAST DIGITAL SIGNAGE MODULES",
+            48: "STANDARDIZED GLYPH METRICS INTERACTIVE RENDERING CHECK FIELD",
+            60: "VECTOR WEIGHT ACCURACY EVALUATION CASCADE STATUS: ACTIVE",
+            72: "MONOSPACE CELL BOUNDS ALLOCATION TYPE-B VERIFIED",
+            96: "DATA LOGIC OPERATORS ARRAY REGISTER SELECTION",
+            120: "TECNICA SYSTEM TYPEFACE CONFIG"
+        };
+
         const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
 
         const glyphGroups = {
@@ -382,7 +396,7 @@
             "4.5 // Extended Glyphs & Accents Array": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
         };
 
-        // Render rows
+        // Render rows with non-copied technical texts
         standardSizes.forEach(size => {
             const row = document.createElement('div');
             row.className = 'size-row';
@@ -395,7 +409,7 @@
             text.className = 'size-text';
             text.style.fontSize = size + 'px';
             text.contentEditable = true;
-            text.textContent = textInput.value;
+            text.textContent = technicalTexts[size] || technicalTexts[120];
             
             row.appendChild(label);
             row.appendChild(text);
@@ -457,9 +471,10 @@
             lineHeightValue.textContent = lineHeightInput.value;
         });
 
+        // Main input updates only preview and microfilm cells, cascade remains hardcoded technical
         textInput.addEventListener('input', () => {
             preview.textContent = textInput.value || ' ';
-            document.querySelectorAll('.size-text').forEach(el => {
+            document.querySelectorAll('.microfilm-cell .size-text').forEach(el => {
                 el.textContent = textInput.value || ' ';
             });
         });
