@@ -117,11 +117,10 @@
         .value-display { font-weight: 700; color: #000000; min-width: 45px; }
         input[type="range"] { accent-color: #000000; }
 
-        /* Document Display Areas */
+        /* Document Display Areas (Background grid removed) */
         .specimen-box {
             border: 1px solid #cccccc;
-            background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
-            background-size: 20px 20px; /* Plotter millimetric background grid */
+            background: #ffffff;
             padding: 40px;
             margin-bottom: 30px;
             position: relative;
@@ -139,13 +138,14 @@
         #preview { 
             font-family: 'Tecnica-53', sans-serif; 
             font-size: 48px; 
+            line-height: 1.2; /* Default active line-height */
             background: transparent;
             outline: none;
             word-wrap: break-word;
             color: #000000;
         }
 
-        /* Micro-Reduction Test Grid (Inspirato alle limitazioni microfilm citate da Ulrich) */
+        /* Micro-Reduction Test Grid */
         .microfilm-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -182,28 +182,30 @@
             outline: none;
         }
 
-        /* Glyph Component Map */
-        .glyph-section { margin-bottom: 30px; }
+        /* Type Foundry Style Glyph Component Map */
+        .glyph-section { margin-bottom: 40px; }
         .glyph-section h4 { 
             font-size: 11px; 
             color: #000000; 
-            margin: 0 0 12px 0; 
+            margin: 0 0 15px 0; 
             text-transform: uppercase; 
             font-weight: 700;
             background: #f0f0f0;
-            padding: 4px 8px;
+            padding: 6px 10px;
             border-left: 4px solid #000000;
         }
         .glyph-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-            gap: 6px;
+            /* Large fixed sizes typical of high-end type foundry specimens */
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 8px;
         }
         .glyph-box {
             font-family: 'Tecnica-53', sans-serif;
-            font-size: 32px; 
+            /* Big fixed font-size for structural and precision evaluation */
+            font-size: 42px; 
             text-align: center;
-            padding: 12px 0;
+            padding: 20px 0;
             background: #ffffff;
             border: 1px solid #cccccc;
             user-select: all;
@@ -215,7 +217,7 @@
             border-color: #000000;
         }
 
-        /* Footer Stamp */
+        /* Custom Technical Footer Stamp */
         .iso-footer {
             margin-top: 60px;
             border-top: 1px solid #000000;
@@ -244,7 +246,7 @@
             <td style="width: 25%;">
                 <span class="label-muted">Document State</span>
                 <strong>VERIFICATION SHEET</strong><br>
-                Release: May 2026 // Rev. 1.1
+                Release: May 2026 // Rev. 1.2
             </td>
         </tr>
     </table>
@@ -273,9 +275,14 @@
         </div>
 
         <div class="control-group">
-            <label for="glyphSizeInput">Glyph_Resolution</label>
-            <input type="range" id="glyphSizeInput" min="24" max="72" value="32">
-            <span id="glyphSizeValue" class="value-display">32px</span>
+            <label for="lineHeightInput">Line_Height</label>
+            <input type="range" id="lineHeightInput" min="0.8" max="2.5" step="0.1" value="1.2">
+            <span id="lineHeightValue" class="value-display">1.2</span>
+        </div>
+
+        <div class="control-group" style="display: none;">
+            <input type="range" id="glyphSizeInput" value="42">
+            <span id="glyphSizeValue">42px</span>
         </div>
 
         <input type="text" id="textInput" value="The quick brown fox jumps over the lazy dog" placeholder="Inject custom matrix string...">
@@ -323,8 +330,8 @@
     <div id="glyphPalette"></div>
 
     <div class="iso-footer">
-        <span>Designed by Davide Piscitelli</span>
-        <span>DATA-REF: 2026 // SYSTEM ACTIVE</span>
+        <span>Design by Davide Piscitelli // Year 2026 // Status Active</span>
+        <span>DATA-REF: [TGL-31034-CONFIG] // SYSTEM ACTIVE</span>
     </div>
 
     <script>
@@ -332,8 +339,8 @@
         const weightSelect = document.getElementById('weightSelect');
         const textSizeInput = document.getElementById('textSizeInput');
         const textSizeValue = document.getElementById('textSizeValue');
-        const glyphSizeInput = document.getElementById('glyphSizeInput');
-        const glyphSizeValue = document.getElementById('glyphSizeValue');
+        const lineHeightInput = document.getElementById('lineHeightInput');
+        const lineHeightValue = document.getElementById('lineHeightValue');
         const textInput = document.getElementById('textInput');
         const preview = document.getElementById('preview');
         const sizeCascade = document.getElementById('sizeCascade');
@@ -346,7 +353,7 @@
             "04.B // Lowercase Matrix Block": "abcdefghijklmnopqrstuvwxyz",
             "04.C // Numeric Data Subsystem": "0123456789",
             "04.D // Typographic Operators & Logic Core": "\u00BF!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\u00A1\u00A2\u00A3\u00A4\u00A5\u00A6\u00A7\u00A8\u00A9\u00AA\u00AB\u00AC\u00AE\u00AF\u00B0\u00B1\u00B2\u00B3\u00B4\u00B6\u00B9\u00BA\u00BB\u00BC\u00BD\u00BE\u2013\u2014\u2018\u2019\u201C\u201D\u201E\u2020\u2021\u2022\u2026\u2030\u2039\u203A\u2044\u20AC\u2212\u221A\u221E\u00AC\u222B\u2248\u2260\u2264\u2266",
-            "04.E // Extended Glyphs & Accents Array": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàááâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
+            "04.E // Extended Glyphs & Accents Array": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ"
         };
 
         // Render rows
@@ -369,7 +376,7 @@
             sizeCascade.appendChild(row);
         });
 
-        // Render glyph palette
+        // Render glyph palette with large fixed type foundry proportions
         for (const [groupName, chars] of Object.entries(glyphGroups)) {
             const section = document.createElement('div');
             section.className = 'glyph-section';
@@ -412,16 +419,16 @@
             });
         }
 
+        // Handle text size slider
         textSizeInput.addEventListener('input', () => {
             preview.style.fontSize = textSizeInput.value + 'px';
             textSizeValue.textContent = textSizeInput.value + 'px';
         });
 
-        glyphSizeInput.addEventListener('input', () => {
-            document.querySelectorAll('.glyph-box').forEach(el => {
-                el.style.fontSize = glyphSizeInput.value + 'px';
-            });
-            glyphSizeValue.textContent = glyphSizeInput.value + 'px';
+        // Handle line height slider
+        lineHeightInput.addEventListener('input', () => {
+            preview.style.lineHeight = lineHeightInput.value;
+            lineHeightValue.textContent = lineHeightInput.value;
         });
 
         textInput.addEventListener('input', () => {
