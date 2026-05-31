@@ -3,459 +3,641 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnica Typeface — ISO-Standard Certification Sheet</title>
+    <meta name="description" content="Tecnica Typeface — ISO-Standard Font Specification Sheet">
+    <title>Tecnica Typeface — Font Tester</title>
     <style>
-        /* Font Loading from your GitHub Repository with Cache Busting for iOS */
+        /* Accessibility: CSS Reset + Root Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-text: #000000;
+            --color-bg: #ffffff;
+            --color-border: #000000;
+            --color-bg-alt: #f5f5f5;
+            --color-label: #595959;
+            --color-accent: #fffbdf;
+            --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Courier New', monospace;
+            --font-tech: 'Tecnica-53', var(--font-mono);
+            --font-tech-bold: 'Tecnica-55', var(--font-mono);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 2.5rem;
+            --border-width: 2px;
+            --border-style: solid;
+        }
+
+        /* Font Loading: Tecnica Webfonts */
         @font-face {
             font-family: 'Tecnica-53';
-            src: url('fonts/webfonts/Tecnica-53.woff2?v=1.0') format('woff2'),
-                 url('fonts/webfonts/Tecnica-53.woff?v=1.0') format('woff');
+            src: url('Fonts/webfont/woff2/Tecnica-53.woff2') format('woff2'),
+                 url('Fonts/webfont/woff/Tecnica-53.woff') format('woff');
             font-weight: 400;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Tecnica-55';
-            src: url('fonts/webfonts/Tecnica-55.woff2?v=1.0') format('woff2'),
-                 url('fonts/webfonts/Tecnica-55.woff?v=1.0') format('woff');
+            src: url('Fonts/webfont/woff2/Tecnica-55.woff2') format('woff2'),
+                 url('Fonts/webfont/woff/Tecnica-55.woff') format('woff');
             font-weight: 700;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Tecnica-53Line';
-            src: url('fonts/webfonts/Tecnica-53Line.woff2?v=1.0') format('woff2'),
-                 url('fonts/webfonts/Tecnica-53Line.woff?v=1.0') format('woff');
+            src: url('Fonts/webfont/woff2/Tecnica-53Line.woff2') format('woff2'),
+                 url('Fonts/webfont/woff/Tecnica-53Line.woff') format('woff');
             font-weight: 400;
+            font-display: swap;
         }
         @font-face {
             font-family: 'Tecnica-55Line';
-            src: url('fonts/webfonts/Tecnica-55Line.woff2?v=1.0') format('woff2'),
-                 url('fonts/webfonts/Tecnica-55Line.woff?v=1.0') format('woff');
+            src: url('Fonts/webfont/woff2/Tecnica-55Line.woff2') format('woff2'),
+                 url('Fonts/webfont/woff/Tecnica-55Line.woff') format('woff');
             font-weight: 700;
+            font-display: swap;
         }
 
-        /* Technical Document Blueprint Style - Courier New Integration */
-        body { 
-            font-family: 'Courier New', Courier, monospace; 
-            padding: 2rem; 
-            background: #ffffff; 
-            color: #000000;
-            max-width: 1300px;
-            margin: 0 auto;
-            font-size: 1rem; 
+        /* Fallback Monospace Fonts: WCAG-Compliant */
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        /* Document Body: ISO Technical Specification */
+        body {
+            font-family: var(--font-mono);
+            font-size: 1rem;
             line-height: 1.5;
-            letter-spacing: -0.02em;
+            letter-spacing: 0;
+            color: var(--color-text);
+            background: var(--color-bg);
+            padding: var(--spacing-2xl);
+            max-width: 1400px;
+            margin: 0 auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ISO Technical Header Table */
-        .iso-header-table {
+        /* ISO Header Table */
+        .iso-header {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 2.5rem;
-            font-size: 0.875rem; 
+            margin-bottom: var(--spacing-2xl);
+            font-size: 0.9rem;
         }
-        .iso-header-table td {
-            border: 2px solid #000000;
-            padding: 0.75rem 1rem;
+
+        .iso-header td {
+            border: var(--border-width) var(--border-style) var(--color-border);
+            padding: var(--spacing-md) var(--spacing-lg);
             vertical-align: top;
         }
-        .iso-title {
-            font-size: 1.6rem;
+
+        .iso-header .title-cell {
+            font-size: 1.4rem;
             font-weight: 700;
+            font-family: var(--font-tech-bold);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 0;
-            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 0.1em;
         }
-        .label-muted {
-            color: #595959; 
-            text-transform: uppercase;
-            font-size: 0.75rem;
+
+        .iso-header .meta-label {
             display: block;
-            margin-bottom: 0.25rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
             font-weight: 700;
+            color: var(--color-label);
+            margin-bottom: var(--spacing-xs);
         }
 
-        /* Technical Blueprint Grid Background */
-        .blueprint-bg {
-            background-color: #ffffff;
-            background-image: linear-gradient(#edeec4 1px, transparent 1px), linear-gradient(90deg, #edeec4 1px, transparent 1px);
-            background-size: 12px 12px;
-        }
-
-        /* Technical Content Blocks */
-        .section-title {
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: var(--border-width) var(--border-style) var(--color-border);
+            padding-bottom: var(--spacing-md);
+            margin: var(--spacing-2xl) 0 var(--spacing-lg) 0;
             font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
-            border-bottom: 2px solid #000000;
-            padding-bottom: 0.5rem;
-            margin: 2.5rem 0 1.25rem 0;
-            display: flex;
-            justify-content: space-between;
-        }
-        .section-subtitle-text {
-            color: #595959; 
+            letter-spacing: 0.05em;
         }
 
-        .panel-controls {
-            background: #fcfcfc;
-            border: 2px solid #000000;
-            padding: 1.25rem;
-            margin-bottom: 2rem;
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-            flex-wrap: wrap;
+        .section-header .subtitle {
+            color: var(--color-label);
+            font-size: 0.85rem;
+            text-transform: capitalize;
         }
-        
+
+        /* Control Panel */
+        .control-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+            border: var(--border-width) var(--border-style) var(--color-border);
+            background: var(--color-bg-alt);
+        }
+
         .control-group {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            flex-direction: column;
+            gap: var(--spacing-xs);
         }
-        
-        select, input[type="text"] { 
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            padding: 0.5rem 0.75rem; 
-            font-size: 0.875rem; 
-            border: 2px solid #000000;
-            border-radius: 0px;
-            background-color: #fff;
+
+        .control-group label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--color-text);
+            letter-spacing: 0.05em;
+        }
+
+        .control-group select,
+        .control-group input[type="text"],
+        .control-group input[type="range"],
+        .control-group input[type="number"] {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            padding: var(--spacing-sm);
+            border: var(--border-width) var(--border-style) var(--color-border);
+            background: var(--color-bg);
+            color: var(--color-text);
+        }
+
+        .control-group select,
+        .control-group input[type="text"],
+        .control-group input[type="number"] {
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .control-group select:focus,
+        .control-group input[type="text"]:focus,
+        .control-group input[type="number"]:focus {
+            background: var(--color-accent);
             outline: none;
         }
-        select:focus, input[type="text"]:focus {
-            background-color: #fffbdf;
-            outline: none; 
-        }
-        input[type="text"] { min-width: 320px; flex-grow: 1; }
-        label { font-weight: 700; text-transform: uppercase; font-size: 0.813rem; }
-        .value-display { font-weight: 700; color: #000000; min-width: 45px; font-size: 0.813rem; }
-        input[type="range"] { accent-color: #000000; }
 
-        /* Document Display Areas */
+        .control-group input[type="range"] {
+            border: none;
+            padding: 0;
+        }
+
+        .control-value {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        /* Test Specimen Box */
         .specimen-box {
-            border: 2px solid #000000;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
+            border: var(--border-width) var(--border-style) var(--color-border);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+            background: var(--color-bg);
             position: relative;
-        }
-        .specimen-box::before {
-            content: "TARGET AREA // ISO-IEC 9541 VISUAL FIELD";
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            font-size: 0.688rem;
-            color: #595959; 
-            font-weight: 700;
-        }
-
-        #preview { 
-            font-family: 'Tecnica-53', 'Courier New', Courier, monospace; 
-            font-size: 48px; 
-            line-height: 1.2; 
-            background: transparent;
-            outline: none;
-            word-wrap: break-word;
-            color: #000000;
-        }
-        #preview:focus {
-            outline: 1px dashed #000000;
-        }
-
-        /* Micro-Reduction Test Grid */
-        .microfilm-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.25rem;
-            margin-bottom: 2rem;
-        }
-        .microfilm-cell {
-            border: 2px solid #000000;
-            padding: 1rem;
-        }
-
-        /* Type Sizes Scale Cascade */
-        .size-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .size-row {
-            border-bottom: 1px solid #000000;
+            min-height: 200px;
             display: flex;
-            align-items: center; 
-            padding: 0.75rem 0;
-        }
-        .size-row:last-child { border-bottom: none; }
-        .size-label {
-            width: 160px;
-            min-width: 160px;
-            font-size: 0.813rem;
-            color: #000000; 
-            font-weight: 700;
-            text-align: left; 
-        }
-        .size-text {
-            flex-grow: 1;
-            text-align: left; 
-            word-wrap: break-word;
-            outline: none;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Type Foundry Style Glyph Component Map */
-        .glyph-section { margin-bottom: 2.5rem; }
-        .glyph-section h4 { 
-            font-size: 0.813rem; 
-            color: #000000; 
-            margin: 0 0 1rem 0; 
-            text-transform: uppercase; 
+        .specimen-box::before {
+            content: "SPECIMEN AREA";
+            position: absolute;
+            top: var(--spacing-xs);
+            right: var(--spacing-sm);
+            font-size: 0.7rem;
+            color: var(--color-label);
             font-weight: 700;
-            background: #f0f0f0;
-            padding: 0.5rem 0.625rem;
-            border: 2px solid #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
+
+        #preview {
+            font-family: var(--font-tech);
+            font-size: 3rem;
+            line-height: 1.3;
+            word-wrap: break-word;
+            word-break: break-word;
+            color: var(--color-text);
+            width: 100%;
+            text-align: center;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: var(--spacing-lg);
+        }
+
+        #preview:focus {
+            outline: 1px dashed var(--color-border);
+        }
+
+        /* Micro-Reduction Grid */
+        .reduction-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .reduction-cell {
+            border: var(--border-width) var(--border-style) var(--color-border);
+            padding: var(--spacing-lg);
+            background: var(--color-bg);
+        }
+
+        .reduction-cell .label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--color-label);
+            margin-bottom: var(--spacing-md);
+            letter-spacing: 0.05em;
+        }
+
+        .reduction-cell .sample {
+            font-family: var(--font-tech);
+            line-height: 1.4;
+            color: var(--color-text);
+        }
+
+        /* Size Cascade Table */
+        .size-cascade {
+            border: var(--border-width) var(--border-style) var(--color-border);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .size-row {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--spacing-md) var(--spacing-lg);
+            gap: var(--spacing-lg);
+        }
+
+        .size-row:last-child {
+            border-bottom: none;
+        }
+
+        .size-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--color-text);
+            min-width: 140px;
+            letter-spacing: 0.05em;
+        }
+
+        .size-sample {
+            flex-grow: 1;
+            font-family: var(--font-tech);
+            line-height: 1.3;
+            word-wrap: break-word;
+            color: var(--color-text);
+        }
+
+        /* Glyph Inventory Grid */
+        .glyph-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .glyph-section h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-lg);
+            letter-spacing: 0.05em;
+        }
+
         .glyph-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 0.5rem;
-        }
-        .glyph-box {
-            font-family: 'Tecnica-53', 'Courier New', Courier, monospace;
-            font-size: 42px; 
-            text-align: center;
-            padding: 1.25rem 0;
-            background: #ffffff;
-            border: 1px solid #000000; 
-            user-select: all;
-            transition: all 0.1s ease;
-        }
-        .glyph-box:hover {
-            background: #000000;
-            color: #ffffff;
-            border-color: #000000;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: var(--spacing-sm);
+            padding: var(--spacing-lg);
+            border: var(--border-width) var(--border-style) var(--color-border);
         }
 
-        /* Custom Technical Footer Stamp */
+        .glyph-cell {
+            border: 1px solid var(--color-border);
+            padding: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-tech);
+            font-size: 1.8rem;
+            line-height: 1;
+            min-height: 80px;
+            background: var(--color-bg);
+            cursor: pointer;
+            transition: background-color 0.15s;
+        }
+
+        .glyph-cell:hover {
+            background: var(--color-accent);
+        }
+
+        /* Footer */
         .iso-footer {
-            margin-top: 3.75rem;
-            border-top: 2px solid #000000;
-            padding-top: 1rem;
-            font-size: 0.75rem;
-            color: #000000; 
-            font-weight: bold;
+            border-top: var(--border-width) var(--border-style) var(--color-border);
+            padding-top: var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+            font-size: 0.8rem;
+            color: var(--color-label);
+            text-transform: uppercase;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: var(--spacing-lg);
+            }
+
+            .iso-header td {
+                padding: var(--spacing-md);
+            }
+
+            .control-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .iso-footer {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .reduction-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .glyph-grid {
+                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: var(--color-bg);
+                padding: 0;
+            }
+
+            .control-panel {
+                display: none;
+            }
+
+            #preview {
+                border: var(--border-width) var(--border-style) var(--color-border);
+            }
         }
     </style>
 </head>
 <body>
 
-    <table class="iso-header-table">
+    <!-- ISO Header Table -->
+    <table class="iso-header">
         <tr>
-            <td style="width: 40%;" rowspan="2">
-                <span class="label-muted">International Standard Registry</span>
-                <h1 class="iso-title">TECNICA TYPEFACE</h1>
-                <span style="font-size: 0.813rem; font-weight: 700; margin-top: 0.3rem; display: inline-block;">DOT-MATRIX ALPHABET CONFIGURATION</span>
+            <td colspan="2">
+                <div class="title-cell">Tecnica Typeface</div>
+                <span class="meta-label">Type System Specification</span>
+                Monospace Font Tester — ISO Technical Document
             </td>
-            <td style="width: 30%;">
-                <span class="label-muted">Technical Committee</span>
-                <strong>ISO/TC 156 / SC 4</strong><br>
-                Information &amp; Documentation
-            </td>
-            <td style="width: 30%;">
-                <span class="label-muted">Standard Reference Number</span>
-                <strong>ISO/IEC 9541-EXT</strong>
+            <td>
+                <span class="meta-label">Document Code</span>
+                TGL-31034 / v2.0
             </td>
         </tr>
         <tr>
             <td>
-                <span class="label-muted">ICS Classification</span>
-                <strong>35.240.30 // IT Applications</strong>
+                <span class="meta-label">Designer</span>
+                Davide Piscitelli
             </td>
             <td>
-                <span class="label-muted">Document State &amp; Stage Code</span>
-                <strong>STAGE: 60.60 // PUBLISHED</strong><br>
-                Release: May 2026 // Rev. 1.5
+                <span class="meta-label">Release Date</span>
+                May 2026
+            </td>
+            <td>
+                <span class="meta-label">Classification</span>
+                PUBLISHED
             </td>
         </tr>
     </table>
-    
-    <div class="panel-controls">
+
+    <!-- Control Panel -->
+    <div class="control-panel">
         <div class="control-group">
-            <label for="familySelect">Family_Type</label>
-            <select id="familySelect">
-                <option value="Tecnica">Tecnica (Standard)</option>
-                <option value="TecnicaLine">Tecnica Line</option>
+            <label for="fontFamily">Font Family</label>
+            <select id="fontFamily">
+                <option value="53">Tecnica-53 (Regular)</option>
+                <option value="55">Tecnica-55 (Bold)</option>
+                <option value="53Line">Tecnica-53 Line</option>
+                <option value="55Line">Tecnica-55 Line</option>
             </select>
         </div>
 
         <div class="control-group">
-            <label for="weightSelect">Vector_Weight</label>
-            <select id="weightSelect">
-                <option value="400">53 (Regular)</option>
-                <option value="700">55 (Bold)</option>
-            </select>
+            <label for="fontSize">Size (px)</label>
+            <div style="display: flex; gap: var(--spacing-sm); align-items: center;">
+                <input type="range" id="fontSize" min="12" max="144" value="48">
+                <span class="control-value" id="fontSizeValue">48</span>
+            </div>
         </div>
 
         <div class="control-group">
-            <label for="textSizeInput">Scale_Pt</label>
-            <input type="range" id="textSizeInput" min="16" max="144" value="48">
-            <span id="textSizeValue" class="value-display">48px</span>
+            <label for="lineHeight">Line Height</label>
+            <div style="display: flex; gap: var(--spacing-sm); align-items: center;">
+                <input type="range" id="lineHeight" min="0.8" max="2.5" step="0.1" value="1.3">
+                <span class="control-value" id="lineHeightValue">1.3</span>
+            </div>
         </div>
 
         <div class="control-group">
-            <label for="lineHeightInput">Line_Height</label>
-            <input type="range" id="lineHeightInput" min="0.8" max="2.5" step="0.1" value="1.2">
-            <span id="lineHeightValue" class="value-display">1.2</span>
-        </div>
-
-        <input type="text" id="textInput" value="FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX" placeholder="Inject custom matrix string...">
-    </div>
-
-    <div class="section-title">
-        <span>1 // Primary Output &amp; Mathematical Legibility Field</span>
-        <span class="section-subtitle-text">Metric Standard: Type B</span>
-    </div>
-    <div class="specimen-box blueprint-bg">
-        <div id="preview" contenteditable="true">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
-    </div>
-
-    <div class="section-title">
-        <span>2 // Micro-Reduction Legibility Test Grid</span>
-        <span class="section-subtitle-text">Pica-Standard Typewriter Scaling</span>
-    </div>
-    <div class="microfilm-grid">
-        <div class="microfilm-cell blueprint-bg">
-            <span class="label-muted">2.1 // Scale Ratio: 2 Pica (24 pt)</span>
-            <div class="size-text" style="font-size: 24px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
-        </div>
-        <div class="microfilm-cell blueprint-bg">
-            <span class="label-muted">2.2 // Scale Ratio: 1 Pica (12 pt)</span>
-            <div class="size-text" style="font-size: 12px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
-        </div>
-        <div class="microfilm-cell blueprint-bg">
-            <span class="label-muted">2.3 // Scale Ratio: 0.5 Pica (6 pt)</span>
-            <div class="size-text" style="font-size: 6px; font-family: 'Tecnica-53';">FIXED DOT-MATRIX SYSTEM: 5x3 AND 5x5 MESH ALPHABET MATRIX</div>
+            <label for="testText">Test Text</label>
+            <input type="text" id="testText" value="MONOSPACE SYSTEM TEST" placeholder="Enter custom text...">
         </div>
     </div>
 
-    <div class="section-title">
-        <span>3 // Normalized Dimensional Ratios Cascade</span>
-        <span class="section-subtitle-text">ISO-Scale Progression Map</span>
+    <!-- Section 1: Primary Specimen -->
+    <div class="section-header">
+        <span>1 // Primary Display Field</span>
+        <span class="subtitle">Legibility Verification</span>
     </div>
-    <div style="border: 2px solid #000000; padding: 0 20px; background: #ffffff; margin-bottom: 30px;">
-        <div id="sizeCascade" class="size-table"></div>
+    <div class="specimen-box">
+        <div id="preview" contenteditable="true">MONOSPACE SYSTEM TEST</div>
     </div>
 
-    <div class="section-title">
-        <span>4 // Component Glyph Inventory</span>
-        <span class="section-subtitle-text">Complete Character Matrix</span>
+    <!-- Section 2: Micro-Reduction Grid -->
+    <div class="section-header">
+        <span>2 // Micro-Reduction Legibility Grid</span>
+        <span class="subtitle">Scale Verification</span>
     </div>
-    <div id="glyphPalette"></div>
+    <div class="reduction-grid">
+        <div class="reduction-cell">
+            <span class="label">Scale 1:1 (24pt)</span>
+            <div class="sample" style="font-size: 24px;">LEGIBILITY TEST FOR 24 POINT SCALE</div>
+        </div>
+        <div class="reduction-cell">
+            <span class="label">Scale 1:2 (12pt)</span>
+            <div class="sample" style="font-size: 12px;">LEGIBILITY TEST FOR 12 POINT SCALE</div>
+        </div>
+        <div class="reduction-cell">
+            <span class="label">Scale 1:4 (6pt)</span>
+            <div class="sample" style="font-size: 6px;">LEGIBILITY TEST FOR 6 POINT SCALE</div>
+        </div>
+    </div>
 
+    <!-- Section 3: Size Cascade -->
+    <div class="section-header">
+        <span>3 // Normalized Size Cascade</span>
+        <span class="subtitle">Standard Progression</span>
+    </div>
+    <div class="size-cascade" id="sizeCascade"></div>
+
+    <!-- Section 4: Glyph Inventory -->
+    <div class="section-header">
+        <span>4 // Complete Glyph Inventory</span>
+        <span class="subtitle">Character Matrix</span>
+    </div>
+    <div id="glyphInventory"></div>
+
+    <!-- Footer -->
     <div class="iso-footer">
-        <span>Design by Davide Piscitelli // Year 2026 // Status: Active Specification</span>
-        <span>DATA-REF: [TGL-31034-CONFIG] // SYSTEM COMPLIANT</span>
+        <span>TECNICA TYPEFACE / 2026</span>
+        <span>TGL-31034 / PUBLISHED</span>
     </div>
 
+    <!-- JavaScript -->
     <script>
-        const familySelect = document.getElementById('familySelect');
-        const weightSelect = document.getElementById('weightSelect');
-        const textSizeInput = document.getElementById('textSizeInput');
-        const textSizeValue = document.getElementById('textSizeValue');
-        const lineHeightInput = document.getElementById('lineHeightInput');
+        // Control Elements
+        const fontFamilySelect = document.getElementById('fontFamily');
+        const fontSizeInput = document.getElementById('fontSize');
+        const fontSizeValue = document.getElementById('fontSizeValue');
+        const lineHeightInput = document.getElementById('lineHeight');
         const lineHeightValue = document.getElementById('lineHeightValue');
-        const textInput = document.getElementById('textInput');
+        const testTextInput = document.getElementById('testText');
         const preview = document.getElementById('preview');
         const sizeCascade = document.getElementById('sizeCascade');
-        const glyphPalette = document.getElementById('glyphPalette');
+        const glyphInventory = document.getElementById('glyphInventory');
 
-        const technicalTexts = {
-            12: "MINIMUM OPTICAL RESOLUTION LIMIT FOR MICROFILM CONFORMANCE // CRITICAL TOLERANCE ±0.02MM",
-            14: "GRID UNIT STRUCTURAL VALUE REFERENCE — RATIO CONFIGURATION BASE DELTA 14PT",
-            18: "ISO-IEC 9541 RASTERIZATION SUBSYSTEM VERIFICATION DATA MATRIX TRACE",
-            24: "GEOMETRIC BLUEPRINT MESH: 5x3 AND 5x5 ELEMENTARY VECTOR DISPLACEMENT",
-            36: "SPECIFICATION PARAMETER FOR HIGH-CONTRAST DIGITAL SIGNAGE MODULES",
-            48: "STANDARDIZED GLYPH METRICS INTERACTIVE RENDERING CHECK FIELD",
-            60: "VECTOR WEIGHT ACCURACY EVALUATION CASCADE STATUS: ACTIVE",
-            72: "MONOSPACE CELL BOUNDS ALLOCATION TYPE-B VERIFIED",
-            96: "DATA LOGIC OPERATORS ARRAY REGISTER SELECTION",
-            120: "TECNICA SYSTEM TYPEFACE CONFIG"
+        // Font Family Mapping
+        const fontMap = {
+            '53': { name: 'Tecnica-53', weight: 400 },
+            '55': { name: 'Tecnica-55', weight: 700 },
+            '53Line': { name: 'Tecnica-53Line', weight: 400 },
+            '55Line': { name: 'Tecnica-55Line', weight: 700 }
+        };
+
+        // Test Strings by Size
+        const testStrings = {
+            12: 'MICROFILM LEGIBILITY LIMIT',
+            14: 'GRID REFERENCE STRUCTURE',
+            18: 'TECHNICAL SPECIFICATION',
+            24: 'ISO CLASSIFICATION FIELD',
+            36: 'GEOMETRIC MATRIX SYSTEM',
+            48: 'MONOSPACE CELL BOUNDS',
+            60: 'DIGITAL RENDERING CHECK',
+            72: 'VECTOR WEIGHT EVALUATION',
+            96: 'TYPOGRAPHIC OPERATORS',
+            120: 'TECNICA SYSTEM TYPEFACE'
         };
 
         const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
 
-        // Group 4.4 and 4.5 optimized to prevent visual duplicates/redundancies
+        // Glyph Groups
         const glyphGroups = {
-            "4.1 // Uppercase Matrix Block": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-            "4.2 // Lowercase Matrix Block": "abcdefghijklmnopqrstuvwxyz",
-            "4.3 // Numeric Data Subsystem": "0123456789",
-            "4.4 // Standard Typographic Operators": "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
-            "4.5 // Math & ISO Essential Logic": "¿¡¢£¥§°±¶€√∞∫≈≠≤≥¬"
+            'UPPERCASE': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'LOWERCASE': 'abcdefghijklmnopqrstuvwxyz',
+            'NUMERALS': '0123456789',
+            'PUNCTUATION': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
+            'SYMBOLS': '±≠≤≥∞∫√°©®™€¥£¢'
         };
 
+        // Initialize Size Cascade
         standardSizes.forEach(size => {
             const row = document.createElement('div');
             row.className = 'size-row';
-            
+
             const label = document.createElement('div');
             label.className = 'size-label';
-            label.textContent = `RATIO_d:${size}pt`;
-            
-            const text = document.createElement('div');
-            text.className = 'size-text';
-            text.style.fontSize = size + 'px';
-            text.contentEditable = true;
-            text.textContent = technicalTexts[size] || technicalTexts[120];
-            
+            label.textContent = `SIZE_${size}PT`;
+
+            const sample = document.createElement('div');
+            sample.className = 'size-sample';
+            sample.style.fontSize = size + 'px';
+            sample.textContent = testStrings[size] || testStrings[120];
+
             row.appendChild(label);
-            row.appendChild(text);
+            row.appendChild(sample);
             sizeCascade.appendChild(row);
         });
 
-        for (const [groupName, chars] of Object.entries(glyphGroups)) {
+        // Initialize Glyph Inventory
+        for (const [category, chars] of Object.entries(glyphGroups)) {
             const section = document.createElement('div');
             section.className = 'glyph-section';
-            
-            const heading = document.createElement('h4');
-            heading.textContent = groupName;
+
+            const heading = document.createElement('h3');
+            heading.textContent = category;
             section.appendChild(heading);
-            
+
             const grid = document.createElement('div');
             grid.className = 'glyph-grid';
-            
-            chars.split("").forEach(char => {
-                const box = document.createElement('div');
-                box.className = 'glyph-box';
-                box.textContent = char;
-                grid.appendChild(box);
+
+            chars.split('').forEach(char => {
+                const cell = document.createElement('div');
+                cell.className = 'glyph-cell';
+                cell.textContent = char;
+                cell.title = char.charCodeAt(0);
+                grid.appendChild(cell);
             });
-            
+
             section.appendChild(grid);
-            glyphPalette.appendChild(section);
+            glyphInventory.appendChild(section);
         }
 
-        function updateFontSettings() {
-            const family = familySelect.value;
-            const weight = weightSelect.value;
+        // Update Font
+        function updateFont() {
+            const fontKey = fontFamilySelect.value;
+            const fontInfo = fontMap[fontKey];
+            const fontName = fontInfo.name;
 
-            let fontName = 'Tecnica-53';
-            if (family === 'Tecnica' && weight === '700') fontName = 'Tecnica-55';
-            if (family === 'TecnicaLine' && weight === '400') fontName = 'Tecnica-53Line';
-            if (family === 'TecnicaLine' && weight === '700') fontName = 'Tecnica-55Line';
+            preview.style.fontFamily = `${fontName}, 'IBM Plex Mono', 'Courier New', monospace`;
+            preview.style.fontWeight = fontInfo.weight;
 
-            preview.style.fontFamily = fontName + ", 'Courier New', Courier, monospace";
-
-            document.querySelectorAll('.size-text').forEach(el => {
-                el.style.fontFamily = fontName + ", 'Courier New', Courier, monospace";
+            document.querySelectorAll('.size-sample').forEach(el => {
+                el.style.fontFamily = `${fontName}, 'IBM Plex Mono', 'Courier New', monospace`;
+                el.style.fontWeight = fontInfo.weight;
             });
 
-            document.querySelectorAll('.glyph-box').forEach(el => {
-                el.style.fontFamily = fontName + ", 'Courier New', Courier, monospace";
+            document.querySelectorAll('.glyph-cell').forEach(el => {
+                el.style.fontFamily = `${fontName}, 'IBM Plex Mono', 'Courier New', monospace`;
+                el.style.fontWeight = fontInfo.weight;
             });
         }
 
-        textSizeInput.addEventListener('input', () => {
-            preview.style.fontSize = textSizeInput.value + 'px';
-            textSizeValue.textContent = textSizeInput.value + 'px';
+        // Event Listeners
+        fontFamilySelect.addEventListener('change', updateFont);
+
+        fontSizeInput.addEventListener('input', () => {
+            preview.style.fontSize = fontSizeInput.value + 'px';
+            fontSizeValue.textContent = fontSizeInput.value;
         });
 
         lineHeightInput.addEventListener('input', () => {
@@ -463,17 +645,16 @@
             lineHeightValue.textContent = lineHeightInput.value;
         });
 
-        textInput.addEventListener('input', () => {
-            preview.textContent = textInput.value || ' ';
-            document.querySelectorAll('.microfilm-cell .size-text').forEach(el => {
-                el.textContent = textInput.value || ' ';
+        testTextInput.addEventListener('input', () => {
+            preview.textContent = testTextInput.value || ' ';
+            document.querySelectorAll('.reduction-cell .sample').forEach(el => {
+                el.textContent = testTextInput.value || ' ';
             });
         });
 
-        familySelect.addEventListener('change', updateFontSettings);
-        weightSelect.addEventListener('change', updateFontSettings);
-
-        updateFontSettings();
+        // Initialize
+        updateFont();
     </script>
+
 </body>
 </html>
