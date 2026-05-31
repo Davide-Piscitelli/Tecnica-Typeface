@@ -21,8 +21,10 @@
             --color-label: #595959;
             --color-accent: #fffbdf;
             --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Courier New', monospace;
-            --font-tech: 'Tecnica-53', var(--font-mono);
-            --font-tech-bold: 'Tecnica-55', var(--font-mono);
+            --font-display: 'Tecnica-55', 'IBM Plex Mono', monospace;
+            --font-display-regular: 'Tecnica-53', 'IBM Plex Mono', monospace;
+            --font-display-line: 'Tecnica-53Line', 'IBM Plex Mono', monospace;
+            --font-display-line-bold: 'Tecnica-55Line', 'IBM Plex Mono', monospace;
             --spacing-xs: 0.5rem;
             --spacing-sm: 0.75rem;
             --spacing-md: 1rem;
@@ -91,25 +93,30 @@
 
         .iso-header td {
             border: var(--border-width) var(--border-style) var(--color-border);
-            padding: var(--spacing-md) var(--spacing-lg);
+            padding: var(--spacing-lg) var(--spacing-lg);
             vertical-align: top;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .iso-header .title-cell {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            font-family: var(--font-tech-bold);
+            font-family: var(--font-display);
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
         }
 
         .iso-header .meta-label {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             font-weight: 700;
-            color: var(--color-label);
-            margin-bottom: var(--spacing-xs);
+            color: var(--color-text);
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: 0.05em;
         }
 
         /* Section Headers */
@@ -118,18 +125,21 @@
             justify-content: space-between;
             align-items: baseline;
             border-bottom: var(--border-width) var(--border-style) var(--color-border);
-            padding-bottom: var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+            padding: var(--spacing-lg) 0;
             margin: var(--spacing-2xl) 0 var(--spacing-lg) 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
 
         .section-header .subtitle {
-            color: var(--color-label);
+            color: var(--color-text);
             font-size: 0.85rem;
+            font-weight: 400;
             text-transform: capitalize;
+            letter-spacing: 0.03em;
         }
 
         /* Control Panel */
@@ -141,6 +151,7 @@
             margin-bottom: var(--spacing-2xl);
             border: var(--border-width) var(--border-style) var(--color-border);
             background: var(--color-bg-alt);
+            border-top: 3px solid var(--color-text);
         }
 
         .control-group {
@@ -150,7 +161,7 @@
         }
 
         .control-group label {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--color-text);
@@ -189,14 +200,16 @@
         }
 
         .control-value {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: var(--color-text);
+            font-family: var(--font-mono);
         }
 
         /* Test Specimen Box */
         .specimen-box {
             border: var(--border-width) var(--border-style) var(--color-border);
+            border-top: 3px solid var(--color-text);
             padding: var(--spacing-2xl);
             margin-bottom: var(--spacing-2xl);
             background: var(--color-bg);
@@ -220,7 +233,7 @@
         }
 
         #preview {
-            font-family: var(--font-tech);
+            font-family: var(--font-display-regular);
             font-size: 3rem;
             line-height: 1.3;
             word-wrap: break-word;
@@ -248,22 +261,23 @@
 
         .reduction-cell {
             border: var(--border-width) var(--border-style) var(--color-border);
+            border-top: 3px solid var(--color-text);
             padding: var(--spacing-lg);
             background: var(--color-bg);
         }
 
         .reduction-cell .label {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             font-weight: 700;
-            color: var(--color-label);
+            color: var(--color-text);
             margin-bottom: var(--spacing-md);
             letter-spacing: 0.05em;
         }
 
         .reduction-cell .sample {
-            font-family: var(--font-tech);
+            font-family: var(--font-display-regular);
             line-height: 1.4;
             color: var(--color-text);
         }
@@ -271,6 +285,7 @@
         /* Size Cascade Table */
         .size-cascade {
             border: var(--border-width) var(--border-style) var(--color-border);
+            border-top: 3px solid var(--color-text);
             margin-bottom: var(--spacing-2xl);
         }
 
@@ -287,7 +302,7 @@
         }
 
         .size-label {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--color-text);
@@ -297,7 +312,7 @@
 
         .size-sample {
             flex-grow: 1;
-            font-family: var(--font-tech);
+            font-family: var(--font-display-regular);
             line-height: 1.3;
             word-wrap: break-word;
             color: var(--color-text);
@@ -309,12 +324,12 @@
         }
 
         .glyph-section h3 {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--color-text);
             margin-bottom: var(--spacing-lg);
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
 
         .glyph-grid {
@@ -323,6 +338,7 @@
             gap: var(--spacing-sm);
             padding: var(--spacing-lg);
             border: var(--border-width) var(--border-style) var(--color-border);
+            border-top: 3px solid var(--color-text);
         }
 
         .glyph-cell {
@@ -331,7 +347,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-tech);
+            font-family: var(--font-display-regular);
             font-size: 1.8rem;
             line-height: 1;
             min-height: 80px;
@@ -349,14 +365,15 @@
             border-top: var(--border-width) var(--border-style) var(--color-border);
             padding-top: var(--spacing-lg);
             margin-top: var(--spacing-2xl);
-            font-size: 0.8rem;
-            color: var(--color-label);
+            font-size: 0.85rem;
+            color: var(--color-text);
             text-transform: uppercase;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: var(--spacing-lg);
             letter-spacing: 0.05em;
+            font-weight: 600;
         }
 
         /* Responsive */
@@ -417,11 +434,11 @@
             <td colspan="2">
                 <div class="title-cell">Tecnica Typeface</div>
                 <span class="meta-label">Type System Specification</span>
-                Monospace Font Tester — ISO Technical Document
+                Font Tester — ISO Technical Document
             </td>
             <td>
                 <span class="meta-label">Document Code</span>
-                TGL-31034 / v2.0
+                TT-LIN-5553 / v1.0
             </td>
         </tr>
         <tr>
@@ -431,7 +448,7 @@
             </td>
             <td>
                 <span class="meta-label">Release Date</span>
-                May 2026
+                2026
             </td>
             <td>
                 <span class="meta-label">Classification</span>
@@ -445,8 +462,8 @@
         <div class="control-group">
             <label for="fontFamily">Font Family</label>
             <select id="fontFamily">
-                <option value="53">Tecnica-53 (Regular)</option>
-                <option value="55">Tecnica-55 (Bold)</option>
+                <option value="53">Tecnica-53</option>
+                <option value="55">Tecnica-55</option>
                 <option value="53Line">Tecnica-53 Line</option>
                 <option value="55Line">Tecnica-55 Line</option>
             </select>
@@ -480,7 +497,7 @@
         <span class="subtitle">Legibility Verification</span>
     </div>
     <div class="specimen-box">
-        <div id="preview" contenteditable="true">MONOSPACE SYSTEM TEST</div>
+        <div id="preview" contenteditable="true">DOT MATRIX SYSTEM TEST</div>
     </div>
 
     <!-- Section 2: Micro-Reduction Grid -->
@@ -490,15 +507,15 @@
     </div>
     <div class="reduction-grid">
         <div class="reduction-cell">
-            <span class="label">Scale 1:1 (24pt)</span>
+            <span class="label">Scale 2:1 (24pt)</span>
             <div class="sample" style="font-size: 24px;">LEGIBILITY TEST FOR 24 POINT SCALE</div>
         </div>
         <div class="reduction-cell">
-            <span class="label">Scale 1:2 (12pt)</span>
+            <span class="label">Scale 1:1 (12pt)</span>
             <div class="sample" style="font-size: 12px;">LEGIBILITY TEST FOR 12 POINT SCALE</div>
         </div>
         <div class="reduction-cell">
-            <span class="label">Scale 1:4 (6pt)</span>
+            <span class="label">Scale 1:2 (6pt)</span>
             <div class="sample" style="font-size: 6px;">LEGIBILITY TEST FOR 6 POINT SCALE</div>
         </div>
     </div>
@@ -520,7 +537,7 @@
     <!-- Footer -->
     <div class="iso-footer">
         <span>TECNICA TYPEFACE / 2026</span>
-        <span>TGL-31034 / PUBLISHED</span>
+        <span>TT-LIN-5553 / PUBLISHED</span>
     </div>
 
     <!-- JavaScript -->
@@ -538,10 +555,10 @@
 
         // Font Family Mapping
         const fontMap = {
-            '53': { name: 'Tecnica-53', weight: 400 },
-            '55': { name: 'Tecnica-55', weight: 700 },
-            '53Line': { name: 'Tecnica-53Line', weight: 400 },
-            '55Line': { name: 'Tecnica-55Line', weight: 700 }
+            '53': { vars: ['--font-display-regular', '--font-mono'], weight: 400 },
+            '55': { vars: ['--font-display', '--font-mono'], weight: 700 },
+            '53Line': { vars: ['--font-display-line', '--font-mono'], weight: 400 },
+            '55Line': { vars: ['--font-display-line-bold', '--font-mono'], weight: 700 }
         };
 
         // Test Strings by Size
@@ -616,18 +633,25 @@
         function updateFont() {
             const fontKey = fontFamilySelect.value;
             const fontInfo = fontMap[fontKey];
-            const fontName = fontInfo.name;
+            const varName = fontInfo.vars[0];
+            const root = document.documentElement;
+            const fontFamily = getComputedStyle(root).getPropertyValue(varName).trim();
 
-            preview.style.fontFamily = `${fontName}, 'IBM Plex Mono', 'Courier New', monospace`;
+            preview.style.fontFamily = fontFamily;
             preview.style.fontWeight = fontInfo.weight;
 
             document.querySelectorAll('.size-sample').forEach(el => {
-                el.style.fontFamily = `${fontName}, 'IBM Plex Mono', 'Courier New', monospace`;
+                el.style.fontFamily = fontFamily;
                 el.style.fontWeight = fontInfo.weight;
             });
 
             document.querySelectorAll('.glyph-cell').forEach(el => {
-                el.style.fontFamily = `${fontName}, 'IBM Plex Mono', 'Courier New', monospace`;
+                el.style.fontFamily = fontFamily;
+                el.style.fontWeight = fontInfo.weight;
+            });
+
+            document.querySelectorAll('.sample').forEach(el => {
+                el.style.fontFamily = fontFamily;
                 el.style.fontWeight = fontInfo.weight;
             });
         }
