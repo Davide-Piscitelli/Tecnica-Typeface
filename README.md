@@ -1,4 +1,7 @@
 # Tecnica Typeface
+
+---
+
 ## Technical Specification Manual & Font Tester
 
 This repository houses the official documentation, deployment structure, and interactive verification environment for the **Tecnica Typeface** system. This project provides a clean, minimalist toolkit to analyze type layout behaviors across digital rendering frameworks.
