@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tecnica Typeface — ISO-Standard Font Specification Sheet">
-    <title>Tecnica Typeface — Font Tester</title>
+    <meta name="description" content="Tecnica Typeface — ISO-Standard Font Specification Sheet & Tester">
+    <title>Tecnica Typeface — Type Specimen & Tester</title>
     <style>
-        /* Accessibility: CSS Reset + Root Variables */
+        /* --- CORE MODERNIST GRAPHIC SYSTEM (VIGNELLI / SVIZZERO) --- */
         * {
             margin: 0;
             padding: 0;
@@ -14,554 +14,439 @@
         }
 
         :root {
-            --color-text: #000000;
-            --color-bg: #ffffff;
-            --color-border: #000000;
-            --color-bg-alt: #f5f5f5;
-            --color-label: #595959;
-            --color-accent: #fffbdf;
-            --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Courier New', monospace;
-            --font-display: 'Tecnica-55', 'IBM Plex Mono', monospace;
-            --font-display-regular: 'Tecnica-53', 'IBM Plex Mono', monospace;
-            --font-display-line: 'Tecnica-53Line', 'IBM Plex Mono', monospace;
-            --font-display-line-bold: 'Tecnica-55Line', 'IBM Plex Mono', monospace;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 0.75rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
-            --spacing-2xl: 2.5rem;
-            --border-width: 2px;
-            --border-style: solid;
+            --bg-color: #ffffff; /* ISO Blueprint/Paper Light */
+            --border-color: #000000;
+            --text-color: #000000;
+            --accent-marker: #ff3b00; /* Vignelli Signal Red */
+            --matrix-dot: rgba(0, 0, 0, 0.12);
+            --font-mono: -apple-system, BlinkMacSystemFont, 'Segoe UI', Menlo, Courier, monospace;
         }
 
-        /* Font Loading: Tecnica Webfonts */
+        [data-theme="dark"] {
+            --bg-color: #000000; /* Pure Black */
+            --border-color: #ffffff; /* Pure White */
+            --text-color: #ffffff; /* Pure White */
+            --accent-marker: #ff6b35; /* WCAG AA compliant orange-red on black (contrast 4.5:1+) */
+            --matrix-dot: rgba(255, 255, 255, 0.18);
+        }
+
+        /* --- WEBFONT DECLARATIONS --- */
         @font-face {
             font-family: 'Tecnica-53';
-            src: url('Fonts/webfont/woff2/Tecnica-53.woff2') format('woff2'),
-                 url('Fonts/webfont/woff/Tecnica-53.woff') format('woff');
+            src: url('Fonts/webfont/woff2/Tecnica-53.woff2') format('woff2');
             font-weight: 400;
             font-display: swap;
         }
         @font-face {
             font-family: 'Tecnica-55';
-            src: url('Fonts/webfont/woff2/Tecnica-55.woff2') format('woff2'),
-                 url('Fonts/webfont/woff/Tecnica-55.woff') format('woff');
+            src: url('Fonts/webfont/woff2/Tecnica-55.woff2') format('woff2');
             font-weight: 700;
             font-display: swap;
         }
         @font-face {
             font-family: 'Tecnica-53Line';
-            src: url('Fonts/webfont/woff2/Tecnica-53Line.woff2') format('woff2'),
-                 url('Fonts/webfont/woff/Tecnica-53Line.woff') format('woff');
+            src: url('Fonts/webfont/woff2/Tecnica-53Line.woff2') format('woff2');
             font-weight: 400;
             font-display: swap;
         }
         @font-face {
             font-family: 'Tecnica-55Line';
-            src: url('Fonts/webfont/woff2/Tecnica-55Line.woff2') format('woff2'),
-                 url('Fonts/webfont/woff/Tecnica-55Line.woff') format('woff');
+            src: url('Fonts/webfont/woff2/Tecnica-55Line.woff2') format('woff2');
             font-weight: 700;
             font-display: swap;
         }
 
-        /* Fallback Monospace Fonts: WCAG-Compliant */
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
-
-        /* Document Body: ISO Technical Specification */
+        /* --- DOCUMENT LAYOUT --- */
         body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: var(--font-mono);
-            font-size: 1rem;
+            font-size: 16px;
             line-height: 1.5;
-            letter-spacing: 0;
-            color: var(--color-text);
-            background: var(--color-bg);
-            padding: var(--spacing-2xl);
+            padding: 40px;
             max-width: 1400px;
             margin: 0 auto;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.15s ease, color 0.15s ease;
         }
 
-        /* ISO Header Table */
-        .iso-header {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: var(--spacing-2xl);
-            font-size: 0.9rem;
+        /* Vignelli Architectural Rules (Rigid Typographic Lines) */
+        .chapter {
+            border-top: 2px solid var(--border-color);
+            padding: 24px 0 64px 0;
+            clear: both;
         }
 
-        .iso-header td {
-            border: var(--border-width) var(--border-style) var(--color-border);
-            padding: var(--spacing-lg) var(--spacing-lg);
-            vertical-align: top;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .iso-header .title-cell {
-            font-size: 1.8rem;
+        .chapter-title {
+            font-size: 16px;
             font-weight: 700;
-            font-family: var(--font-display);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .iso-header .meta-label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--color-text);
-            margin-bottom: var(--spacing-sm);
             letter-spacing: 0.05em;
+            color: var(--accent-marker);
+            margin-bottom: 32px;
         }
 
-        /* Section Headers */
-        .section-header {
+        /* Grid Framework */
+        .columns-2 {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            border-bottom: var(--border-width) var(--border-style) var(--color-border);
-            border-top: 1px solid var(--color-border);
-            padding: var(--spacing-lg) 0;
-            margin: var(--spacing-2xl) 0 var(--spacing-lg) 0;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+            gap: 40px;
         }
 
-        .section-header .subtitle {
-            color: var(--color-text);
-            font-size: 0.85rem;
-            font-weight: 400;
-            text-transform: capitalize;
-            letter-spacing: 0.03em;
+        .col {
+            flex: 1;
         }
 
-        /* Control Panel */
+        /* --- CONTROL CONSOLE STYLES --- */
         .control-panel {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: var(--spacing-lg);
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-2xl);
-            border: var(--border-width) var(--border-style) var(--color-border);
-            background: var(--color-bg-alt);
-            border-top: 3px solid var(--color-text);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .control-panel .control-group:nth-child(4) {
+            grid-column: 1 / -1;
         }
 
         .control-group {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-xs);
+            gap: 8px;
         }
 
         .control-group label {
-            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
-            color: var(--color-text);
+            font-size: 14px;
             letter-spacing: 0.05em;
         }
 
-        .control-group select,
-        .control-group input[type="text"],
-        .control-group input[type="range"],
-        .control-group input[type="number"] {
+        .sys-select, .sys-input-text {
+            background: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px;
             font-family: var(--font-mono);
-            font-size: 0.9rem;
-            padding: var(--spacing-sm);
-            border: var(--border-width) var(--border-style) var(--color-border);
-            background: var(--color-bg);
-            color: var(--color-text);
-        }
-
-        .control-group select,
-        .control-group input[type="text"],
-        .control-group input[type="number"] {
-            border-radius: 0;
-            cursor: pointer;
-        }
-
-        .control-group select:focus,
-        .control-group input[type="text"]:focus,
-        .control-group input[type="number"]:focus {
-            background: var(--color-accent);
+            font-size: 16px;
             outline: none;
+            border-radius: 0;
         }
 
-        .control-group input[type="range"] {
-            border: none;
-            padding: 0;
+        .sys-slider {
+            width: 100%;
+            accent-color: var(--accent-marker);
         }
 
-        .control-value {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--color-text);
+        .sys-btn {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
             font-family: var(--font-mono);
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 0;
         }
 
-        /* Test Specimen Box */
-        .specimen-box {
-            border: var(--border-width) var(--border-style) var(--color-border);
-            border-top: 3px solid var(--color-text);
-            padding: var(--spacing-2xl);
-            margin-bottom: var(--spacing-2xl);
-            background: var(--color-bg);
+        .sys-btn:hover {
+            background: var(--border-color);
+            color: var(--bg-color);
+        }
+
+        /* --- SPECIMEN DISPLAY COMPONENTS --- */
+        .tester-container {
+            border: 1px solid var(--border-color);
+            padding: 40px;
             position: relative;
             min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .specimen-box::before {
-            content: "SPECIMEN AREA";
-            position: absolute;
-            top: var(--spacing-xs);
-            right: var(--spacing-sm);
-            font-size: 0.7rem;
-            color: var(--color-label);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        #preview {
-            font-family: var(--font-display-regular);
-            font-size: 3rem;
-            line-height: 1.3;
-            word-wrap: break-word;
-            word-break: break-word;
-            color: var(--color-text);
+        #preview-box {
             width: 100%;
-            text-align: center;
-            background: transparent;
             border: none;
+            background: transparent;
+            color: var(--text-color);
             outline: none;
-            padding: var(--spacing-lg);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-align: center;
         }
 
-        #preview:focus {
-            outline: 1px dashed var(--color-border);
+        .cad-grid-active {
+            background-image: radial-gradient(var(--matrix-dot) 1px, transparent 1px);
+            background-size: 12px 12px;
         }
 
-        /* Micro-Reduction Grid */
-        .reduction-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-2xl);
+        /* Micro-Reduction Scale Blocks */
+        .scale-grid {
+            display: flex;
+            gap: 24px;
         }
 
-        .reduction-cell {
-            border: var(--border-width) var(--border-style) var(--color-border);
-            border-top: 3px solid var(--color-text);
-            padding: var(--spacing-lg);
-            background: var(--color-bg);
+        .scale-cell {
+            flex: 1;
+            border: 1px solid var(--border-color);
+            padding: 16px;
         }
 
-        .reduction-cell .label {
+        .scale-label {
             display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
+            font-size: 12px;
             font-weight: 700;
-            color: var(--color-text);
-            margin-bottom: var(--spacing-md);
-            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            color: var(--accent-marker);
         }
 
-        .reduction-cell .sample {
-            font-family: var(--font-display-regular);
-            line-height: 1.4;
-            color: var(--color-text);
+        /* Size Cascade System */
+        .cascade-table {
+            border-bottom: 1px solid var(--border-color);
         }
 
-        /* Size Cascade Table */
-        .size-cascade {
-            border: var(--border-width) var(--border-style) var(--color-border);
-            border-top: 3px solid var(--color-text);
-            margin-bottom: var(--spacing-2xl);
-        }
-
-        .size-row {
+        .cascade-row {
             display: flex;
             align-items: center;
-            border-bottom: 1px solid var(--color-border);
-            padding: var(--spacing-md) var(--spacing-lg);
-            gap: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+            padding: 12px 0;
         }
 
-        .size-row:last-child {
-            border-bottom: none;
+        .cascade-meta {
+            width: 150px;
+            font-size: 16px;
+            font-weight: 700;
         }
 
-        .size-label {
-            font-size: 0.9rem;
+        .cascade-sample-node {
+            flex: 1;
+            padding: 0 20px;
+            text-align: left;
+        }
+
+        /* Inventory Layout */
+        .inventory-group {
+            margin-bottom: 32px;
+        }
+
+        .inventory-group h4 {
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
-            color: var(--color-text);
-            min-width: 140px;
-            letter-spacing: 0.05em;
+            margin-bottom: 12px;
         }
 
-        .size-sample {
-            flex-grow: 1;
-            font-family: var(--font-display-regular);
-            line-height: 1.3;
-            word-wrap: break-word;
-            color: var(--color-text);
-        }
-
-        /* Glyph Inventory Grid */
-        .glyph-section {
-            margin-bottom: var(--spacing-2xl);
-        }
-
-        .glyph-section h3 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--color-text);
-            margin-bottom: var(--spacing-lg);
-            letter-spacing: 0.08em;
-        }
-
-        .glyph-grid {
+        .inventory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-            gap: var(--spacing-sm);
-            padding: var(--spacing-lg);
-            border: var(--border-width) var(--border-style) var(--color-border);
-            border-top: 3px solid var(--color-text);
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 6px;
         }
 
-        .glyph-cell {
-            border: 1px solid var(--color-border);
-            padding: var(--spacing-md);
+        .inventory-cell {
+            border: 1px solid var(--border-color);
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-display-regular);
-            font-size: 1.8rem;
-            line-height: 1;
-            min-height: 80px;
-            background: var(--color-bg);
-            cursor: pointer;
-            transition: background-color 0.15s;
+            font-size: 32px;
         }
 
-        .glyph-cell:hover {
-            background: var(--color-accent);
+        /* --- ISO TABLE HEADER --- */
+        .iso-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 48px;
         }
 
-        /* Footer */
-        .iso-footer {
-            border-top: var(--border-width) var(--border-style) var(--color-border);
-            padding-top: var(--spacing-lg);
-            margin-top: var(--spacing-2xl);
-            font-size: 0.85rem;
-            color: var(--color-text);
+        .iso-table td {
+            border: 2px solid var(--border-color);
+            padding: 16px;
+            vertical-align: top;
+            font-size: 16px;
+        }
+
+        .iso-table .label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
             text-transform: uppercase;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: var(--spacing-lg);
-            letter-spacing: 0.05em;
-            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--accent-marker);
         }
 
-        /* Responsive */
+        .iso-table .main-title {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
         @media (max-width: 768px) {
-            body {
-                padding: var(--spacing-lg);
-            }
-
-            .iso-header td {
-                padding: var(--spacing-md);
-            }
-
-            .control-panel {
-                grid-template-columns: 1fr;
-            }
-
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .iso-footer {
-                flex-direction: column;
-                gap: var(--spacing-md);
-            }
-
-            .reduction-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .glyph-grid {
-                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            body {
-                background: var(--color-bg);
-                padding: 0;
-            }
-
-            .control-panel {
-                display: none;
-            }
-
-            #preview {
-                border: var(--border-width) var(--border-style) var(--color-border);
-            }
+            body { padding: 20px; }
+            .columns-2, .scale-grid { flex-direction: column; gap: 24px; }
+            .iso-table td { display: block; width: 100%; border-bottom-width: 1px; }
+            .iso-table td:last-child { border-bottom-width: 2px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ISO Header Table -->
-    <table class="iso-header">
+    <table class="iso-table">
         <tr>
-            <td colspan="2">
-                <div class="title-cell">Tecnica Typeface</div>
-                <span class="meta-label">Type System Specification</span>
-                Font Tester — ISO Technical Document
+            <td colspan="2" style="width: 66%;">
+                <span class="label">System Identification</span>
+                <div class="main-title">Tecnica Typeface</div>
+                <div style="margin-top: 8px;">Font Verification & Matrix Tester Layout</div>
             </td>
             <td>
-                <span class="meta-label">Document Code</span>
-                TT-LIN-5553 / v1.0
+                <span class="label">Document ID Code</span>
+                <strong>ISO-TT-5553 / v1.0</strong>
             </td>
         </tr>
         <tr>
             <td>
-                <span class="meta-label">Designer</span>
+                <span class="label">System Designer</span>
                 Davide Piscitelli
             </td>
             <td>
-                <span class="meta-label">Release Date</span>
+                <span class="label">Release Date Matrix</span>
                 2026
             </td>
             <td>
-                <span class="meta-label">Classification</span>
-                PUBLISHED
+                <span class="label">Classification Status</span>
+                Dot-Matrix Typeface // Open-Source
             </td>
         </tr>
     </table>
 
-    <!-- Control Panel -->
-    <div class="control-panel">
-        <div class="control-group">
-            <label for="fontFamily">Font Family</label>
-            <select id="fontFamily">
-                <option value="53">Tecnica-53</option>
-                <option value="55">Tecnica-55</option>
-                <option value="53Line">Tecnica-53 Line</option>
-                <option value="55Line">Tecnica-55 Line</option>
+    <section class="chapter">
+        <div class="chapter-title">01 // Control Panel &amp; Display Settings</div>
+        <div class="control-panel" style="grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto;">
+            <div class="control-group">
+                <label for="fontFamily">Font Weight</label>
+                <select id="fontFamily" class="sys-select">
+                    <option value="Tecnica-53">53</option>
+                    <option value="Tecnica-55" selected>55</option>
+                    <option value="Tecnica-53Line">53 Line</option>
+                    <option value="Tecnica-55Line">55 Line</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="fontSize">Scale Size (<span id="fontSizeValue">48</span>px)</label>
+                <input type="range" id="fontSize" class="sys-slider" min="12" max="144" value="48">
+            </div>
+
+            <div class="control-group">
+                <label for="lineHeight">Line Height (<span id="lineHeightValue">1.3</span>)</label>
+                <input type="range" id="lineHeight" class="sys-slider" min="0.8" max="2.5" step="0.1" value="1.3">
+            </div>
+
+            <div class="control-group" style="grid-column: 1 / -1; margin-top: 16px;">
+                <label for="testText">Enter Text</label>
+                <input type="text" id="testText" class="sys-input-text" value="DOT MATRIX SYSTEM TEST">
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 16px; margin-top: 24px;">
+            <button class="sys-btn" id="theme-toggle" onclick="togglePolarity()">Theme: Light</button>
+            <button class="sys-btn" onclick="toggleCadGrid()">Toggle CAD Grid Layer</button>
+        </div>
+    </section>
+
+    <section class="chapter">
+        <div class="chapter-title">02 // Live Specimen Testing Area</div>
+        <div class="tester-container cad-grid-active" id="tester-canvas">
+            <div id="preview-box" contenteditable="true" style="font-family: 'Tecnica-55'; font-size: 48px; line-height: 1.3;">DOT MATRIX SYSTEM TEST</div>
+        </div>
+    </section>
+
+    <section class="chapter">
+        <div class="chapter-title">03 // Optical Scale Verification</div>
+        <div class="scale-grid">
+            <div class="scale-cell">
+                <span class="scale-label">Scale 2:1 (24pt Density)</span>
+                <div class="sample-render" id="scale-24" style="font-family: 'Tecnica-55'; font-size: 24px;">DOT MATRIX SYSTEM TEST</div>
+            </div>
+            <div class="scale-cell">
+                <span class="scale-label">Scale 1:1 (12pt Density)</span>
+                <div class="sample-render" id="scale-12" style="font-family: 'Tecnica-55'; font-size: 12px;">DOT MATRIX SYSTEM TEST</div>
+            </div>
+            <div class="scale-cell">
+                <span class="scale-label">Scale 1:2 (6pt Density Limit)</span>
+                <div class="sample-render" id="scale-6" style="font-family: 'Tecnica-55'; font-size: 6px;">DOT MATRIX SYSTEM TEST</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chapter">
+        <div class="chapter-title">04 // Typographic Scale</div>
+        <div class="cascade-table" id="cascadeSpread"></div>
+    </section>
+
+    <section class="chapter">
+        <div class="chapter-title">05 // Glyph Set</div>
+        <div style="margin-bottom: 24px;">
+            <label for="inventoryFontWeight" style="font-weight: 700; text-transform: uppercase; font-size: 14px;">Font Weight</label>
+            <select id="inventoryFontWeight" class="sys-select" style="margin-top: 8px; width: 200px;">
+                <option value="Tecnica-53">53</option>
+                <option value="Tecnica-55" selected>55</option>
+                <option value="Tecnica-53Line">53 Line</option>
+                <option value="Tecnica-55Line">55 Line</option>
             </select>
         </div>
+        <div id="inventorySpread"></div>
+    </section>
 
-        <div class="control-group">
-            <label for="fontSize">Size (px)</label>
-            <div style="display: flex; gap: var(--spacing-sm); align-items: center;">
-                <input type="range" id="fontSize" min="12" max="144" value="48">
-                <span class="control-value" id="fontSizeValue">48</span>
+    <section class="chapter">
+        <div class="chapter-title">06 // About This Typeface</div>
+        <div class="columns-2">
+            <div class="col" style="text-align: justify;">
+                Tecnica 55 and Tecnica 53 are bitmap-inspired typefaces influenced by the visual language of early dot matrix printers and low-resolution digital displays. Built on structured dot grids, both fonts capture the balance between technical precision, geometric simplicity, and functional readability.
+            </div>
+            <div class="col" style="text-align: justify;">
+                Together, Tecnica 55 and Tecnica 53 offer a versatile typographic system suited for digital, technical, and sci-fi-inspired projects. From software interfaces and developer tools to tech branding and pixel-based visuals, both typefaces deliver a distinctive retro-futuristic character rooted in the aesthetics of early computing.
             </div>
         </div>
+    </section>
 
-        <div class="control-group">
-            <label for="lineHeight">Line Height</label>
-            <div style="display: flex; gap: var(--spacing-sm); align-items: center;">
-                <input type="range" id="lineHeight" min="0.8" max="2.5" step="0.1" value="1.3">
-                <span class="control-value" id="lineHeightValue">1.3</span>
+    <section class="chapter" style="border-bottom: 2px solid var(--border-color); margin-bottom: 40px;">
+        <div class="chapter-title">07 // License &amp; Downloads</div>
+        <div class="columns-2" style="align-items: center;">
+            <div class="col">
+                All font assets are compiled under the terms of the SIL Open Font License 1.1. Modifying or adding modules to the matrix core does not violate system constraints.
+            </div>
+            <div class="col" style="text-align: right;">
+                <a href="Fonts" class="sys-btn" target="_blank">Get the Font</a>
             </div>
         </div>
+    </section>
 
-        <div class="control-group">
-            <label for="testText">Test Text</label>
-            <input type="text" id="testText" value="DOT MATRIX SYSTEM TEST" placeholder="Enter custom text...">
-        </div>
-    </div>
-
-    <!-- Section 1: Primary Specimen -->
-    <div class="section-header">
-        <span>1 // Primary Display Field</span>
-        <span class="subtitle">Legibility Verification</span>
-    </div>
-    <div class="specimen-box">
-        <div id="preview" contenteditable="true">DOT MATRIX SYSTEM TEST</div>
+    <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; text-transform: uppercase;">
+        <span>TECNICA STRUCTURE PROTOCOL / 2026</span>
+        <span>STATUS: ACTIVE</span>
     </div>
 
-    <!-- Section 2: Micro-Reduction Grid -->
-    <div class="section-header">
-        <span>2 // Micro-Reduction Legibility Grid</span>
-        <span class="subtitle">Scale Verification</span>
-    </div>
-    <div class="reduction-grid">
-        <div class="reduction-cell">
-            <span class="label">Scale 2:1 (24pt)</span>
-            <div class="sample" style="font-size: 24px;">LEGIBILITY TEST FOR 24 POINT SCALE</div>
-        </div>
-        <div class="reduction-cell">
-            <span class="label">Scale 1:1 (12pt)</span>
-            <div class="sample" style="font-size: 12px;">LEGIBILITY TEST FOR 12 POINT SCALE</div>
-        </div>
-        <div class="reduction-cell">
-            <span class="label">Scale 1:2 (6pt)</span>
-            <div class="sample" style="font-size: 6px;">LEGIBILITY TEST FOR 6 POINT SCALE</div>
-        </div>
-    </div>
-
-    <!-- Section 3: Size Cascade -->
-    <div class="section-header">
-        <span>3 // Normalized Size Cascade</span>
-        <span class="subtitle">Standard Progression</span>
-    </div>
-    <div class="size-cascade" id="sizeCascade"></div>
-
-    <!-- Section 4: Glyph Inventory -->
-    <div class="section-header">
-        <span>4 // Complete Glyph Inventory</span>
-        <span class="subtitle">Character Matrix</span>
-    </div>
-    <div id="glyphInventory"></div>
-
-    <!-- Footer -->
-    <div class="iso-footer">
-        <span>TECNICA TYPEFACE / 2026</span>
-        <span>TT-LIN-5553 / PUBLISHED</span>
-    </div>
-
-    <!-- JavaScript -->
     <script>
-        // Control Elements
+        // DOM Elements
         const fontFamilySelect = document.getElementById('fontFamily');
         const fontSizeInput = document.getElementById('fontSize');
         const fontSizeValue = document.getElementById('fontSizeValue');
         const lineHeightInput = document.getElementById('lineHeight');
         const lineHeightValue = document.getElementById('lineHeightValue');
         const testTextInput = document.getElementById('testText');
-        const preview = document.getElementById('preview');
-        const sizeCascade = document.getElementById('sizeCascade');
-        const glyphInventory = document.getElementById('glyphInventory');
+        const previewBox = document.getElementById('preview-box');
+        const testerCanvas = document.getElementById('tester-canvas');
+        const cascadeSpread = document.getElementById('cascadeSpread');
+        const inventorySpread = document.getElementById('inventorySpread');
 
-        // Font Family Mapping
-        const fontMap = {
-            '53': { vars: ['--font-display-regular', '--font-mono'], weight: 400 },
-            '55': { vars: ['--font-display', '--font-mono'], weight: 700 },
-            '53Line': { vars: ['--font-display-line', '--font-mono'], weight: 400 },
-            '55Line': { vars: ['--font-display-line-bold', '--font-mono'], weight: 700 }
-        };
-
-        // Test Strings by Size
+        // Parameter Maps
+        const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
+        
         const testStrings = {
             12: 'MICROFILM LEGIBILITY LIMIT',
             14: 'GRID REFERENCE STRUCTURE',
@@ -575,110 +460,130 @@
             120: 'TECNICA SYSTEM TYPEFACE'
         };
 
-        const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
-
-        // Glyph Groups
         const glyphGroups = {
-            'UPPERCASE': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            'LOWERCASE': 'abcdefghijklmnopqrstuvwxyz',
-            'NUMERALS': '0123456789',
-            'PUNCTUATION': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
-            'SYMBOLS': '±≠≤≥∞∫√°©®™€¥£¢'
+            'UPPERCASE MATRIX': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'LOWERCASE MATRIX': 'abcdefghijklmnopqrstuvwxyz',
+            'NUMERAL SIGNALS': '0123456789',
+            'PUNCTUATION GLYPHS': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
+            'SYSTEM SYMBOLS': '±≠≤≥∞∫√°©®™€¥£¢'
         };
 
-        // Initialize Size Cascade
-        standardSizes.forEach(size => {
-            const row = document.createElement('div');
-            row.className = 'size-row';
+        // Execution Matrix Initialization
+        function initSystem() {
+            // Populate Size Cascade
+            standardSizes.forEach(size => {
+                const row = document.createElement('div');
+                row.className = 'cascade-row';
+                
+                const meta = document.createElement('div');
+                meta.className = 'cascade-meta';
+                meta.textContent = `Size_${size}pt`;
 
-            const label = document.createElement('div');
-            label.className = 'size-label';
-            label.textContent = `SIZE_${size}PT`;
+                const sample = document.createElement('div');
+                sample.className = 'cascade-sample-node';
+                sample.style.fontSize = size + 'px';
+                sample.textContent = testStrings[size];
 
-            const sample = document.createElement('div');
-            sample.className = 'size-sample';
-            sample.style.fontSize = size + 'px';
-            sample.textContent = testStrings[size] || testStrings[120];
-
-            row.appendChild(label);
-            row.appendChild(sample);
-            sizeCascade.appendChild(row);
-        });
-
-        // Initialize Glyph Inventory
-        for (const [category, chars] of Object.entries(glyphGroups)) {
-            const section = document.createElement('div');
-            section.className = 'glyph-section';
-
-            const heading = document.createElement('h3');
-            heading.textContent = category;
-            section.appendChild(heading);
-
-            const grid = document.createElement('div');
-            grid.className = 'glyph-grid';
-
-            chars.split('').forEach(char => {
-                const cell = document.createElement('div');
-                cell.className = 'glyph-cell';
-                cell.textContent = char;
-                cell.title = char.charCodeAt(0);
-                grid.appendChild(cell);
+                row.appendChild(meta);
+                row.appendChild(sample);
+                cascadeSpread.appendChild(row);
             });
 
-            section.appendChild(grid);
-            glyphInventory.appendChild(section);
+            // Populate Character Inventory
+            for (const [category, chars] of Object.entries(glyphGroups)) {
+                const block = document.createElement('div');
+                block.className = 'inventory-group';
+
+                const header = document.createElement('h4');
+                header.textContent = category;
+                block.appendChild(header);
+
+                const grid = document.createElement('div');
+                grid.className = 'inventory-grid';
+
+                chars.split('').forEach(char => {
+                    const cell = document.createElement('div');
+                    cell.className = 'inventory-cell';
+                    cell.textContent = char;
+                    grid.appendChild(cell);
+                });
+
+                block.appendChild(grid);
+                inventorySpread.appendChild(block);
+            }
+
+            // Sync Matrix Rendering
+            syncEngine();
         }
 
-        // Update Font
-        function updateFont() {
-            const fontKey = fontFamilySelect.value;
-            const fontInfo = fontMap[fontKey];
-            const varName = fontInfo.vars[0];
-            const root = document.documentElement;
-            const fontFamily = getComputedStyle(root).getPropertyValue(varName).trim();
-
-            preview.style.fontFamily = fontFamily;
-            preview.style.fontWeight = fontInfo.weight;
-
-            document.querySelectorAll('.size-sample').forEach(el => {
-                el.style.fontFamily = fontFamily;
-                el.style.fontWeight = fontInfo.weight;
+        // Structural Parameter Sync Engine
+        function syncEngine() {
+            const fontTarget = fontFamilySelect.value;
+            
+            // Apply targeted fonts across structural outputs
+            previewBox.style.fontFamily = fontTarget;
+            
+            document.querySelectorAll('.sample-render').forEach(el => {
+                el.style.fontFamily = fontTarget;
             });
-
-            document.querySelectorAll('.glyph-cell').forEach(el => {
-                el.style.fontFamily = fontFamily;
-                el.style.fontWeight = fontInfo.weight;
+            document.querySelectorAll('.cascade-sample-node').forEach(el => {
+                el.style.fontFamily = fontTarget;
             });
-
-            document.querySelectorAll('.sample').forEach(el => {
-                el.style.fontFamily = fontFamily;
-                el.style.fontWeight = fontInfo.weight;
+            document.querySelectorAll('.inventory-cell').forEach(el => {
+                el.style.fontFamily = fontTarget;
             });
         }
 
-        // Event Listeners
-        fontFamilySelect.addEventListener('change', updateFont);
+        // Live Event Listeners
+        fontFamilySelect.addEventListener('change', syncEngine);
 
         fontSizeInput.addEventListener('input', () => {
-            preview.style.fontSize = fontSizeInput.value + 'px';
+            previewBox.style.fontSize = fontSizeInput.value + 'px';
             fontSizeValue.textContent = fontSizeInput.value;
         });
 
         lineHeightInput.addEventListener('input', () => {
-            preview.style.lineHeight = lineHeightInput.value;
+            previewBox.style.lineHeight = lineHeightInput.value;
             lineHeightValue.textContent = lineHeightInput.value;
         });
 
         testTextInput.addEventListener('input', () => {
-            preview.textContent = testTextInput.value || ' ';
-            document.querySelectorAll('.reduction-cell .sample').forEach(el => {
-                el.textContent = testTextInput.value || ' ';
-            });
+            previewBox.textContent = testTextInput.value || ' ';
+            document.getElementById('scale-24').textContent = testTextInput.value || ' ';
+            document.getElementById('scale-12').textContent = testTextInput.value || ' ';
+            document.getElementById('scale-6').textContent = testTextInput.value || ' ';
         });
 
-        // Initialize
-        updateFont();
-    </script>
+        // Inventory Font Weight Selector
+        const inventoryFontWeightSelect = document.getElementById('inventoryFontWeight');
+        if (inventoryFontWeightSelect) {
+            inventoryFontWeightSelect.addEventListener('change', () => {
+                const fontTarget = inventoryFontWeightSelect.value;
+                document.querySelectorAll('#inventorySpread .inventory-cell').forEach(el => {
+                    el.style.fontFamily = fontTarget;
+                });
+            });
+        }
 
+        // Auxiliary Display Controls
+        function togglePolarity() {
+            const body = document.body;
+            const btn = document.getElementById('theme-toggle');
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                btn.innerText = "Theme: Light";
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerText = "Theme: Dark";
+            }
+        }
+
+        function toggleCadGrid() {
+            testerCanvas.classList.toggle('cad-grid-active');
+        }
+
+        // Boot Pipeline
+        window.onload = initSystem;
+    </script>
 </body>
 </html>
