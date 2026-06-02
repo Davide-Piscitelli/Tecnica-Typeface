@@ -3,398 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tecnica Typeface — ISO-Standard Font Specification Sheet & Tester">
-    <title>Tecnica Typeface — System Specimen & Font Tester</title>
-    <style>
-        /* --- CORE MODERNIST GRAPHIC SYSTEM (VIGNELLI / SVIZZERO) --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta name="description" content="ISO-Standard Font Specification Sheet & Minimal Tester">
+    <title>Tecnica Typeface — Technical Manual & Font Tester</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
 
-        :root {
-            --bg-color: #ffffff; /* ISO Blueprint/Paper Light */
-            --border-color: #000000;
-            --text-color: #000000;
-            --accent-marker: #ff3b00; /* Vignelli Signal Red */
-            --font-mono: Courier, 'Courier New', Menlo, Monaco, monospace; /* Forced System Monospace */
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #000000; /* Pure Black */
-            --border-color: #ffffff; /* Pure White */
-            --text-color: #ffffff; /* Pure White */
-            --accent-marker: #ff6b35; /* WCAG AA compliant orange-red on black */
-        }
-
-        /* --- WEBFONT DECLARATIONS --- */
-        @font-face {
-            font-family: 'Tecnica-53';
-            src: url('Fonts/webfont/woff2/Tecnica-53.woff2') format('woff2');
-            font-weight: 400;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Tecnica-55';
-            src: url('Fonts/webfont/woff2/Tecnica-55.woff2') format('woff2');
-            font-weight: 700;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Tecnica-53Line';
-            src: url('Fonts/webfont/woff2/Tecnica-53Line.woff2') format('woff2');
-            font-weight: 400;
-            font-display: swap;
-        }
-        @font-face {
-            font-family: 'Tecnica-55Line';
-            src: url('Fonts/webfont/woff2/Tecnica-55Line.woff2') format('woff2');
-            font-weight: 700;
-            font-display: swap;
-        }
-
-        /* --- DOCUMENT LAYOUT --- */
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-mono); /* Phase 1: Fixed unmodifiable text to monospace */
-            font-size: 14px;
-            line-height: 1.5;
-            padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-            transition: background-color 0.15s ease, color 0.15s ease;
-        }
-
-        /* Vignelli Architectural Rules (Rigid Typographic Lines) */
-        .chapter {
-            border-top: 2px solid var(--border-color);
-            padding: 24px 0 64px 0;
-            clear: both;
-        }
-
-        .chapter-title {
-            font-size: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-marker);
-            margin-bottom: 32px;
-            font-family: var(--font-mono);
-        }
-
-        /* Grid Framework */
-        .columns-2 {
-            display: flex;
-            gap: 40px;
-        }
-
-        .col {
-            flex: 1;
-            font-family: var(--font-mono); /* Phase 1: Fixed unmodifiable text to monospace */
-        }
-
-        /* --- CONTROL CONSOLE STYLES --- */
-        .control-panel {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            background: transparent;
-            border: 1px solid var(--border-color);
-            padding: 24px;
-            margin-bottom: 32px;
-        }
-
-        .control-panel .control-group:nth-child(4) {
-            grid-column: 1 / -1;
-        }
-
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .control-group label {
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            font-family: var(--font-mono);
-        }
-
-        .sys-select, .sys-input-text {
-            background: var(--bg-color);
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            padding: 8px;
-            font-family: var(--font-mono);
-            font-size: 14px;
-            outline: none;
-            border-radius: 0;
-        }
-
-        .sys-slider {
-            width: 100%;
-            accent-color: var(--accent-marker);
-        }
-
-        .sys-btn {
-            background: transparent;
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            font-family: var(--font-mono);
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            display: inline-block;
-            text-decoration: none;
-            border-radius: 0;
-        }
-
-        .sys-btn:hover {
-            background: var(--border-color);
-            color: var(--bg-color);
-        }
-
-        /* --- SPECIMEN DISPLAY COMPONENTS --- */
-        .tester-container {
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            position: relative;
-            min-height: 200px;
-            margin-top: 24px;
-        }
-
-        #preview-box {
-            width: 100%;
-            border: none;
-            background: transparent;
-            color: var(--text-color);
-            outline: none;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            text-align: center;
-            /* Modifiable output field: target font is injected via JS dynamically */
-        }
-
-        /* Size Cascade System */
-        .cascade-table {
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .cascade-row {
-            display: flex;
-            align-items: center;
-            border-top: 1px solid var(--border-color);
-            padding: 12px 0;
-        }
-
-        .cascade-meta {
-            width: 150px;
-            font-size: 14px;
-            font-weight: 700;
-            font-family: var(--font-mono); /* Phase 1: Fixed unmodifiable text to monospace */
-        }
-
-        .cascade-sample-node {
-            flex: 1;
-            padding: 0 20px;
-            text-align: left;
-            /* Modifiable output field */
-        }
-
-        /* Inventory Layout */
-        .inventory-group {
-            margin-bottom: 32px;
-        }
-
-        .inventory-group h4 {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            font-family: var(--font-mono); /* Phase 1 */
-        }
-
-        .inventory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-            gap: 6px;
-        }
-
-        .inventory-cell {
-            border: 1px solid var(--border-color);
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            /* Modifiable output field */
-        }
-
-        /* --- ISO TABLE HEADER --- */
-        .iso-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 48px;
-            font-family: var(--font-mono); /* Phase 1 */
-        }
-
-        .iso-table td {
-            border: 2px solid var(--border-color);
-            padding: 16px;
-            vertical-align: top;
-            font-size: 14px;
-        }
-
-        .iso-table .label {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            color: var(--accent-marker);
-        }
-
-        .iso-table .main-title {
-            font-size: 28px;
-            font-weight: 700;
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
-
-        /* --- RESPONSIVE ADJUSTMENTS --- */
-        @media (max-width: 768px) {
-            body { padding: 20px; }
-            .columns-2 { flex-direction: column; gap: 24px; }
-            .iso-table td { display: block; width: 100%; border-bottom-width: 1px; }
-            .iso-table td:last-child { border-bottom-width: 2px; }
-            .control-panel { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <table class="iso-table">
         <tr>
             <td colspan="2" style="width: 66%;">
-                <span class="label">System Identification</span>
-                <div class="main-title">Tecnica Typeface</div>
-                <div style="margin-top: 8px;">Font Verification & Matrix Tester Layout</div>
+                <span class="sub-label-caps">System Identification Specimen</span>
+                <div class="main-title">Tecnica Typeface Core</div>
+                <div class="body-text-p1" style="margin-top: 8px;">Minimal Font Verification Technical Document</div>
             </td>
             <td>
-                <span class="label">Document ID Code</span>
-                <strong>ISO-TT-5553 / v1.0</strong>
+                <span class="sub-label-caps">Document ID Code</span>
+                <strong class="body-text-p1" style="font-weight: 700;">ISO-TT-SPEC-2026 // V2.0</strong>
             </td>
         </tr>
         <tr>
             <td>
-                <span class="label">System Designer</span>
-                Davide Piscitelli
+                <span class="sub-label-caps">System Designer</span>
+                <span class="body-text-p1">Davide Piscitelli</span>
             </td>
             <td>
-                <span class="label">Release Date Matrix</span>
-                2026
+                <span class="sub-label-caps">Release Matrix Date</span>
+                <span class="body-text-p1">2026</span>
             </td>
             <td>
-                <span class="label">Classification Status</span>
-                STANDARD // OPEN-SOURCE
+                <span class="sub-label-caps">Classification Status</span>
+                <span class="body-text-p1">STANDARD / MINIMAL-VERIFIED</span>
             </td>
         </tr>
     </table>
 
     <section class="chapter">
-        <div class="chapter-title">01 // Control Panel &amp; Live Specimen Testing Field</div>
+        <div class="chapter-title">01 // Global Control &amp; Live Specimen Field</div>
         
         <div class="control-panel">
             <div class="control-group">
-                <label for="fontFamily">Font Weight</label>
+                <label for="fontFamily" class="sub-label-caps">System Weight</label>
                 <select id="fontFamily" class="sys-select">
-                    <option value="Tecnica-53">53</option>
-                    <option value="Tecnica-55" selected>55</option>
-                    <option value="Tecnica-53Line">53 Line</option>
-                    <option value="Tecnica-55Line">55 Line</option>
+                    <option value="Tecnica-53">53 (Light)</option>
+                    <option value="Tecnica-55" selected>55 (Regular)</option>
+                    <option value="Tecnica-53Line">53 Line (Inline Light)</option>
+                    <option value="Tecnica-55Line">55 Line (Inline Regular)</option>
                 </select>
             </div>
 
             <div class="control-group">
-                <label for="fontSize">Scale Size (<span id="fontSizeValue">48</span>px)</label>
+                <label for="fontSize" class="sub-label-caps">Text Size (<span id="fontSizeValue" style="font-weight:700;">48</span>px)</label>
                 <input type="range" id="fontSize" class="sys-slider" min="12" max="144" value="48">
             </div>
 
             <div class="control-group">
-                <label for="lineHeight">Line Height (<span id="lineHeightValue">1.3</span>)</label>
+                <label for="lineHeight" class="sub-label-caps">Line Spacing (<span id="lineHeightValue" style="font-weight:700;">1.3</span>)</label>
                 <input type="range" id="lineHeight" class="sys-slider" min="0.8" max="2.5" step="0.1" value="1.3">
             </div>
 
-            <div class="control-group" style="margin-top: 16px;">
-                <label for="testText">Enter Text</label>
-                <input type="text" id="testText" class="sys-input-text" value="DOT MATRIX SYSTEM TEST">
+            <div class="control-group" style="margin-top: 8px;">
+                <label for="testText" class="sub-label-caps">Type here to test the font</label>
+                <input type="text" id="testText" class="sys-input-text" value="Tecnica dot matrix stream and processor core online.">
             </div>
         </div>
 
-        <div style="display: flex; gap: 16px; margin-top: 24px;">
-            <button class="sys-btn" id="theme-toggle" onclick="togglePolarity()">Theme: Light</button>
-        </div>
-
         <div class="tester-container" id="tester-canvas">
-            <div id="preview-box" contenteditable="true" style="font-family: 'Tecnica-55'; font-size: 48px; line-height: 1.3;">DOT MATRIX SYSTEM TEST</div>
+            <div id="preview-box" contenteditable="true" style="font-family: 'Tecnica-55'; font-size: 48px; line-height: 1.3;">Tecnica dot matrix stream and processor core online.</div>
         </div>
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">02 // Size Cascade Distribution</div>
+        <div class="chapter-title">02 // Text View at Different Sizes</div>
         <div class="cascade-table" id="cascadeSpread"></div>
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">03 // Glyph Character Matrix</div>
-        <div style="margin-bottom: 24px;">
-            <label for="inventoryFontWeight" style="font-weight: 700; text-transform: uppercase; font-size: 13px; font-family: var(--font-mono);">Font Weight</label>
-            <select id="inventoryFontWeight" class="sys-select" style="margin-top: 8px; width: 200px;">
-                <option value="Tecnica-53">53</option>
-                <option value="Tecnica-55" selected>55</option>
-                <option value="Tecnica-53Line">53 Line</option>
-                <option value="Tecnica-55Line">55 Line</option>
-            </select>
-        </div>
+        <div class="chapter-title">03 // Complete Collection of Letters and Symbols</div>
         <div id="inventorySpread"></div>
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">04 // About This Typeface</div>
+        <div class="chapter-title">04 // Font Information &amp; Specifications</div>
         <div class="columns-2">
-            <div class="col" style="text-align: justify;">
-                Tecnica 55 and Tecnica 53 are bitmap-inspired typefaces influenced by the visual language of early dot matrix printers and low-resolution digital displays. Built on structured dot grids, both fonts capture the balance between technical precision, geometric simplicity, and functional readability.
+            <div class="col body-text-p1">
+                <p>Tecnica 55 and Tecnica 53 are digital writing styles built entirely on structured geometric pixel grids. The project draws clear visual inspiration from the legacy of early technological devices, capturing the precise aesthetic of early computing terminal systems, low-resolution screen displays, and historical dot matrix printing machines. By restricting forms to fixed coordinate arrangements, the design team achieved a structural balance where clean technical geometries effortlessly align with day-to-day text legibility and functional communication goals.</p>
+                <p>The design framework explores the contrast between technical limitations and visual expression. Every letter, digit, and punctuation mark is carved out of grid intersections, giving the typeface an unyielding monospaced rhythm. This modular structure guarantees that both the solid fills and the inline structural cuts remain completely stable across a variety of screen resolutions and print environments, making it an excellent verification module for strict industrial layouts.</p>
             </div>
-            <div class="col" style="text-align: justify;">
-                Together, Tecnica 55 and Tecnica 53 offer a versatile typographic system suited for digital, technical, and sci-fi-inspired projects. From software interfaces and developer tools to tech branding and pixel-based visuals, both typefaces deliver a distinctive retro-futuristic character rooted in the aesthetics of early computing.
+            <div class="col body-text-p1">
+                <p>The development process focused heavily on modular consistency and matrix validation. The system includes two fundamental typographic weights, 53 and 55, each accompanying an alternate structural "Line" version. The standard variants present filled blocks that simulate high-density terminal readouts, while the Line variants uncover the internal grid mechanism by utilizing outline structures. These parallel tracks were engineered together to ensure pixel-perfect alignment and overlapping compatibility in multi-layered digital rendering pipelines.</p>
+                <p>As a versatile typographic system, Tecnica is perfectly optimized for a wide array of application streams. It provides structural clarity when integrated into software development interfaces, live code environments, data engineering control rooms, and terminal command fields. Furthermore, its raw retro-futuristic character makes it highly effective for specialized tech branding, digital pixel-based visualizations, scientific exhibition designs, and video game interface systems seeking an authentic technical aesthetic.</p>
             </div>
         </div>
     </section>
 
-    <section class="chapter" style="border-bottom: 2px solid var(--border-color); margin-bottom: 40px;">
-        <div class="chapter-title">05 // License &amp; Downloads</div>
-        <div class="columns-2" style="align-items: center;">
-            <div class="col">
-                All font assets are compiled under the terms of the SIL Open Font License 1.1. Modifying or adding modules to the matrix core does not violate system constraints.
+    <section class="chapter" style="border-bottom: 2px solid var(--border-color); margin-bottom: 32px;">
+        <div class="chapter-title">05 // Distribution Rules</div>
+        <div class="columns-2 align-top">
+            <div class="col body-text-p1">
+                All font assets are released under the terms of the SIL Open Font License 1.1. Modifying or adding new elements to the core system does not violate the terms of use.
             </div>
             <div class="col" style="text-align: right;">
-                <a href="Fonts" class="sys-btn" target="_blank">Get the Font</a>
+                <a href="Fonts" class="sys-btn" target="_blank">Download Core</a>
             </div>
         </div>
     </section>
 
-    <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; text-transform: uppercase; font-family: var(--font-mono);">
-        <span>TECNICA STRUCTURE PROTOCOL / 2026</span>
-        <span>STATUS: ACTIVE COMPONENT SPECIMEN</span>
+    <div class="sub-label-caps" style="display: flex; justify-content: space-between; font-weight: 700;">
+        <span>ISO Registry Component Specification / 2026</span>
+        <span>Document Status: Operational Minimal Specimen</span>
     </div>
 
     <script>
-        // DOM Elements
+        // DOM Node Registry
         const fontFamilySelect = document.getElementById('fontFamily');
         const fontSizeInput = document.getElementById('fontSize');
         const fontSizeValue = document.getElementById('fontSizeValue');
@@ -405,43 +130,49 @@
         const cascadeSpread = document.getElementById('cascadeSpread');
         const inventorySpread = document.getElementById('inventorySpread');
 
-        // Parameter Maps
+        // Static Testing Vectors (Section 02 Sizes)
         const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
         
+        // Context-driven strings (Coherent with Tecnica Typeface, Mixed-case format)
         const testStrings = {
-            12: 'MICROFILM LEGIBILITY LIMIT',
-            14: 'GRID REFERENCE STRUCTURE',
-            18: 'TECHNICAL SPECIFICATION',
-            24: 'ISO CLASSIFICATION FIELD',
-            36: 'GEOMETRIC MATRIX SYSTEM',
-            48: 'MONOSPACE CELL BOUNDS',
-            60: 'DIGITAL RENDERING CHECK',
-            72: 'VECTOR WEIGHT EVALUATION',
-            96: 'TYPOGRAPHIC OPERATORS',
-            120: 'TECNICA SYSTEM TYPEFACE'
+            12: 'Micro-grid bitmap rendering terminal data channels active.',
+            14: 'High density dot matrix buffer array reference system.',
+            18: 'Low resolution digital interface emulation core online.',
+            24: 'Geometric raster algorithm for typographic constraints.',
+            36: 'Structured dot grid field analysis level nine matrix.',
+            48: 'Monospaced glyph cell bounds calibrated.',
+            60: 'Raw compute stream output validation.',
+            72: 'Tecnica system typeface protocol.',
+            96: 'Raster data channels active.',
+            120: 'Terminal specimen test.'
         };
 
+        // Complete user-friendly glyph distribution
         const glyphGroups = {
-            'UPPERCASE MATRIX': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            'LOWERCASE MATRIX': 'abcdefghijklmnopqrstuvwxyz',
-            'NUMERAL SIGNALS': '0123456789',
-            'PUNCTUATION GLYPHS': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
-            'SYSTEM SYMBOLS': '±≠≤≥∞∫√°©®™€¥£¢'
+            'Capital letters': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'Lowercase letters': 'abcdefghijklmnopqrstuvwxyz',
+            'Numbers and digits': '0123456789',
+            'Punctuation marks': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
+            'Special symbols': '±≠≤≥∞∫√°©®™€¥£¢',
+            'Accent and extended letters': 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ'
         };
 
-        // Execution Matrix Initialization
+        // System Pipeline Boot Initialization
         function initSystem() {
-            // Populate Size Cascade
+            // Render Section 02 (Sizes Cascade with Truncate Text rules via CSS class)
             standardSizes.forEach(size => {
                 const row = document.createElement('div');
                 row.className = 'cascade-row';
                 
                 const meta = document.createElement('div');
-                meta.className = 'cascade-meta';
-                meta.textContent = `Size_${size}pt`;
+                meta.className = 'cascade-meta sub-label-caps';
+                meta.style.marginBottom = '0';
+                meta.style.fontWeight = '700';
+                meta.textContent = `Size_${size}px`;
 
                 const sample = document.createElement('div');
                 sample.className = 'cascade-sample-node';
+                sample.setAttribute('contenteditable', 'true');
                 sample.style.fontSize = size + 'px';
                 sample.textContent = testStrings[size];
 
@@ -450,7 +181,7 @@
                 cascadeSpread.appendChild(row);
             });
 
-            // Populate Character Inventory
+            // Render Section 03 (Letters and Symbols Grid)
             for (const [category, chars] of Object.entries(glyphGroups)) {
                 const block = document.createElement('div');
                 block.className = 'inventory-group';
@@ -473,27 +204,30 @@
                 inventorySpread.appendChild(block);
             }
 
-            // Sync Matrix Rendering
-            syncEngine();
+            // Sync visual styles on first boot
+            syncFontWeightGlobal();
         }
 
-        // Structural Parameter Sync Engine
-        function syncEngine() {
-            const fontTarget = fontFamilySelect.value;
+        // Global font sync tool
+        function syncFontWeightGlobal() {
+            const currentWeight = fontFamilySelect.value;
             
-            // Apply targeted fonts across structural outputs
-            previewBox.style.fontFamily = fontTarget;
+            // Update core preview
+            previewBox.style.fontFamily = currentWeight;
             
+            // Update cascade samples
             document.querySelectorAll('.cascade-sample-node').forEach(el => {
-                el.style.fontFamily = fontTarget;
+                el.style.fontFamily = currentWeight;
             });
-            document.querySelectorAll('#inventorySpread .inventory-cell').forEach(el => {
-                el.style.fontFamily = fontTarget;
+
+            // Update collection cells
+            document.querySelectorAll('.inventory-cell').forEach(el => {
+                el.style.fontFamily = currentWeight;
             });
         }
 
-        // Live Event Listeners
-        fontFamilySelect.addEventListener('change', syncEngine);
+        // Real-time Event Signal Binding
+        fontFamilySelect.addEventListener('change', syncFontWeightGlobal);
 
         fontSizeInput.addEventListener('input', () => {
             previewBox.style.fontSize = fontSizeInput.value + 'px';
@@ -509,31 +243,7 @@
             previewBox.textContent = testTextInput.value || ' ';
         });
 
-        // Inventory Font Weight Selector
-        const inventoryFontWeightSelect = document.getElementById('inventoryFontWeight');
-        if (inventoryFontWeightSelect) {
-            inventoryFontWeightSelect.addEventListener('change', () => {
-                const fontTarget = inventoryFontWeightSelect.value;
-                document.querySelectorAll('#inventorySpread .inventory-cell').forEach(el => {
-                    el.style.fontFamily = fontTarget;
-                });
-            });
-        }
-
-        // Auxiliary Theme Controller
-        function togglePolarity() {
-            const body = document.body;
-            const btn = document.getElementById('theme-toggle');
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                btn.innerText = "Theme: Light";
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                btn.innerText = "Theme: Dark";
-            }
-        }
-
-        // Boot Pipeline
+        // Run system boot once page is loaded
         window.onload = initSystem;
     </script>
 </body>
