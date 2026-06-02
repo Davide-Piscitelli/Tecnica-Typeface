@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tecnica Typeface — ISO-Standard Font Specification Sheet & Tester">
-    <title>Tecnica Typeface — Type Specimen & Tester</title>
+    <title>Tecnica Typeface — System Specimen & Font Tester</title>
     <style>
         /* --- CORE MODERNIST GRAPHIC SYSTEM (VIGNELLI / SVIZZERO) --- */
         * {
@@ -18,16 +18,14 @@
             --border-color: #000000;
             --text-color: #000000;
             --accent-marker: #ff3b00; /* Vignelli Signal Red */
-            --matrix-dot: rgba(0, 0, 0, 0.12);
-            --font-mono: -apple-system, BlinkMacSystemFont, Segoe UI, Menlo, 'Courier', monospace;
+            --font-mono: Courier, 'Courier New', Menlo, Monaco, monospace; /* Forced System Monospace */
         }
 
         [data-theme="dark"] {
             --bg-color: #000000; /* Pure Black */
             --border-color: #ffffff; /* Pure White */
             --text-color: #ffffff; /* Pure White */
-            --accent-marker: #ff6b35; /* WCAG AA compliant orange-red on black (contrast 4.5:1+) */
-            --matrix-dot: rgba(255, 255, 255, 0.18);
+            --accent-marker: #ff6b35; /* WCAG AA compliant orange-red on black */
         }
 
         /* --- WEBFONT DECLARATIONS --- */
@@ -60,8 +58,8 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            font-family: var(--font-mono);
-            font-size: 16px;
+            font-family: var(--font-mono); /* Phase 1: Fixed unmodifiable text to monospace */
+            font-size: 14px;
             line-height: 1.5;
             padding: 40px;
             max-width: 1400px;
@@ -77,12 +75,13 @@
         }
 
         .chapter-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--accent-marker);
             margin-bottom: 32px;
+            font-family: var(--font-mono);
         }
 
         /* Grid Framework */
@@ -93,6 +92,7 @@
 
         .col {
             flex: 1;
+            font-family: var(--font-mono); /* Phase 1: Fixed unmodifiable text to monospace */
         }
 
         /* --- CONTROL CONSOLE STYLES --- */
@@ -119,8 +119,9 @@
         .control-group label {
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 0.05em;
+            font-family: var(--font-mono);
         }
 
         .sys-select, .sys-input-text {
@@ -129,7 +130,7 @@
             border: 1px solid var(--border-color);
             padding: 8px;
             font-family: var(--font-mono);
-            font-size: 16px;
+            font-size: 14px;
             outline: none;
             border-radius: 0;
         }
@@ -164,6 +165,7 @@
             padding: 40px;
             position: relative;
             min-height: 200px;
+            margin-top: 24px;
         }
 
         #preview-box {
@@ -175,32 +177,7 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             text-align: center;
-        }
-
-        .cad-grid-active {
-            background-image: radial-gradient(var(--matrix-dot) 1px, transparent 1px);
-            background-size: 12px 12px;
-        }
-
-        /* Micro-Reduction Scale Blocks */
-        .scale-grid {
-            display: flex;
-            gap: 24px;
-        }
-
-        .scale-cell {
-            flex: 1;
-            border: 1px solid var(--border-color);
-            padding: 16px;
-        }
-
-        .scale-label {
-            display: block;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            color: var(--accent-marker);
+            /* Modifiable output field: target font is injected via JS dynamically */
         }
 
         /* Size Cascade System */
@@ -217,14 +194,16 @@
 
         .cascade-meta {
             width: 150px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
+            font-family: var(--font-mono); /* Phase 1: Fixed unmodifiable text to monospace */
         }
 
         .cascade-sample-node {
             flex: 1;
             padding: 0 20px;
             text-align: left;
+            /* Modifiable output field */
         }
 
         /* Inventory Layout */
@@ -233,10 +212,11 @@
         }
 
         .inventory-group h4 {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 12px;
+            font-family: var(--font-mono); /* Phase 1 */
         }
 
         .inventory-grid {
@@ -252,6 +232,7 @@
             align-items: center;
             justify-content: center;
             font-size: 32px;
+            /* Modifiable output field */
         }
 
         /* --- ISO TABLE HEADER --- */
@@ -259,18 +240,19 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 48px;
+            font-family: var(--font-mono); /* Phase 1 */
         }
 
         .iso-table td {
             border: 2px solid var(--border-color);
             padding: 16px;
             vertical-align: top;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .iso-table .label {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 6px;
@@ -287,9 +269,10 @@
         /* --- RESPONSIVE ADJUSTMENTS --- */
         @media (max-width: 768px) {
             body { padding: 20px; }
-            .columns-2, .scale-grid { flex-direction: column; gap: 24px; }
+            .columns-2 { flex-direction: column; gap: 24px; }
             .iso-table td { display: block; width: 100%; border-bottom-width: 1px; }
             .iso-table td:last-child { border-bottom-width: 2px; }
+            .control-panel { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -318,14 +301,15 @@
             </td>
             <td>
                 <span class="label">Classification Status</span>
-                Dot-Matrix Typeface // Open-Source
+                STANDARD // OPEN-SOURCE
             </td>
         </tr>
     </table>
 
     <section class="chapter">
-        <div class="chapter-title">01 // Control Panel &amp; Display Settings</div>
-        <div class="control-panel" style="grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto;">
+        <div class="chapter-title">01 // Control Panel &amp; Live Specimen Testing Field</div>
+        
+        <div class="control-panel">
             <div class="control-group">
                 <label for="fontFamily">Font Weight</label>
                 <select id="fontFamily" class="sys-select">
@@ -346,7 +330,7 @@
                 <input type="range" id="lineHeight" class="sys-slider" min="0.8" max="2.5" step="0.1" value="1.3">
             </div>
 
-            <div class="control-group" style="grid-column: 1 / -1; margin-top: 16px;">
+            <div class="control-group" style="margin-top: 16px;">
                 <label for="testText">Enter Text</label>
                 <input type="text" id="testText" class="sys-input-text" value="DOT MATRIX SYSTEM TEST">
             </div>
@@ -354,44 +338,22 @@
 
         <div style="display: flex; gap: 16px; margin-top: 24px;">
             <button class="sys-btn" id="theme-toggle" onclick="togglePolarity()">Theme: Light</button>
-            <button class="sys-btn" onclick="toggleCadGrid()">Toggle CAD Grid Layer</button>
         </div>
-    </section>
 
-    <section class="chapter">
-        <div class="chapter-title">02 // Live Specimen Testing Area</div>
-        <div class="tester-container cad-grid-active" id="tester-canvas">
+        <div class="tester-container" id="tester-canvas">
             <div id="preview-box" contenteditable="true" style="font-family: 'Tecnica-55'; font-size: 48px; line-height: 1.3;">DOT MATRIX SYSTEM TEST</div>
         </div>
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">03 // Optical Scale Verification</div>
-        <div class="scale-grid">
-            <div class="scale-cell">
-                <span class="scale-label">Scale 2:1 (24pt Density)</span>
-                <div class="sample-render" id="scale-24" style="font-family: 'Tecnica-55'; font-size: 24px;">DOT MATRIX SYSTEM TEST</div>
-            </div>
-            <div class="scale-cell">
-                <span class="scale-label">Scale 1:1 (12pt Density)</span>
-                <div class="sample-render" id="scale-12" style="font-family: 'Tecnica-55'; font-size: 12px;">DOT MATRIX SYSTEM TEST</div>
-            </div>
-            <div class="scale-cell">
-                <span class="scale-label">Scale 1:2 (6pt Density Limit)</span>
-                <div class="sample-render" id="scale-6" style="font-family: 'Tecnica-55'; font-size: 6px;">DOT MATRIX SYSTEM TEST</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="chapter">
-        <div class="chapter-title">04 // Typographic Scale</div>
+        <div class="chapter-title">02 // Size Cascade Distribution</div>
         <div class="cascade-table" id="cascadeSpread"></div>
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">05 // Glyph Set</div>
+        <div class="chapter-title">03 // Glyph Character Matrix</div>
         <div style="margin-bottom: 24px;">
-            <label for="inventoryFontWeight" style="font-weight: 700; text-transform: uppercase; font-size: 14px;">Font Weight</label>
+            <label for="inventoryFontWeight" style="font-weight: 700; text-transform: uppercase; font-size: 13px; font-family: var(--font-mono);">Font Weight</label>
             <select id="inventoryFontWeight" class="sys-select" style="margin-top: 8px; width: 200px;">
                 <option value="Tecnica-53">53</option>
                 <option value="Tecnica-55" selected>55</option>
@@ -403,7 +365,7 @@
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">06 // About This Typeface</div>
+        <div class="chapter-title">04 // About This Typeface</div>
         <div class="columns-2">
             <div class="col" style="text-align: justify;">
                 Tecnica 55 and Tecnica 53 are bitmap-inspired typefaces influenced by the visual language of early dot matrix printers and low-resolution digital displays. Built on structured dot grids, both fonts capture the balance between technical precision, geometric simplicity, and functional readability.
@@ -415,7 +377,7 @@
     </section>
 
     <section class="chapter" style="border-bottom: 2px solid var(--border-color); margin-bottom: 40px;">
-        <div class="chapter-title">07 // License &amp; Downloads</div>
+        <div class="chapter-title">05 // License &amp; Downloads</div>
         <div class="columns-2" style="align-items: center;">
             <div class="col">
                 All font assets are compiled under the terms of the SIL Open Font License 1.1. Modifying or adding modules to the matrix core does not violate system constraints.
@@ -426,9 +388,9 @@
         </div>
     </section>
 
-    <div style="display: flex; justify-content: space-between; font-size: 14px; font-weight: 700; text-transform: uppercase;">
+    <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; text-transform: uppercase; font-family: var(--font-mono);">
         <span>TECNICA STRUCTURE PROTOCOL / 2026</span>
-        <span>STATUS: ACTIVE</span>
+        <span>STATUS: ACTIVE COMPONENT SPECIMEN</span>
     </div>
 
     <script>
@@ -440,7 +402,6 @@
         const lineHeightValue = document.getElementById('lineHeightValue');
         const testTextInput = document.getElementById('testText');
         const previewBox = document.getElementById('preview-box');
-        const testerCanvas = document.getElementById('tester-canvas');
         const cascadeSpread = document.getElementById('cascadeSpread');
         const inventorySpread = document.getElementById('inventorySpread');
 
@@ -523,13 +484,10 @@
             // Apply targeted fonts across structural outputs
             previewBox.style.fontFamily = fontTarget;
             
-            document.querySelectorAll('.sample-render').forEach(el => {
-                el.style.fontFamily = fontTarget;
-            });
             document.querySelectorAll('.cascade-sample-node').forEach(el => {
                 el.style.fontFamily = fontTarget;
             });
-            document.querySelectorAll('.inventory-cell').forEach(el => {
+            document.querySelectorAll('#inventorySpread .inventory-cell').forEach(el => {
                 el.style.fontFamily = fontTarget;
             });
         }
@@ -549,9 +507,6 @@
 
         testTextInput.addEventListener('input', () => {
             previewBox.textContent = testTextInput.value || ' ';
-            document.getElementById('scale-24').textContent = testTextInput.value || ' ';
-            document.getElementById('scale-12').textContent = testTextInput.value || ' ';
-            document.getElementById('scale-6').textContent = testTextInput.value || ' ';
         });
 
         // Inventory Font Weight Selector
@@ -565,7 +520,7 @@
             });
         }
 
-        // Auxiliary Display Controls
+        // Auxiliary Theme Controller
         function togglePolarity() {
             const body = document.body;
             const btn = document.getElementById('theme-toggle');
@@ -576,10 +531,6 @@
                 body.setAttribute('data-theme', 'dark');
                 btn.innerText = "Theme: Dark";
             }
-        }
-
-        function toggleCadGrid() {
-            testerCanvas.classList.toggle('cad-grid-active');
         }
 
         // Boot Pipeline
