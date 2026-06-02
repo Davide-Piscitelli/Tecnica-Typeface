@@ -1,0 +1,335 @@
+/* ==========================================================================
+   STYLE.CSS // TECNICA TYPEFACE SPECIMEN CORE
+   CORE MINIMALIST GRAPHIC SYSTEM (ISO COMPLIANT & 8px RULE CALIBRATED)
+   ========================================================================== */
+
+/* --- RESET & BASIC SYSTEM INITIALIZATION --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #ffffff; 
+    --border-color: #000000; 
+    --text-color: #000000; /* Constraint: Black text only */
+    --font-mono: 'Fragment Mono', Monaco, Courier, monospace; 
+}
+
+/* --- WEBFONT DECLARATIONS --- */
+@font-face {
+    font-family: 'Tecnica-53';
+    src: url('Fonts/webfont/woff2/Tecnica-53.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-55';
+    src: url('Fonts/webfont/woff2/Tecnica-55.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-53Line';
+    src: url('Fonts/webfont/woff2/Tecnica-53Line.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-55Line';
+    src: url('Fonts/webfont/woff2/Tecnica-55Line.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* --- DOCUMENT LAYOUT (8px Rule Calibration) --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    font-size: 12px; 
+    line-height: 1.5;
+    padding: 40px; /* 8px rule */
+    max-width: 1400px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Division rules calibrated to 2px with 8px rule spacing */
+.chapter {
+    border-top: 2px solid var(--border-color); /* 2px rule */
+    padding: 24px 0 48px 0; /* 8px rule */
+    clear: both;
+}
+
+/* Section titles set to 16px */
+.chapter-title {
+    font-size: 16px; /* 16px rule */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px; /* 8px rule */
+}
+
+/* Micro identification labels */
+.sub-label-caps {
+    font-size: 10px; 
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 8px; /* 8px rule */
+}
+
+/* Descriptive paragraph text */
+.body-text-p1 {
+    font-size: 12px; 
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Core layout columns */
+.columns-2 {
+    display: flex;
+    gap: 40px; /* 8px rule */
+    align-items: flex-start;
+}
+
+.align-top {
+    align-items: flex-start; /* Upper flex alignment rule */
+}
+
+.col {
+    flex: 1;
+}
+
+/* Paragraph spacing in descriptions */
+.col p {
+    margin-bottom: 16px; /* 8px rule */
+}
+.col p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- CONTROL CONSOLE STYLES (8px Rule Calibration) --- */
+.control-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px; /* 8px rule */
+    border: 1px solid var(--border-color);
+    padding: 16px; /* 8px rule */
+    margin-bottom: 24px; /* 8px rule */
+}
+
+.control-panel .control-group:nth-child(4) {
+    grid-column: 1 / -1;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* 8px rule */
+}
+
+/* Improved Input and Select Controls */
+.sys-select, .sys-input-text {
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px; /* 8px rule */
+    font-family: var(--font-mono);
+    font-size: 12px; 
+    outline: none;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.sys-select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23000000'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 32px; /* 8px rule */
+}
+
+/* Minimalistic range sliders */
+.sys-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: var(--border-color);
+    outline: none;
+    margin: 8px 0; /* 8px rule */
+    cursor: pointer;
+}
+
+.sys-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 8px; /* 8px rule */
+    height: 8px; /* 8px rule */
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+}
+
+.sys-slider::-moz-range-thumb {
+    width: 8px;
+    height: 8px;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+}
+
+/* Core Large Inverted Download Button (16px) */
+.sys-btn {
+    background: #000000; /* Black background */
+    color: #ffffff; /* White text */
+    border: 1px solid var(--border-color);
+    padding: 8px 24px; /* 8px rule */
+    font-family: var(--font-mono);
+    font-size: 16px; /* 16px text */
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 0;
+    line-height: 1.2;
+}
+
+.sys-btn:hover {
+    background: transparent;
+    color: #000000;
+}
+
+/* --- SPECIMEN DISPLAY COMPONENTS --- */
+.tester-container {
+    border: 1px solid var(--border-color);
+    min-height: 160px; /* 8px rule */
+}
+
+#preview-box {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    outline: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 32px; /* 8px rule */
+    min-height: 160px; /* 8px rule */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Size Cascade System Table (Section 02) */
+.cascade-table {
+    border-bottom: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.cascade-row {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding: 8px 0; /* 8px rule */
+    overflow: hidden;
+}
+
+.cascade-meta {
+    width: 120px;
+    min-width: 120px;
+    text-align: left;       
+}
+
+/* Truncate Text functionality for safety bounds */
+.cascade-sample-node {
+    flex: 1;
+    padding-left: 24px; /* 8px rule */
+    text-align: left;
+    background: transparent;
+    border: none;
+    outline: none;
+    white-space: nowrap; /* Truncate text configuration */
+    overflow: hidden; /* Truncate text configuration */
+    text-overflow: ellipsis; /* Truncate text configuration */
+    color: var(--text-color);
+}
+
+/* Character Grid Layout (Section 03) */
+.inventory-group {
+    margin-bottom: 24px; /* 8px rule */
+}
+
+.inventory-group h4 {
+    font-size: 10px; 
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px; /* 8px rule */
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); /* 8px rule grid cells */
+    gap: 8px; /* 8px rule */
+}
+
+.inventory-cell {
+    border: 1px solid var(--border-color);
+    height: 112px; /* 8px rule vertical calibration */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px; /* Fixed 72px dimension rule */
+    background: var(--bg-color);
+}
+
+/* --- ISO REGISTRATION TABLE --- */
+.iso-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 32px; /* 8px rule */
+}
+
+.iso-table td {
+    border: 1px solid var(--border-color); 
+    padding: 16px; /* 8px rule */
+    vertical-align: top;
+}
+
+.iso-table .main-title {
+    font-size: 16px; 
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    body { 
+        padding: 16px; /* 8px rule */
+    }
+    .columns-2 { 
+        flex-direction: column; 
+        gap: 24px; /* 8px rule */
+        align-items: stretch; 
+    }
+    .iso-table td { 
+        display: block; 
+        width: 100%; 
+    }
+    .control-panel { 
+        grid-template-columns: 1fr; 
+        gap: 16px; /* 8px rule */
+    }
+    .align-top { 
+        align-items: flex-start; 
+    }
+}
