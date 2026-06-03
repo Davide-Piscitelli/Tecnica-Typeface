@@ -1,20 +1,33 @@
 /* ==========================================================================
    STYLE.CSS // TECNICA TYPEFACE SPECIMEN CORE
-   CORE MINIMALIST GRAPHIC SYSTEM (ISO COMPLIANT & 8px RULE CALIBRATED)
+   DUAL THEME COMPLIANT - WITH PERSISTENT VIGNELLI ACCENT ACCESSIBILITY
    ========================================================================== */
 
-/* --- RESET & BASIC SYSTEM INITIALIZATION --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --bg-color: #ffffff; 
-    --border-color: #000000; 
-    --text-color: #000000; /* Constraint: Black text only */
-    --font-mono: 'Fragment Mono', Monaco, Courier, monospace; 
+/* --- SYSTEM DESIGN SYSTEM VARIABLE TOKENS --- */
+html[data-theme='light'] {
+    --bg-primary: #F0F4F8;
+    --text-primary: #12161A;
+    --text-secondary: #475569;
+    --accent: #E13B13; /* Rosso/Arancio Vignelli - WCAG Compliant */
+    --border-color: #475569;
+    --btn-text: #FFFFFF;
+    --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23475569'/></svg>");
+}
+
+html[data-theme='dark'] {
+    --bg-primary: #12161A;
+    --text-primary: #F0F4F8;
+    --text-secondary: #94A3B8;
+    --accent: #E13B13; /* Preservato per contrasto su sfondo scuro */
+    --border-color: #94A3B8;
+    --btn-text: #FFFFFF;
+    --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%2394A3B8'/></svg>");
 }
 
 /* --- WEBFONT DECLARATIONS --- */
@@ -43,119 +56,121 @@
     font-display: swap;
 }
 
-/* --- DOCUMENT LAYOUT (8px Rule Calibration) --- */
+/* --- TYPOGRAPHIC SCALE & GLOBAL STRUCTURE --- */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-mono);
-    font-size: 12px; 
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Fragment Mono', Monaco, Courier, monospace;
+    font-size: 16px; /* 12pt Base text readouts */
     line-height: 1.5;
-    padding: 40px; /* 8px rule */
+    padding: 40px;
     max-width: 1400px;
     margin: 0 auto;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
-/* Division rules calibrated to 2px with 8px rule spacing */
 .chapter {
-    border-top: 2px solid var(--border-color); /* 2px rule */
-    padding: 24px 0 48px 0; /* 8px rule */
+    border-top: 2px solid var(--border-color);
+    padding: 24px 0 48px 0;
     clear: both;
 }
 
-/* Section titles set to 16px */
 .chapter-title {
-    font-size: 16px; /* 16px rule */
+    font-size: 24px; /* H2 Section Headings */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 24px; /* 8px rule */
+    margin-bottom: 24px;
+    color: var(--accent);
 }
 
-/* Micro identification labels */
 .sub-label-caps {
-    font-size: 10px; 
+    font-size: 12px; /* Micro labels & captions */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     display: block;
-    margin-bottom: 8px; /* 8px rule */
+    margin-bottom: 8px;
+    color: var(--text-secondary);
 }
 
-/* Descriptive paragraph text */
 .body-text-p1 {
-    font-size: 12px; 
+    font-size: 16px; 
     font-weight: 400;
     line-height: 1.6;
     text-align: justify;
+    color: var(--text-primary);
 }
 
-/* Core layout columns */
 .columns-2 {
     display: flex;
-    gap: 40px; /* 8px rule */
+    gap: 40px;
     align-items: flex-start;
 }
 
 .align-top {
-    align-items: flex-start; /* Upper flex alignment rule */
+    align-items: flex-start;
 }
 
 .col {
     flex: 1;
 }
 
-/* Paragraph spacing in descriptions */
 .col p {
-    margin-bottom: 16px; /* 8px rule */
+    margin-bottom: 16px;
 }
 .col p:last-child {
     margin-bottom: 0;
 }
 
-/* --- CONTROL CONSOLE STYLES (8px Rule Calibration) --- */
+/* --- CONTROL CONSOLE MODULE --- */
 .control-panel {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px; /* 8px rule */
+    gap: 24px;
     border: 1px solid var(--border-color);
-    padding: 16px; /* 8px rule */
-    margin-bottom: 24px; /* 8px rule */
+    padding: 16px;
+    margin-bottom: 24px;
 }
 
 .control-panel .control-group:nth-child(4) {
     grid-column: 1 / -1;
+    margin-top: 8px;
 }
 
 .control-group {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* 8px rule */
+    gap: 8px;
 }
 
-/* Improved Input and Select Controls */
+.sys-slider-label span {
+    font-weight: 700;
+}
+
 .sys-select, .sys-input-text {
-    background: var(--bg-color);
-    color: var(--text-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
     border: 1px solid var(--border-color);
-    padding: 8px 16px; /* 8px rule */
-    font-family: var(--font-mono);
-    font-size: 12px; 
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 16px; 
     outline: none;
     border-radius: 0;
     appearance: none;
     -webkit-appearance: none;
-    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .sys-select {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23000000'/></svg>");
+    background-image: var(--select-arrow);
     background-repeat: no-repeat;
     background-position: right 16px center;
-    padding-right: 32px; /* 8px rule */
+    padding-right: 32px;
+    cursor: pointer;
 }
 
-/* Minimalistic range sliders */
 .sys-slider {
     -webkit-appearance: none;
     appearance: none;
@@ -163,36 +178,35 @@ body {
     height: 2px;
     background: var(--border-color);
     outline: none;
-    margin: 8px 0; /* 8px rule */
+    margin: 8px 0;
     cursor: pointer;
 }
 
 .sys-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 8px; /* 8px rule */
-    height: 8px; /* 8px rule */
-    background: var(--border-color);
-    border: none;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
     cursor: pointer;
 }
 
 .sys-slider::-moz-range-thumb {
     width: 8px;
     height: 8px;
-    background: var(--border-color);
+    background: var(--accent);
     border: none;
     cursor: pointer;
 }
 
-/* Core Large Inverted Download Button (16px) */
+/* --- INTERACTIVE BUTTONS --- */
 .sys-btn {
-    background: #000000; /* Black background */
-    color: #ffffff; /* White text */
-    border: 1px solid var(--border-color);
-    padding: 8px 24px; /* 8px rule */
-    font-family: var(--font-mono);
-    font-size: 16px; /* 16px text */
+    background: var(--accent); 
+    color: var(--btn-text); 
+    border: 1px solid var(--accent);
+    padding: 8px 24px;
+    font-family: inherit;
+    font-size: 16px; 
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
@@ -200,36 +214,66 @@ body {
     text-decoration: none;
     border-radius: 0;
     line-height: 1.2;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .sys-btn:hover {
     background: transparent;
-    color: #000000;
+    color: var(--accent);
 }
 
-/* --- SPECIMEN DISPLAY COMPONENTS --- */
+/* --- SOLUZIONE ERRORI BORDI DELLA CELLA DEL TEMA --- */
+.iso-table td.theme-zone-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.sys-btn-theme {
+    width: 100%;
+    box-sizing: border-box;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 0;
+    line-height: 1.2;
+    text-align: center;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.sys-btn-theme:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+/* --- CANVAS & LIVE TESTING VIEWS --- */
 .tester-container {
     border: 1px solid var(--border-color);
-    min-height: 160px; /* 8px rule */
+    min-height: 160px;
 }
 
 #preview-box {
     width: 100%;
-    border: none;
     background: transparent;
-    color: var(--text-color);
+    color: var(--text-primary);
     outline: none;
     white-space: pre-wrap;
     word-wrap: break-word;
     text-align: center;
-    padding: 32px; /* 8px rule */
-    min-height: 160px; /* 8px rule */
+    padding: 32px;
+    min-height: 160px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Size Cascade System Table (Section 02) */
 .cascade-table {
     border-bottom: 1px solid var(--border-color);
     width: 100%;
@@ -237,88 +281,85 @@ body {
 
 .cascade-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     border-top: 1px solid var(--border-color);
-    padding: 8px 0; /* 8px rule */
+    padding: 12px 0;
     overflow: hidden;
 }
 
 .cascade-meta {
     width: 120px;
     min-width: 120px;
-    text-align: left;       
+    text-align: left;
+    margin-bottom: 0;
+    font-weight: 700;
 }
 
-/* Truncate Text functionality for safety bounds */
 .cascade-sample-node {
     flex: 1;
-    padding-left: 24px; /* 8px rule */
-    text-align: left;
+    padding-left: 24px;
+    text-align: left; /* Allineamento obbligatorio in alto a sinistra */
     background: transparent;
     border: none;
     outline: none;
-    white-space: nowrap; /* Truncate text configuration */
-    overflow: hidden; /* Truncate text configuration */
-    text-overflow: ellipsis; /* Truncate text configuration */
-    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-primary);
 }
 
-/* Character Grid Layout (Section 03) */
+/* --- CELL MATRIX GLYPH GRIDS --- */
 .inventory-group {
-    margin-bottom: 24px; /* 8px rule */
-}
-
-.inventory-group h4 {
-    font-size: 10px; 
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 8px; /* 8px rule */
+    margin-bottom: 24px;
 }
 
 .inventory-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); /* 8px rule grid cells */
-    gap: 8px; /* 8px rule */
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: 8px;
 }
 
 .inventory-cell {
     border: 1px solid var(--border-color);
-    height: 112px; /* 8px rule vertical calibration */
+    height: 112px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 72px; /* Fixed 72px dimension rule */
-    background: var(--bg-color);
+    font-size: 72px; 
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
-/* --- ISO REGISTRATION TABLE --- */
+/* --- ISO INDUSTRIAL TABLE --- */
 .iso-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 32px; /* 8px rule */
+    margin-bottom: 32px;
 }
 
 .iso-table td {
     border: 1px solid var(--border-color); 
-    padding: 16px; /* 8px rule */
+    padding: 16px;
     vertical-align: top;
 }
 
 .iso-table .main-title {
-    font-size: 16px; 
+    font-size: 48px; /* H1 Main System Header */
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1.1;
+    color: var(--text-primary);
 }
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
+/* --- RESPONSIVE ENGINE VIEWPORTS --- */
 @media (max-width: 768px) {
     body { 
-        padding: 16px; /* 8px rule */
+        padding: 16px;
     }
     .columns-2 { 
         flex-direction: column; 
-        gap: 24px; /* 8px rule */
+        gap: 24px;
         align-items: stretch; 
     }
     .iso-table td { 
@@ -327,9 +368,6 @@ body {
     }
     .control-panel { 
         grid-template-columns: 1fr; 
-        gap: 16px; /* 8px rule */
-    }
-    .align-top { 
-        align-items: flex-start; 
+        gap: 16px;
     }
 }
