@@ -2,13 +2,13 @@
 
 ---
 
-## Technical Specification Manual & Font Tester
+## Type Specimen
 
 This repository houses the official documentation, deployment structure, and interactive verification environment for the **Tecnica Typeface** system. This project provides a clean, minimalist toolkit to analyze type layout behaviors across digital rendering frameworks.
 
 ---
 
-## System Overview & Core Aesthetics
+## System Overview
 
 **Tecnica Typeface** (including weights 53, 55, and their respective architectural "Line" sub-variants) is a digital writing system built entirely upon geometric coordinate matrix arrays. 
 
