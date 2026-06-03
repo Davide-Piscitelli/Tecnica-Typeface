@@ -1,14 +1,19 @@
-==============================================================================
-TECHNICAL MANUAL & DESIGN SYSTEM SPECIFICATION // TECNICA TYPEFACE SPECIMEN
-==============================================================================
+# Tecnica Typeface Specimen
+
+---
+
+## Design System Specification
+
+---
 
 This document details the semantic architecture of 'index.html', the visual 
 mechanics of 'style.css', and the core mathematical and programmatic rules 
-governing the Tecnica Typeface Minimal Specimen interface.
+governing the Tecnica Typeface Specimen interface.
 
-------------------------------------------------------------------------------
-1. DESIGN SYSTEM & ARCHITECTURAL TOKENS
-------------------------------------------------------------------------------
+---
+
+## Design System
+
 The graphic interface follows a strict industrial computing layout framework, 
 inspired by early system terminal readouts and modular ISO documentation.
 
@@ -40,8 +45,9 @@ inspired by early system terminal readouts and modular ISO documentation.
     * text-secondary: #94A3B8
     * accent:         #38BDF8
 
-------------------------------------------------------------------------------
-2. INDEX.HTML STRUCTURE & DOM PROPERTIES
+---
+
+## INDEX.HTML Structure
 ------------------------------------------------------------------------------
 The markup is organized into clean, semantic components that process text 
 flows sequentially without layout overlapping:
@@ -50,9 +56,9 @@ flows sequentially without layout overlapping:
   Calibrates mobile-responsive viewports and asynchronously pre-connects to 
   the Google Fonts API to fetch the core UI interface monospace font.
 
-* ISO Registration Table (.iso-table):
+* Registration Table:
   An industrial-style table configured with absolute borders mapping core data:
-  System Specimen Identification, unique Document ID Code (ISO-TT-SPEC-2026), 
+  System Specimen Identification, unique Document ID Code (TT-LINE-5355), 
   System Designer credits, and a dynamic Interface Theme cell container.
 
 * 01 // LIVE SPECIMEN FIELD:
@@ -84,9 +90,10 @@ flows sequentially without layout overlapping:
   an interactive call-to-action button linking directly to the open-source 
   repository (GitHub).
 
-------------------------------------------------------------------------------
-3. STYLE.CSS MECHANICS & PIPELINES
-------------------------------------------------------------------------------
+---
+
+## STYLE.CSS Mechanics
+
 The CSS architecture processes theme-switching variables seamlessly while 
 safeguarding strict grid alignment:
 
@@ -120,4 +127,3 @@ safeguarding strict grid alignment:
   A media query set at 768px breaks tabular layouts into block columns 
   (width: 100%), scales control elements vertically, and recalculates 
   screen padding rules to maintain accessibility across touch interfaces.
-==============================================================================
