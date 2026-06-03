@@ -35,60 +35,60 @@
                 <span class="sub-label-caps">Release Matrix Date</span>
                 <span class="body-text-p1">2026</span>
             </td>
-            <td>
-                <span class="sub-label-caps">Classification Status</span>
-                <span class="body-text-p1">STANDARD / MINIMAL-VERIFIED</span>
+            <td class="theme-zone-cell">
+                <span class="sub-label-caps">Interface Theme</span>
+                <button id="themeToggleBtn" class="sys-btn-theme" aria-label="Toggle interface theme">Theme: Dark</button>
             </td>
         </tr>
     </table>
 
     <section class="chapter">
-        <div class="chapter-title">01 // Global Control &amp; Live Specimen Field</div>
+        <div class="chapter-title">01 // LIVE SPECIMEN FIELD</div>
         
         <div class="control-panel">
             <div class="control-group">
                 <label for="fontFamily" class="sub-label-caps">System Weight</label>
                 <select id="fontFamily" class="sys-select">
-                    <option value="Tecnica-53">53 (Light)</option>
-                    <option value="Tecnica-55" selected>55 (Regular)</option>
-                    <option value="Tecnica-53Line">53 Line (Inline Light)</option>
-                    <option value="Tecnica-55Line">55 Line (Inline Regular)</option>
+                    <option value="Tecnica-53">53</option>
+                    <option value="Tecnica-55" selected>55</option>
+                    <option value="Tecnica-53Line">53 Line</option>
+                    <option value="Tecnica-55Line">55 Line</option>
                 </select>
             </div>
 
             <div class="control-group">
-                <label for="fontSize" class="sub-label-caps">Text Size (<span id="fontSizeValue" style="font-weight:700;">48</span>px)</label>
+                <label for="fontSize" class="sys-slider-label sub-label-caps">Text Size (<span id="fontSizeValue">48</span>pt)</label>
                 <input type="range" id="fontSize" class="sys-slider" min="12" max="144" value="48">
             </div>
 
             <div class="control-group">
-                <label for="lineHeight" class="sub-label-caps">Line Spacing (<span id="lineHeightValue" style="font-weight:700;">1.3</span>)</label>
-                <input type="range" id="lineHeight" class="sys-slider" min="0.8" max="2.5" step="0.1" value="1.3">
+                <label for="lineHeight" class="sys-slider-label sub-label-caps">Line Spacing (<span id="lineHeightValue">1.2</span>)</label>
+                <input type="range" id="lineHeight" class="sys-slider" min="0.8" max="2.5" step="0.1" value="1.2">
             </div>
 
-            <div class="control-group" style="margin-top: 8px;">
+            <div class="control-group">
                 <label for="testText" class="sub-label-caps">Type here to test the font</label>
                 <input type="text" id="testText" class="sys-input-text" value="Tecnica dot matrix stream and processor core online.">
             </div>
         </div>
 
-        <div class="tester-container" id="tester-canvas">
-            <div id="preview-box" contenteditable="true" style="font-family: 'Tecnica-55'; font-size: 48px; line-height: 1.3;">Tecnica dot matrix stream and processor core online.</div>
+        <div class="tester-container">
+            <div id="preview-box" contenteditable="true">Tecnica dot matrix stream and processor core online.</div>
         </div>
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">02 // Text View at Different Sizes</div>
+        <div class="chapter-title">02 // TYPE SCALE VIEW</div>
         <div class="cascade-table" id="cascadeSpread"></div>
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">03 // Complete Collection of Letters and Symbols</div>
+        <div class="chapter-title">03 // CHARACTER SET</div>
         <div id="inventorySpread"></div>
     </section>
 
     <section class="chapter">
-        <div class="chapter-title">04 // Font Information &amp; Specifications</div>
+        <div class="chapter-title">04 // INFORMATION &amp; SPECIFICATIONS</div>
         <div class="columns-2">
             <div class="col body-text-p1">
                 <p>Tecnica 55 and Tecnica 53 are digital writing styles built entirely on structured geometric pixel grids. The project draws clear visual inspiration from the legacy of early technological devices, capturing the precise aesthetic of early computing terminal systems, low-resolution screen displays, and historical dot matrix printing machines. By restricting forms to fixed coordinate arrangements, the design team achieved a structural balance where clean technical geometries effortlessly align with day-to-day text legibility and functional communication goals.</p>
@@ -101,14 +101,21 @@
         </div>
     </section>
 
+    <section class="chapter">
+        <div class="chapter-title">05 // SUPPORTED LANGUAGES</div>
+        <div class="body-text-p1">
+            Afrikaans, Albanian, Asturian, Asu (Tanzania), Basque, Bemba (Zambia), Bena (Tanzania), Breton, Catalan, Chiga, Cornish, Croatian, Czech, Danish, Dutch, Embu, English, Esperanto, Estonian, Faroese, Filipino, Finnish, French, Friulian, Galician, Ganda, German, Gusii, Hungarian, Icelandic, Igbo, Inari Sami, Indonesian, Irish, Italian, Jola-Fonyi, Kabuverdianu, Kabyle, Kalaallisut, Kalenjin, Kamba (Kenya), Kikuyu, Kinyarwanda, Koyra, Chiini Songhay, Koyraboro Senni, Songhai, Kölsch, Langi, Latvian, Lithuanian, Lower Sorbian, Luo (Kenya and, Tanzania), Luxembourgish, Luyia, Machame, Makhuwa-Meetto, Makonde, Malagasy, Maltese, Manx, Meru, Morisyen, North Ndebele, Northern Sami, Norwegian Bokmål, Norwegian Nynorsk, Nyankole, Oromo, Polish, Portuguese, Prussian, Quechua, Romanian, Romansh, Rombo, Rundi, Rwa, Samburu, Sango, Sangu (Tanzania), Scottish Gaelic, Sena, Serbian, Shambala, Shona, Slovak, Slovenian, Soga, Somali, Spanish Swahili, Swedish, Swiss German, Tachelhit, Taita, Tasawaq, Teso, Turkish, Upper Sorbian, Uzbek, Volapük, Vunjo, Walser, Welsh, Western Frisian, Yoruba, Zarma, Zulu.
+        </div>
+    </section>
+
     <section class="chapter" style="border-bottom: 2px solid var(--border-color); margin-bottom: 32px;">
-        <div class="chapter-title">05 // Distribution Rules</div>
+        <div class="chapter-title">06 // COPYRIGHT &amp; LICENSE</div>
         <div class="columns-2 align-top">
             <div class="col body-text-p1">
                 All font assets are released under the terms of the SIL Open Font License 1.1. Modifying or adding new elements to the core system does not violate the terms of use.
             </div>
             <div class="col" style="text-align: right;">
-                <a href="Fonts" class="sys-btn" target="_blank">Download Core</a>
+                <a href="https://github.com/Davide-Piscitelli/Tecnica-Typeface" class="sys-btn" target="_blank">Download the Font</a>
             </div>
         </div>
     </section>
@@ -118,133 +125,6 @@
         <span>Document Status: Operational Minimal Specimen</span>
     </div>
 
-    <script>
-        // DOM Node Registry
-        const fontFamilySelect = document.getElementById('fontFamily');
-        const fontSizeInput = document.getElementById('fontSize');
-        const fontSizeValue = document.getElementById('fontSizeValue');
-        const lineHeightInput = document.getElementById('lineHeight');
-        const lineHeightValue = document.getElementById('lineHeightValue');
-        const testTextInput = document.getElementById('testText');
-        const previewBox = document.getElementById('preview-box');
-        const cascadeSpread = document.getElementById('cascadeSpread');
-        const inventorySpread = document.getElementById('inventorySpread');
-
-        // Static Testing Vectors (Section 02 Sizes)
-        const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
-        
-        // Context-driven strings (Coherent with Tecnica Typeface, Mixed-case format)
-        const testStrings = {
-            12: 'Micro-grid bitmap rendering terminal data channels active.',
-            14: 'High density dot matrix buffer array reference system.',
-            18: 'Low resolution digital interface emulation core online.',
-            24: 'Geometric raster algorithm for typographic constraints.',
-            36: 'Structured dot grid field analysis level nine matrix.',
-            48: 'Monospaced glyph cell bounds calibrated.',
-            60: 'Raw compute stream output validation.',
-            72: 'Tecnica system typeface protocol.',
-            96: 'Raster data channels active.',
-            120: 'Terminal specimen test.'
-        };
-
-        // Complete user-friendly glyph distribution
-        const glyphGroups = {
-            'Capital letters': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            'Lowercase letters': 'abcdefghijklmnopqrstuvwxyz',
-            'Numbers and digits': '0123456789',
-            'Punctuation marks': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
-            'Special symbols': '±≠≤≥∞∫√°©®™€¥£¢',
-            'Accent and extended letters': 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ'
-        };
-
-        // System Pipeline Boot Initialization
-        function initSystem() {
-            // Render Section 02 (Sizes Cascade with Truncate Text rules via CSS class)
-            standardSizes.forEach(size => {
-                const row = document.createElement('div');
-                row.className = 'cascade-row';
-                
-                const meta = document.createElement('div');
-                meta.className = 'cascade-meta sub-label-caps';
-                meta.style.marginBottom = '0';
-                meta.style.fontWeight = '700';
-                meta.textContent = `Size_${size}px`;
-
-                const sample = document.createElement('div');
-                sample.className = 'cascade-sample-node';
-                sample.setAttribute('contenteditable', 'true');
-                sample.style.fontSize = size + 'px';
-                sample.textContent = testStrings[size];
-
-                row.appendChild(meta);
-                row.appendChild(sample);
-                cascadeSpread.appendChild(row);
-            });
-
-            // Render Section 03 (Letters and Symbols Grid)
-            for (const [category, chars] of Object.entries(glyphGroups)) {
-                const block = document.createElement('div');
-                block.className = 'inventory-group';
-
-                const header = document.createElement('h4');
-                header.textContent = category;
-                block.appendChild(header);
-
-                const grid = document.createElement('div');
-                grid.className = 'inventory-grid';
-
-                chars.split('').forEach(char => {
-                    const cell = document.createElement('div');
-                    cell.className = 'inventory-cell';
-                    cell.textContent = char;
-                    grid.appendChild(cell);
-                });
-
-                block.appendChild(grid);
-                inventorySpread.appendChild(block);
-            }
-
-            // Sync visual styles on first boot
-            syncFontWeightGlobal();
-        }
-
-        // Global font sync tool
-        function syncFontWeightGlobal() {
-            const currentWeight = fontFamilySelect.value;
-            
-            // Update core preview
-            previewBox.style.fontFamily = currentWeight;
-            
-            // Update cascade samples
-            document.querySelectorAll('.cascade-sample-node').forEach(el => {
-                el.style.fontFamily = currentWeight;
-            });
-
-            // Update collection cells
-            document.querySelectorAll('.inventory-cell').forEach(el => {
-                el.style.fontFamily = currentWeight;
-            });
-        }
-
-        // Real-time Event Signal Binding
-        fontFamilySelect.addEventListener('change', syncFontWeightGlobal);
-
-        fontSizeInput.addEventListener('input', () => {
-            previewBox.style.fontSize = fontSizeInput.value + 'px';
-            fontSizeValue.textContent = fontSizeInput.value;
-        });
-
-        lineHeightInput.addEventListener('input', () => {
-            previewBox.style.lineHeight = lineHeightInput.value;
-            lineHeightValue.textContent = lineHeightInput.value;
-        });
-
-        testTextInput.addEventListener('input', () => {
-            previewBox.textContent = testTextInput.value || ' ';
-        });
-
-        // Run system boot once page is loaded
-        window.onload = initSystem;
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
