@@ -1,55 +1,24 @@
 # Tecnica Typeface
 
----
+[cite_start]Tecnica is a versatile, bitmap-inspired typographic system heavily influenced by the raw visual language of early dot matrix printers and low-resolution digital displays[cite: 33]. [cite_start]Built on precise, structured dot grids, it strikes a balance between industrial technical accuracy, geometric simplicity, and functional legibility[cite: 34].
 
-## Type Specimen
+The project features two distinct matrix variants designed for diverse digital layouts:
+* [cite_start]**Tecnica 55**: Utilizes a 5×5 grid system to produce bold, highly structured letterforms with a powerful visual presence[cite: 35]. [cite_start]Ideal for user interfaces, branding, and high-impact display applications[cite: 36].
+* [cite_start]**Tecnica 53**: Adopts a compact 5×3 grid for a narrower, minimalist aesthetic[cite: 37]. [cite_start]Optimized for high-density, space-saving layouts, it retains excellent readability with a lighter visual rhythm[cite: 38].
 
-This repository houses the official documentation, deployment structure, and interactive verification environment for the **Tecnica Typeface** system. This project provides a clean, minimalist toolkit to analyze type layout behaviors across digital rendering frameworks.
+[cite_start]Both variants include specialized **Line** versions (`Tecnica-53Line` and `Tecnica-55Line`), expanding the system's utility for software interfaces, developer tools, tech branding, and retro-futuristic or sci-fi visual designs[cite: 39, 40, 62].
 
----
+## Repository Structure
 
-## Typeface Overview
+* [cite_start]`DESCRIPTION.txt`: Core design philosophy and font specifications[cite: 33, 34].
+* [cite_start]`DESIGN_SYSTEM.txt`: Technical architecture of the web specimen interface[cite: 41].
+* [cite_start]`LICENSE.txt`: Full SIL Open Font License v1.1 text[cite: 7, 8].
+* [cite_start]`AUTHORS.txt` & `CONTRIBUTORS.txt`: Project ownership and attribution logs[cite: 1, 4].
+* [cite_start]`NOTE.txt`: Quick usage guidelines, permissions, and author bio[cite: 29, 30].
 
-**Tecnica Typeface** (including weights 53, 55, and their respective architectural "Line" sub-variants) is a digital writing system built entirely upon geometric coordinate matrix arrays. 
+## Licensing & Usage
 
-### Typeface Design
-
-* **Tecnica 55:** Uses a 5×5 matrix system, creating bold and highly structured letterforms with a strong visual presence. Its balanced proportions and modular construction make it ideal for interfaces, branding, and display applications where clarity and impact are essential.
-* **Tecnica 53:** Adopts a more compact 5×3 grid, resulting in a narrower and more minimal aesthetic. Designed for efficiency and space-saving layouts, it retains excellent readability while embracing a cleaner, lighter visual rhythm.
-* **Tecnica 55 Line & 53 Line:** Alternate structural configurations that peel back the solid glyph surface to reveal the internal wireframe grid architecture, allowing perfect overlay syncing in layered UI environments.
-
-Together, Tecnica 55 and Tecnica 53 offer a versatile typographic system suited for digital, technical, and sci-fi-inspired projects. From software interfaces and developer tools to tech branding and pixel-based visuals, both typefaces deliver a distinctive retro-futuristic character rooted in the aesthetics of early computing.
-
----
-
-## Gallery
-
-![T01](https://github.com/user-attachments/assets/549c5e97-d76d-4295-9677-9c8ecab85af6)
-
-![T02](https://github.com/user-attachments/assets/9a816d27-7ec9-4eb4-ac30-52283586e077)
-
-![T03](https://github.com/user-attachments/assets/7233d6e9-1929-4f46-b160-857ec49e2a8a)
-
-![T04](https://github.com/user-attachments/assets/35397ad4-34ba-44e2-9a30-6da40081254d)
-
-![T05](https://github.com/user-attachments/assets/09621581-f63a-4b91-bc8b-144d34330fc7)
-
----
-
-## Designer
-
-* **Davide Piscitelli**
-
----
-
-## About Author
-
-Davide Piscitelli is a STEM Teacher and Designer, contributing to the development of experimental and open source typefaces.
-
----
-
-## Copyright & License
-
-* **Copyright:** Copyright 2024 Davide Piscitelli (davidepscll@gmail.com)
-* **License:** This Font Software is licensed under the **SIL Open Font License, Version 1.1**. The full license text is available alongside the source code and online at: https://scripts.sil.org/OFL
-
+[cite_start]This typeface is completely open-source and distributed under the **SIL Open Font License v1.1**[cite: 7, 29]. 
+* [cite_start]**Permissions**: Free for both personal and commercial use[cite: 18, 31]. [cite_start]You may use, study, modify, and redistribute the font software freely[cite: 9, 18].
+* [cite_start]**Conditions**: The font software cannot be sold on its own[cite: 9, 18]. [cite_start]Derivative works must not use the Reserved Font Names and must remain under the same license[cite: 10, 11, 21].
+* [cite_start]**Attribution**: Please credit the original designer, Davide Piscitelli, when publishing projects that feature this typeface[cite: 30, 32].
