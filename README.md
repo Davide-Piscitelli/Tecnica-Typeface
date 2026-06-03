@@ -8,14 +8,11 @@ This repository houses the official documentation, deployment structure, and int
 
 ---
 
-## System Overview
+## Typeface Overview
 
 **Tecnica Typeface** (including weights 53, 55, and their respective architectural "Line" sub-variants) is a digital writing system built entirely upon geometric coordinate matrix arrays. 
 
-### Conceptual Framework
-The project draws inspiration from early computer terminal architectures, low-resolution screen grids, and historical dot matrix ribbon printers. By aligning paths to fixed grid intersections, it establishes a predictable monospaced rhythm that balances mechanical efficiency, crisp geometry, and high textual legibility under rigorous industrial constraints.
-
-### The Design System Matrix
+### Typeface Design
 * **Tecnica 55:** Uses a 5×5 matrix system, creating bold and highly structured letterforms with a strong visual presence. Its balanced proportions and modular construction make it ideal for interfaces, branding, and display applications where clarity and impact are essential.
 * **Tecnica 53:** Adopts a more compact 5×3 grid, resulting in a narrower and more minimal aesthetic. Designed for efficiency and space-saving layouts, it retains excellent readability while embracing a cleaner, lighter visual rhythm.
 * **Tecnica 55 Line & 53 Line:** Alternate structural configurations that peel back the solid glyph surface to reveal the internal wireframe grid architecture, allowing perfect overlay syncing in layered UI environments.
