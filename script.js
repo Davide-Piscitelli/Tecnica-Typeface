@@ -32,12 +32,12 @@ const testStrings = {
 };
 
 const glyphGroups = {
-    'Capital letters': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    'Uppercase': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     'Lowercase letters': 'abcdefghijklmnopqrstuvwxyz',
-    'Numbers and digits': '0123456789',
-    'Punctuation marks': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
-    'Special symbols': '±≠≤≥∞∫√°©®™€¥£¢',
-    'Accent and extended letters': 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ'
+    'Numbers': '0123456789',
+    'Punctuation': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
+    'Symbols': '±≠≤≥∞∫√°©®™€¥£¢',
+    'Latin extended': 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ'
 };
 
 /**
