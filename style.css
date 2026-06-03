@@ -303,7 +303,7 @@ body {
     border: 1px solid var(--border-color);
     padding: 8px 16px;
     font-family: inherit;
-    font-size: 12px;
+    font-size: 16px; /* Dimensione aumentata a 16px per massima leggibilità */
     cursor: pointer;
     text-transform: none;
     text-decoration: none;
