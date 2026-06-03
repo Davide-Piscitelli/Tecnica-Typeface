@@ -1,9 +1,9 @@
 ## License
-This typeface is available under the SIL Open Font License v1.1
-See [LICENSE.txt] for more details.
+Licensed under the SIL Open Font License v1.1. See LICENSE.txt for details.
 
-## About Author
-Davide Piscitelli is a STEM teacher and Designer, contributing to the development of experimental and open source typefaces.
+## About the Author
+Davide Piscitelli is a STEM teacher and designer focused on experimental and open-source typefaces.
 
-## Permissions
-You can use this typeface for all personal and commercial works. Remember to credit the original designer and the foundry when publishing your work featuring Davide Piscitelli fonts. 
+## Permissions & Usage
+* Free for both personal and commercial projects.
+* Credit to the designer and foundry is required when publishing work featuring this typeface.
