@@ -1,0 +1,123 @@
+==============================================================================
+TECHNICAL MANUAL & DESIGN SYSTEM SPECIFICATION // TECNICA TYPEFACE SPECIMEN
+==============================================================================
+
+This document details the semantic architecture of 'index.html', the visual 
+mechanics of 'style.css', and the core mathematical and programmatic rules 
+governing the Tecnica Typeface Minimal Specimen interface.
+
+------------------------------------------------------------------------------
+1. DESIGN SYSTEM & ARCHITECTURAL TOKENS
+------------------------------------------------------------------------------
+The graphic interface follows a strict industrial computing layout framework, 
+inspired by early system terminal readouts and modular ISO documentation.
+
+* The 8px Grid Rule:
+  All layout structures, sizing parameters, paddings, margins, and grid gaps 
+  are strictly computed as multiples or sub-multiples of 8px (e.g., 8px, 16px, 
+  24px, 32px, 48px, 112px, 160px). This ensures an absolute mathematical rhythm.
+
+* Core Typography:
+  - Base Interface Monospace Font: 'Fragment Mono' (with generic system 
+    monospace fallbacks) ensures legible data parameters and a command-line aesthetic.
+  - Specimen Core: 'Tecnica' (variants 53, 55, 53 Line, 55 Line).
+
+* Typographic Scale Hierarchy:
+  - 12px (9pt)  - Secondary Elements: Micro labels, metadata, cell captions.
+  - 16px (12pt) - Body Text: Primary information paragraphs and readouts.
+  - 24px (18pt) - Secondary Headings: Structural chapter section indicators.
+  - 48px (36pt) - Main Title: Primary visual system identification.
+
+* Color Design System (Dual Theme Tokens):
+  - Light Theme (Default):
+    * bg-primary:     #F0F4F8
+    * text-primary:   #12161A
+    * text-secondary: #475569
+    * accent:         #0284C7
+  - Dark Theme:
+    * bg-primary:     #12161A
+    * text-primary:   #F0F4F8
+    * text-secondary: #94A3B8
+    * accent:         #38BDF8
+
+------------------------------------------------------------------------------
+2. INDEX.HTML STRUCTURE & DOM PROPERTIES
+------------------------------------------------------------------------------
+The markup is organized into clean, semantic components that process text 
+flows sequentially without layout overlapping:
+
+* Metadata Header (<head>):
+  Calibrates mobile-responsive viewports and asynchronously pre-connects to 
+  the Google Fonts API to fetch the core UI interface monospace font.
+
+* ISO Registration Table (.iso-table):
+  An industrial-style table configured with absolute borders mapping core data:
+  System Specimen Identification, unique Document ID Code (ISO-TT-SPEC-2026), 
+  System Designer credits, and a dynamic Interface Theme cell container.
+
+* 01 // LIVE SPECIMEN FIELD:
+  - Control Console (.control-panel): A three-column CSS Grid wrapping input 
+    signals (select box for system weights, range sliders for font size 
+    calibrated from 12 to 144 points, and line spacing starting at 1.2).
+  - Editable Canvas (#preview-box): An isolated, centered block with native 
+    'contenteditable="true"' binding to let users write custom text inputs.
+
+* 02 // TYPE SCALE VIEW (#cascadeSpread):
+  An empty container populated dynamically by an initialization loop. It builds 
+  horizontal rows matching standard sizing configurations from 12pt up to 120pt, 
+  pre-formatted with the naming convention "SIZE_NNPT".
+
+* 03 // CHARACTER SET (#inventorySpread):
+  Generates automated structural block grids separating uppercase, lowercase, 
+  numerical strings, punctuation symbols, and extended character maps into 
+  isolated inspection cells.
+
+* 04 // INFORMATION & SPECIFICATIONS (.columns-2):
+  An aligned twin-column container housing the technical design history 
+  and application fields of Tecnica Typeface.
+
+* 05 // SUPPORTED LANGUAGES:
+  A justified content text block indexing global multilingual compatibility.
+
+* 06 // COPYRIGHT & LICENSE:
+  A clean disclosure footer highlighting the SIL Open Font License 1.1 with 
+  an interactive call-to-action button linking directly to the open-source 
+  repository (GitHub).
+
+------------------------------------------------------------------------------
+3. STYLE.CSS MECHANICS & PIPELINES
+------------------------------------------------------------------------------
+The CSS architecture processes theme-switching variables seamlessly while 
+safeguarding strict grid alignment:
+
+* Global Resets & Layout Engine (*, body):
+  Imposes 'box-sizing: border-box' across elements to handle width behaviors 
+  without breaking grid constraints. The body handles smooth transitions for 
+  background-color and color updates.
+
+* Webfont Pipeline (@font-face):
+  Initializes local paths for 'Tecnica-53', 'Tecnica-55', 'Tecnica-53Line', 
+  and 'Tecnica-55Line' utilizing 'font-display: swap' to guarantee instantaneous 
+  rendering performance during font asset switches.
+
+* Theme Scoping Engine:
+  Uses the HTML element attribute selector (`html[data-theme='light']` / 
+  `html[data-theme='dark']`) to override CSS custom property tokens, enabling 
+  instant reactive palette swaps via JavaScript triggers.
+
+* Elastic Theme Cell & Interactive UI Button (.theme-zone-cell, .sys-btn-theme):
+  Configures the button to take up 100% of its cell container size, responding 
+  fluidly to any window resizing. It sets borders to inherit natively from 
+  the 'border-collapse' properties of the parent table, preventing double-border 
+  thickness errors (> 1px) and ensuring clean grid lines.
+
+* Truncate Text Configuration (.cascade-sample-node):
+  Applies structural constraints ('white-space: nowrap', 'overflow: hidden', 
+  'text-overflow: ellipsis') to text-rendering nodes in the cascade table. 
+  This prevents exceptionally long text inputs from breaking layout bounds.
+
+* Fluid Mobile Breakpoints (@media):
+  A media query set at 768px breaks tabular layouts into block columns 
+  (width: 100%), scales control elements vertically, and recalculates 
+  screen padding rules to maintain accessibility across touch interfaces.
+==============================================================================
