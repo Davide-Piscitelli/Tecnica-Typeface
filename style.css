@@ -53,7 +53,18 @@ html[data-theme='dark'] {
     font-weight: 700;
     font-display: swap;
 }
-
+@font-face {
+    font-family: 'Tecnica-Mono';
+    src: url('Fonts/webfont/woff2/Tecnica-Mono.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-MonoLine';
+    src: url('Fonts/webfont/woff2/Tecnica-MonoLine.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
 /* --- TYPOGRAPHIC SCALE & GLOBAL STRUCTURE --- */
 body {
     background-color: var(--bg-primary);
