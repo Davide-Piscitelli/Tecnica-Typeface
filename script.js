@@ -1,10 +1,10 @@
 /* ==========================================================================
-   SCRIPT.JS // TECNICA TYPEFACE SYSTEM CONTROLLER (6 WEIGHTS ARCHITECTURE)
+   SCRIPT.JS // TECNICA TYPEFACE SYSTEM CONTROLLER (6 REAL WEIGHTS DECK)
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // DATA SET 1: Raggruppamento dei Caratteri (Capitolo 3)
+    // DATA MATRIX 1: Complete Specimen Character Inventory Breakdown
     const glyphGroups = {
         'UPPERCASE': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
         'LOWERCASE LETTERS': 'abcdefghijklmnopqrstuvwxyz',
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'LATIN EXTENDED': 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ'
     };
 
-    // DATA SET 2: Lista Ordinata di Copertura delle Lingue (Capitolo 5)
+    // DATA MATRIX 2: Complete Linguistic Architecture Database
     const supportedLanguages = [
         "Afrikaans", "Danish", "German", "Norwegian", "Swedish",
         "Basque", "Dutch", "Icelandic", "Portuguese", "Tagalog",
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Catalan", "Finnish", "Italian", "Swahili", "Zulu"
     ];
 
-    // ELEMENTI DI ANCORAGGIO DEL DOM
+    // OBJECT ATTRIBUTION LOGIC NODE TRACKERS
     const themeToggleBtn = document.getElementById("themeToggleBtn");
     const fontFamilySelector = document.getElementById("fontFamilySelector");
     const sizeSlider = document.getElementById("size-slider");
@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const languagesWrapper = document.getElementById("languages-wrapper");
 
     // =========================================================================
-    // 1. INIZIALIZZAZIONE COMPONENTI (Matrici dei Glifi e Elenco Lingue)
+    // 1. INVENTORY INITIALIZATION DECK (Dynamic Table Construction)
     // =========================================================================
     
-    // Costruzione dinamica del catalogo dei glifi organizzato
+    // Systematic rendering of the structural grid components split by thin borders
     Object.entries(glyphGroups).forEach(([groupName, chars], index, array) => {
         const sectionBlock = document.createElement("div");
         sectionBlock.className = "matrix-section-block";
@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
         sectionBlock.appendChild(title);
 
         const grid = document.createElement("div");
-        grid.className = "glyph-grid font-tecnica-55"; // Classe iniziale coerente con il select
+        grid.className = "glyph-grid font-tecnica-55"; // Set Default Initialization Class Value
 
         Array.from(chars).forEach(char => {
             const cell = document.createElement("div");
             cell.className = "glyph-cell";
             cell.textContent = char;
 
-            // Evento Click per l'ispezione ad alta definizione del singolo glifo
+            // Atomic Inspector Dynamic Interactive Event Logic Binding
             cell.addEventListener("click", () => {
                 inspectorPreview.textContent = char;
                 const hexCode = char.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         sectionBlock.appendChild(grid);
         glyphMatrixContainer.appendChild(sectionBlock);
 
+        // Append 1px separator line if current block is not final
         if (index < array.length - 1) {
             const thinLine = document.createElement("div");
             thinLine.className = "border-thin";
@@ -80,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Iniezione sistematica dell'elenco linguistico supportato
+    // Iniection array logic loop execution for the linguistic metadata view
     supportedLanguages.forEach(lang => {
         const langNode = document.createElement("span");
         langNode.textContent = `* ${lang}`;
@@ -88,10 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // =========================================================================
-    // 2. GESTIONE DEI CAMBIAMENTI DI STATO (Live Engine)
+    // 2. LIVE INTERACTIVE ENGINE SYSTEM LOGIC PIPELINES
     // =========================================================================
     
-    // Sincronizzazione dinamica dei parametri dello slider e dell'area di output
     const syncOutputMeasurements = () => {
         const size = sizeSlider.value;
         const lineSpacing = lhSlider.value;
@@ -108,24 +108,24 @@ document.addEventListener("DOMContentLoaded", () => {
     lhSlider.addEventListener("input", syncOutputMeasurements);
     textInput.addEventListener("input", syncOutputMeasurements);
 
-    // Gestione del cambio peso sui 6 pesi reali della cartella
+    // Global Cascade Synchronization across the 6 authentic font profiles
     fontFamilySelector.addEventListener("change", (e) => {
         const selectedFontClass = e.target.value;
 
-        // Reset e applicazione sull'output principale
+        // Apply updated typeface to heading master preview node
         displayOutput.className = selectedFontClass;
 
-        // Reset e applicazione sull'area di lettura fissa (Capitolo 2)
+        // Cascade font conversion into chapter 2 legibility container deck
         legibilityContainer.className = `body-text-container ${selectedFontClass}`;
 
-        // Reset e applicazione su tutte le celle e sull'inspector di glifi
+        // Cascade configuration across all item containers inside inventory deck
         document.querySelectorAll(".glyph-grid").forEach(grid => {
             grid.className = `glyph-grid ${selectedFontClass}`;
         });
         inspectorPreview.className = selectedFontClass;
     });
 
-    // INTERAZIONE INTERFACCIA: Invertitore di Tema Binario (Light / Dark)
+    // Toggle Action Routine execution interface for Light / Dark state parameters
     themeToggleBtn.addEventListener("click", () => {
         const currentTheme = document.documentElement.getAttribute("data-theme");
         if (currentTheme === "dark") {
@@ -135,6 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Calibrazione di avvio del live tester
+    // Launch first execution frame setup routine
     syncOutputMeasurements();
 });
