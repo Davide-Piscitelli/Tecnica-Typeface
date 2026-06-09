@@ -13,7 +13,7 @@ The project features distinct matrix variants designed for diverse digital layou
 * **Tecnica Mono**: A new monospaced variant engineered for strict vertical and horizontal alignment, providing consistent character width across data-heavy environments.
 
 ### Line Variants
-Both standard and monospace variants include specialized Line versions (`Tecnica-53Line`, `Tecnica-55Line`, and `Tecnica Mono Line`). These variants connect the dot matrix into continuous lines, expanding the system's utility for programming environments and technical interfaces.
+Both standard and monospace variants include specialized Line versions (`Tecnica-53Line`, `Tecnica-55Line`, and `Tecnica-MonoLine`). These variants connect the dot matrix into continuous lines, expanding the system's utility for programming environments and technical interfaces.
 
 ---
 
