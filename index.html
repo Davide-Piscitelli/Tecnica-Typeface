@@ -1,130 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Type Specification Sheet">
-    <title>Tecnica Typeface — Type Specimen</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
-
+    <title>TECNICA TYPEFACE — DESIGN SYSTEM SPECIMEN MANUAL</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <table class="iso-table">
-        <tr>
-            <td colspan="2" style="width: 66%;">
-                <span class="sub-label-caps">Type Specimen</span>
-                <h1 class="main-title">Tecnica Typeface</h1>
-                <div class="caption-text" style="margin-top: 8px;">Dot Matrix Typeface</div>
-            </td>
-            <td>
-                <span class="sub-label-caps">Document ID Code // Version</span>
-                <strong class="body-text-p1" style="margin-bottom: 0;">TT-LINE-5355 // V1.0</strong>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span class="sub-label-caps">Type Designer</span>
-                <span class="body-text-p1" style="margin-bottom: 0;">Davide Piscitelli</span>
-            </td>
-            <td>
-                <span class="sub-label-caps">Release Date</span>
-                <span class="body-text-p1" style="margin-bottom: 0;">2026</span>
-            </td>
-            <td class="theme-zone-cell">
-                <span class="sub-label-caps">Interface Theme</span>
-                <button id="themeToggleBtn" class="sys-btn-theme" aria-label="Toggle interface theme">Theme: Dark</button>
-            </td>
-        </tr>
-    </table>
-
-    <section class="chapter">
-        <h2 class="chapter-title">01 // TYPE SPECIMEN FIELD</h2>
+    <section class="macro-chapter">
+        <header class="chapter-header">
+            <span class="chapter-number">CAPITOLO 1</span>
+            <h1 class="chapter-title">PANNELLO DEI TITOLI E CONTROLLI (DISPLAY AREA)</h1>
+        </header>
         
-        <div class="control-panel">
-            <div class="control-group">
-                <label for="fontFamily" class="sub-label-caps">Typeface Weight</label>
-                <select id="fontFamily" class="sys-select">
-                    <option value="Tecnica-53">53</option>
-                    <option value="Tecnica-55" selected>55</option>
-                    <option value="Tecnica-53Line">53 Line</option>
-                    <option value="Tecnica-55Line">55 Line</option>
-                    <option value="Tecnica-Mono">Mono</option>
-                    <option value="Tecnica-MonoLine">Mono Line</option>
-                </select>
+        <div class="display-container">
+            <div class="control-panel">
+                <div class="control-group">
+                    <label class="ui-label">INTERFACE CONTROL</label>
+                    <button id="themeToggleBtn" class="ui-button">TOGGLE DARK / LIGHT MODE</button>
+                </div>
+
+                <div class="control-group">
+                    <label class="ui-label" for="fontFamilySelector">VARIANT WEIGHT SELECTOR</label>
+                    <select id="fontFamilySelector" class="ui-select">
+                        <option value="font-tecnica-53">TECNICA 53</option>
+                        <option value="font-tecnica-55" selected>TECNICA 55</option>
+                        <option value="font-tecnica-53line">TECNICA 53 LINE</option>
+                        <option value="font-tecnica-55line">TECNICA 55 LINE</option>
+                        <option value="font-tecnica-mono">TECNICA MONO</option>
+                        <option value="font-tecnica-monoline">TECNICA MONO LINE</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label class="ui-label" for="size-slider">SLIDER DIMENSIONE CORPO: <span id="size-val">48px</span></label>
+                    <input type="range" id="size-slider" min="16" max="128" step="8" value="48" class="ui-slider">
+                </div>
+
+                <div class="control-group">
+                    <label class="ui-label" for="lh-slider">SLIDER INTERLINEA: <span id="lh-val">1.2</span></label>
+                    <input type="range" id="lh-slider" min="1.0" max="2.0" step="0.1" value="1.2" class="ui-slider">
+                </div>
+
+                <div class="control-group">
+                    <label class="ui-label" for="text-input">INPUT DI TESTO LIBERO</label>
+                    <textarea id="text-input" class="ui-textarea" rows="3">THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.</textarea>
+                </div>
             </div>
 
-            <div class="control-group">
-                <label for="fontSize" class="sys-slider-label sub-label-caps">Text Size (<span id="fontSizeValue">48</span>pt)</label>
-                <input type="range" id="fontSize" class="sys-slider" min="12" max="144" value="48">
-            </div>
-
-            <div class="control-group">
-                <label for="lineHeight" class="sys-slider-label sub-label-caps">Line Spacing (<span id="lineHeightValue">1.2</span>)</label>
-                <input type="range" id="lineHeight" class="sys-slider" min="0.8" max="2.5" step="0.1" value="1.2">
-            </div>
-
-            <div class="control-group">
-                <label for="testText" class="sub-label-caps">Type here to test the font</label>
-                <input type="text" id="testText" class="sys-input-text" value="Tecnica dot matrix stream and processor core online.">
-            </div>
-        </div>
-
-        <div class="tester-container">
-            <div id="preview-box" contenteditable="true">Tecnica dot matrix stream and processor core online.</div>
-        </div>
-    </section>
-
-    <section class="chapter">
-        <h2 class="chapter-title">02 // TYPE SCALE VIEW</h2>
-        <div class="cascade-table" id="cascadeSpread"></div>
-    </section>
-
-    <section class="chapter">
-        <h2 class="chapter-title">03 // CHARACTER SET</h2>
-        <div id="inventorySpread"></div>
-    </section>
-
-    <section class="chapter">
-        <h2 class="chapter-title">04 // INFORMATION &amp; SPECIFICATIONS</h2>
-        <div class="columns-2">
-            <div class="col body-text-p1">
-                <p>Tecnica 55 and Tecnica 53 are digital writing styles built entirely on structured geometric pixel grids. The project draws clear visual inspiration from the legacy of early technological devices, capturing the precise aesthetic of early computing terminal systems, low-resolution screen displays, and historical dot matrix printers.</p>
-                <p>Built upon robust matrix frameworks, both font systems seamlessly anchor visual consistency, computational balance, and interface clarity.</p>
-            </div>
-            <div class="col body-text-p1">
-                <p>The structured architectural nature of the grid renders clean geometry optimized for digital interfaces, technical readouts, and developer console visualizer nodes.</p>
+            <div class="output-panel">
+                <div id="display-output" class="font-tecnica-55">THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.</div>
             </div>
         </div>
     </section>
 
-    <section class="chapter">
-        <h2 class="chapter-title">05 // SUPPORTED LANGUAGES</h2>
-        <div class="body-text-p1">
-            Afrikaans, Albanian, Asu, Basque, Bemba, Bena, Breton, Catalan, Chiga, Colognian, Cornish, Croatian, Czech, Danish, Dutch, Embu, English, Estonian, Faroese, Filipino, Finnish, French, Friulian, Galician, Ganda, German, Gusii, Hungarian, Icelandic, Inari Sami, Indonesian, Irish, Italian, Jola-Fonyi, Kabuverdianu, Kalenjin, Kamba, Kikuyu, Kinyarwanda, Latvian, Lithuanian, Lower Sorbian, Luo, Luyia, Machame, Makhuwa-Meetto, Makonde, Malagasy, Maltese, Manx, Meru, Morisyen, North Ndebele, Northern Sami, Norwegian Bokmål, Norwegian Nynorsk, Nyankole, Oromo, Polish, Portuguese, Prussian, Quechua, Romanian, Romansh, Rombo, Rundi, Rwa, Samburu, Sango, Sangu (Tanzania), Scottish Gaelic, Sena, Serbian, Shambala, Shona, Slovak, Slovenian, Soga, Somali, Spanish, Swahili, Swedish, Swiss German, Tachelhit, Taita, Tasawaq, Teso, Turkish, Upper Sorbian, Uzbek, Volapük, Vunjo, Walser, Welsh, Western Frisian, Yoruba, Zarma, Zulu.
+    <div class="border-thick"></div>
+
+    <section class="macro-chapter">
+        <header class="chapter-header">
+            <span class="chapter-number">CAPITOLO 2</span>
+            <h2 class="chapter-title">TEST DI LEGGIBILITÀ (BODY TEXT AREA)</h2>
+        </header>
+        
+        <div class="body-text-container font-tecnica-55" id="legibility-container">
+            <div class="text-block block-a">
+                <span class="block-meta">Blocco A: Corpo 16px | Ottimale per la lettura a schermo</span>
+                <p class="sample-paragraph">Tecnica 55 and Tecnica 53 are typographic designs deeply rooted in the aesthetics of dot matrix printing, a technology once pivotal in early printers and digital displays. This system relied on grids of dots to form characters and images, enabling legibility and functionality on low-resolution devices. The charm of this method lies in its balance of efficiency and geometric simplicity, which these fonts celebrate.</p>
+            </div>
+            
+            <div class="border-thin"></div>
+            
+            <div class="text-block block-b">
+                <span class="block-meta">Blocco B: Corpo 12px | Visualizzazione compatta tipo blocco dati/didascalia</span>
+                <p class="sample-paragraph">Tecnica 55 and Tecnica 53 are typographic designs deeply rooted in the aesthetics of dot matrix printing, a technology once pivotal in early printers and digital displays. This system relied on grids of dots to form characters and images, enabling legibility and functionality on low-resolution devices. The charm of this method lies in its balance of efficiency and geometric simplicity, which these fonts celebrate.</p>
+            </div>
+            
+            <div class="border-thin"></div>
+            
+            <div class="text-block block-c">
+                <span class="block-meta">Blocco C: Corpo 8px | Limite hardware estremo di leggibilità digitale</span>
+                <p class="sample-paragraph">Tecnica 55 and Tecnica 53 are typographic designs deeply rooted in the aesthetics of dot matrix printing, a technology once pivotal in early printers and digital displays. This system relied on grids of dots to form characters and images, enabling legibility and functionality on low-resolution devices. The charm of this method lies in its balance of efficiency and geometric simplicity, which these fonts celebrate.</p>
+            </div>
         </div>
     </section>
 
-    <section class="chapter" style="margin-bottom: 32px;">
-        <h2 class="chapter-title">06 // COPYRIGHT &amp; LICENSE</h2>
-        <div class="columns-2 align-top">
-            <div class="col body-text-p1">
-                All font assets are released under the terms of the SIL Open Font License 1.1. Modifying or adding new elements to the core system does not violate the terms of use.
-            </div>
-            <div class="col" style="text-align: right;">
-                <a href="https://github.com/Davide-Piscitelli/Tecnica-Typeface" class="sys-btn" target="_blank">Download the Font</a>
+    <div class="border-thick"></div>
+
+    <section class="macro-chapter">
+        <header class="chapter-header">
+            <span class="chapter-number">CAPITOLO 3</span>
+            <h2 class="chapter-title">CATALOGO DEI GLIFI (GLYPH MATRIX)</h2>
+        </header>
+        
+        <div class="matrix-layout">
+            <div class="matrix-grid-container" id="glyph-matrix-container">
+                </div>
+            
+            <div class="glyph-inspector">
+                <div class="inspector-sticky-node">
+                    <span class="ui-label-xs">GLYPH INSPECTOR</span>
+                    <div id="inspector-preview" class="font-tecnica-55">A</div>
+                    <span id="inspector-unicode" class="ui-label-xs">U+0041</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="caption-text" style="display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border-color);">
-        <span>Designed by Davide Piscitelli</span>
-        <span>Open Source — 2026</span>
-    </div>
+    <div class="border-thick"></div>
+
+    <section class="macro-chapter">
+        <header class="chapter-header">
+            <span class="chapter-number">CAPITOLO 4</span>
+            <h2 class="chapter-title">GENESI DEL CARATTERE (DESIGN CORNER)</h2>
+        </header>
+        <div class="editorial-layout-wrapper">
+            <article class="editorial-column">
+                <p>Tecnica 55 is based on a 5x5 dot matrix grid. Its bold, modular design captures a strong geometric structure, resulting in characters that are strikingly robust and visually impactful. The consistent spacing and proportions make it ideal for applications where clarity and boldness are paramount.</p>
+                <p>Tecnica 53, on the other hand, employs a 5x3 dot matrix, offering a sleeker, more compact form. This minimalist take emphasizes economy of space while retaining readability, making it perfect for tight layouts, retro digital aesthetics, or environments where subtlety is preferred.</p>
+                <p>Together, the two typefaces serve as a versatile pair that seamlessly blend form and function. They are perfect for technical, digital, or sci-fi-themed designs, evoking a nostalgic yet futuristic sensibility.</p>
+            </article>
+        </div>
+    </section>
+
+    <div class="border-thick"></div>
+
+    <section class="macro-chapter">
+        <header class="chapter-header">
+            <span class="chapter-number">CAPITOLO 5</span>
+            <h2 class="chapter-title">COPERTURA LINGUISTICA (LANGUAGE SUPPORT)</h2>
+        </header>
+        
+        <div class="languages-grid-panel" id="languages-wrapper">
+            </div>
+        
+        <div class="progress-bar-module">
+            <div class="progress-track">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-meta-text">
+                <span class="ui-label-xs">LATIN-1 / WESTERN EUROPEAN SUPPORT</span>
+                <span class="ui-label-xs">100%</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="border-thick"></div>
+
+    <section class="macro-chapter">
+        <header class="chapter-header">
+            <span class="chapter-number">CAPITOLO 6</span>
+            <h2 class="chapter-title">SPECIFICHE TECNICHE (COLOPHON &amp; METADATI)</h2>
+        </header>
+        
+        <table class="colophon-data-table">
+            <tbody>
+                <tr>
+                    <td class="metadata-key">DESIGNER</td>
+                    <td class="metadata-value">Davide Piscitelli</td>
+                </tr>
+                <tr>
+                    <td class="metadata-key">DEVELOPMENT</td>
+                    <td class="metadata-value">Based on rigid grids (5x5 and 5x3) dot matrix printing — 6 core files hierarchy (Standard, Line, Mono).</td>
+                </tr>
+                <tr>
+                    <td class="metadata-key">FORMATS AVAILABLE</td>
+                    <td class="metadata-value">WOFF2 (Web Optimized Format) / TTF / OTF / TTC / WOFF</td>
+                </tr>
+                <tr>
+                    <td class="metadata-key">SOURCE REPO</td>
+                    <td class="metadata-value"><a href="https://github.com/Davide-Piscitelli/Tecnica-Typeface" target="_blank" rel="noopener">https://github.com/Davide-Piscitelli/Tecnica-Typeface</a></td>
+                </tr>
+                <tr>
+                    <td class="metadata-key">LICENSING</td>
+                    <td class="metadata-value">SIL Open Font License 1.1 (OFL)</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
     <script src="script.js"></script>
 </body>
