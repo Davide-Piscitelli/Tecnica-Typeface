@@ -1,0 +1,8 @@
+# Project authors for copyright purposes. Distinct from CONTRIBUTORS.txt.
+# Format: Name or Organization <email address>
+
+# Design
+Davide Piscitelli <davidepscll@gmail.com>
+
+# Code
+Davide Piscitelli <davidepscll@gmail.com>
