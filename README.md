@@ -2,19 +2,28 @@
 
 Tecnica is a versatile, bitmap-inspired typographic system heavily influenced by the raw visual language of early dot matrix printers and low-resolution digital displays. Built on precise, structured dot grids, it strikes a balance between industrial technical accuracy, geometric simplicity, and functional legibility.
 
-The project features two distinct matrix variants designed for diverse digital layouts:
-* **Tecnica 55**: Utilizes a 5×5 grid system to produce bold, highly structured letterforms with a powerful visual presence. Ideal for user interfaces, branding, and high-impact display applications.
-* **Tecnica 53**: Adopts a compact 5×3 grid for a narrower, minimalist aesthetic. Optimized for high-density, space-saving layouts, it retains excellent readability with a lighter visual rhythm.
+The project features distinct matrix variants designed for diverse digital layouts, software interfaces, developer tools, tech branding, and retro-futuristic visual designs.
 
-Both variants include specialized **Line** versions (`Tecnica-53Line` and `Tecnica-55Line`), expanding the system's utility for software interfaces, developer tools, tech branding, and retro-futuristic or sci-fi visual designs.
+---
 
-## Repository Structure
+## Font Family & Grid System
 
-* `DESCRIPTION.txt`: Core design philosophy and font specifications.
-* `DESIGN_SYSTEM.txt`: Technical architecture of the web specimen interface.
-* `LICENSE.txt`: Full SIL Open Font License v1.1 text.
-* `AUTHORS.txt` & `CONTRIBUTORS.txt`: Project ownership and attribution logs.
-* `NOTE.txt`: Quick usage guidelines, permissions, and author bio.
+* **Tecnica 55**: Utilizes a 5x5 grid system to produce bold, highly structured letterforms with a powerful visual presence. Ideal for user interfaces, branding, and high-impact display applications.
+* **Tecnica 53**: Adopts a compact 5x3 grid for a narrower, minimalist aesthetic. Optimized for high-density, space-saving layouts, it retains excellent readability with a lighter visual rhythm.
+* **Tecnica Mono**: A new monospaced variant engineered for strict vertical and horizontal alignment, providing consistent character width across data-heavy environments.
+
+### Line Variants
+Both standard and monospace variants include specialized Line versions (`Tecnica-53Line`, `Tecnica-55Line`, and `Tecnica Mono Line`). These variants connect the dot matrix into continuous lines, expanding the system's utility for programming environments and technical interfaces.
+
+---
+
+## Target Applications
+
+* **UI/UX Design**: Optimized for high-density layouts, software interfaces, and terminal applications.
+* **Developer Tools**: Ideal for text editors, IDEs, and environments requiring monospaced accuracy.
+* **Branding & Graphic Design**: Designed for technical branding, sci-fi visual designs, and retro-futuristic layouts.
+
+---
 
 ## Licensing & Usage
 
