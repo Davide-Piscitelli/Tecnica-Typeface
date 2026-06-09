@@ -1,4 +1,4 @@
 # Project contributors who may not hold copyright.
-# Format: Name <email address>
+# Format: Name <email address>.
 
-Davide Piscitelli <davidepscll@gmail.com> (design, production)
+Davide Piscitelli <davidepscll@gmail.com> (design, production).
