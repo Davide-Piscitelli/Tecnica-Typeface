@@ -1,144 +1,140 @@
 /* ==========================================================================
-   SCRIPT.JS // TECNICA TYPEFACE SPECIMEN CONTROLLER
-   AUTOMATION ENGINE & REACTION INTERACTION PIPELINE
+   SCRIPT.JS // TECNICA TYPEFACE SYSTEM CONTROLLER (6 WEIGHTS ARCHITECTURE)
    ========================================================================== */
 
-const fontFamilySelect = document.getElementById('fontFamily');
-const fontSizeInput = document.getElementById('fontSize');
-const fontSizeValue = document.getElementById('fontSizeValue');
-const lineHeightInput = document.getElementById('lineHeight');
-const lineHeightValue = document.getElementById('lineHeightValue');
-const testTextInput = document.getElementById('testText');
-const previewBox = document.getElementById('preview-box');
-const cascadeSpread = document.getElementById('cascadeSpread');
-const inventorySpread = document.getElementById('inventorySpread');
-const themeToggleBtn = document.getElementById('themeToggleBtn');
+document.addEventListener("DOMContentLoaded", () => {
 
-const standardSizes = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
+    // DATA SET 1: Raggruppamento dei Caratteri (Capitolo 3)
+    const glyphGroups = {
+        'UPPERCASE': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        'LOWERCASE LETTERS': 'abcdefghijklmnopqrstuvwxyz',
+        'NUMBERS': '0123456789',
+        'PUNCTUATION': '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
+        'SYMBOLS': '±≠≤≥∞∫√°©®™€¥£¢',
+        'LATIN EXTENDED': 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ'
+    };
 
-const testStrings = {
-    12: 'Micro-grid bitmap rendering terminal data channels active.',
-    14: 'High density dot matrix buffer array reference system.',
-    18: 'Low resolution digital interface emulation core online.',
-    24: 'Geometric raster algorithm for typographic constraints.',
-    36: 'Structured dot grid field analysis level nine matrix.',
-    48: 'Monospaced glyph cell bounds calibrated.',
-    60: 'Raw compute stream output validation.',
-    72: 'Tecnica system typeface protocol.',
-    96: 'Raster data channels active.',
-    120: 'Terminal specimen test.'
-};
+    // DATA SET 2: Lista Ordinata di Copertura delle Lingue (Capitolo 5)
+    const supportedLanguages = [
+        "Afrikaans", "Danish", "German", "Norwegian", "Swedish",
+        "Basque", "Dutch", "Icelandic", "Portuguese", "Tagalog",
+        "Breton", "English", "Indonesian", "Spanish", "Walloon",
+        "Catalan", "Finnish", "Italian", "Swahili", "Zulu"
+    ];
 
-const glyphGroups = {
-    'Uppercase': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    'Lowercase letters': 'abcdefghijklmnopqrstuvwxyz',
-    'Numbers': '0123456789',
-    'Punctuation': '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
-    'Symbols': '±≠≤≥∞∫√°©®™€¥£¢',
-    'Latin extended': 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ'
-};
-
-function initSystem() {
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    // ELEMENTI DI ANCORAGGIO DEL DOM
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const fontFamilySelector = document.getElementById("fontFamilySelector");
+    const sizeSlider = document.getElementById("size-slider");
+    const sizeVal = document.getElementById("size-val");
+    const lhSlider = document.getElementById("lh-slider");
+    const lhVal = document.getElementById("lh-val");
+    const textInput = document.getElementById("text-input");
+    const displayOutput = document.getElementById("display-output");
     
-    function setTheme(theme) {
-        if (theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggleBtn.textContent = 'Theme: Light';
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            themeToggleBtn.textContent = 'Theme: Dark';
-        }
-    }
+    const legibilityContainer = document.getElementById("legibility-container");
+    const glyphMatrixContainer = document.getElementById("glyph-matrix-container");
+    const inspectorPreview = document.getElementById("inspector-preview");
+    const inspectorUnicode = document.getElementById("inspector-unicode");
+    const languagesWrapper = document.getElementById("languages-wrapper");
 
-    if (systemPrefersDark.matches) {
-        setTheme('dark');
-    } else {
-        setTheme('light');
-    }
+    // =========================================================================
+    // 1. INIZIALIZZAZIONE COMPONENTI (Matrici dei Glifi e Elenco Lingue)
+    // =========================================================================
+    
+    // Costruzione dinamica del catalogo dei glifi organizzato
+    Object.entries(glyphGroups).forEach(([groupName, chars], index, array) => {
+        const sectionBlock = document.createElement("div");
+        sectionBlock.className = "matrix-section-block";
 
-    themeToggleBtn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        if (currentTheme === 'dark') {
-            setTheme('light');
-        } else {
-            setTheme('dark');
-        }
-    });
-
-    // GENERAZIONE AUTOMATICA CASCATA TIPOGRAFICA
-    standardSizes.forEach(size => {
-        const row = document.createElement('div');
-        row.className = 'cascade-row';
-
-        const meta = document.createElement('div');
-        meta.className = 'cascade-meta';
-        meta.textContent = `${size}px (${Math.round(size * 0.75)}pt)`;
-
-        const sample = document.createElement('div');
-        sample.className = 'cascade-sample-node';
-        sample.style.fontSize = `${size}px`;
-        sample.textContent = testStrings[size] || testStrings[12];
-
-        row.appendChild(meta);
-        row.appendChild(sample);
-        cascadeSpread.appendChild(row);
-    });
-
-    // GENERAZIONE AUTOMATICA MAPPA CARATTERI (H3 applicato correttamente)
-    for (const [groupName, glyphs] of Object.entries(glyphGroups)) {
-        const block = document.createElement('div');
-        block.className = 'inventory-group';
-
-        const title = document.createElement('h3');
-        title.className = 'inventory-group-title';
+        const title = document.createElement("h3");
+        title.className = "ui-sub-title";
         title.textContent = groupName;
+        sectionBlock.appendChild(title);
 
-        const grid = document.createElement('div');
-        grid.className = 'inventory-grid';
+        const grid = document.createElement("div");
+        grid.className = "glyph-grid font-tecnica-55"; // Classe iniziale coerente con il select
 
-        Array.from(glyphs).forEach(char => {
-            const cell = document.createElement('div');
-            cell.className = 'inventory-cell';
+        Array.from(chars).forEach(char => {
+            const cell = document.createElement("div");
+            cell.className = "glyph-cell";
             cell.textContent = char;
+
+            // Evento Click per l'ispezione ad alta definizione del singolo glifo
+            cell.addEventListener("click", () => {
+                inspectorPreview.textContent = char;
+                const hexCode = char.codePointAt(0).toString(16).toUpperCase().padStart(4, '0');
+                inspectorUnicode.textContent = `U+${hexCode}`;
+            });
+
             grid.appendChild(cell);
         });
 
-        block.appendChild(title);
-        block.appendChild(grid);
-        inventorySpread.appendChild(block);
-    }
+        sectionBlock.appendChild(grid);
+        glyphMatrixContainer.appendChild(sectionBlock);
 
-    syncFontWeightGlobal();
-}
+        if (index < array.length - 1) {
+            const thinLine = document.createElement("div");
+            thinLine.className = "border-thin";
+            glyphMatrixContainer.appendChild(thinLine);
+        }
+    });
 
-function syncFontWeightGlobal() {
-    const currentWeight = fontFamilySelect.value;
-    previewBox.style.fontFamily = currentWeight;
+    // Iniezione sistematica dell'elenco linguistico supportato
+    supportedLanguages.forEach(lang => {
+        const langNode = document.createElement("span");
+        langNode.textContent = `* ${lang}`;
+        languagesWrapper.appendChild(langNode);
+    });
+
+    // =========================================================================
+    // 2. GESTIONE DEI CAMBIAMENTI DI STATO (Live Engine)
+    // =========================================================================
     
-    document.querySelectorAll('.cascade-sample-node').forEach(el => {
-        el.style.fontFamily = currentWeight;
+    // Sincronizzazione dinamica dei parametri dello slider e dell'area di output
+    const syncOutputMeasurements = () => {
+        const size = sizeSlider.value;
+        const lineSpacing = lhSlider.value;
+
+        sizeVal.textContent = `${size}px`;
+        lhVal.textContent = lineSpacing;
+
+        displayOutput.style.fontSize = `${size}px`;
+        displayOutput.style.lineHeight = lineSpacing;
+        displayOutput.textContent = textInput.value || " ";
+    };
+
+    sizeSlider.addEventListener("input", syncOutputMeasurements);
+    lhSlider.addEventListener("input", syncOutputMeasurements);
+    textInput.addEventListener("input", syncOutputMeasurements);
+
+    // Gestione del cambio peso sui 6 pesi reali della cartella
+    fontFamilySelector.addEventListener("change", (e) => {
+        const selectedFontClass = e.target.value;
+
+        // Reset e applicazione sull'output principale
+        displayOutput.className = selectedFontClass;
+
+        // Reset e applicazione sull'area di lettura fissa (Capitolo 2)
+        legibilityContainer.className = `body-text-container ${selectedFontClass}`;
+
+        // Reset e applicazione su tutte le celle e sull'inspector di glifi
+        document.querySelectorAll(".glyph-grid").forEach(grid => {
+            grid.className = `glyph-grid ${selectedFontClass}`;
+        });
+        inspectorPreview.className = selectedFontClass;
     });
 
-    document.querySelectorAll('.inventory-cell').forEach(el => {
-        el.style.fontFamily = currentWeight;
+    // INTERAZIONE INTERFACCIA: Invertitore di Tema Binario (Light / Dark)
+    themeToggleBtn.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        if (currentTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "light");
+        } else {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
     });
-}
 
-fontFamilySelect.addEventListener('change', syncFontWeightGlobal);
-
-fontSizeInput.addEventListener('input', () => {
-    previewBox.style.fontSize = fontSizeInput.value + 'px';
-    fontSizeValue.textContent = fontSizeInput.value;
+    // Calibrazione di avvio del live tester
+    syncOutputMeasurements();
 });
-
-lineHeightInput.addEventListener('input', () => {
-    previewBox.style.lineHeight = lineHeightInput.value;
-    lineHeightValue.textContent = lineHeightInput.value;
-});
-
-testTextInput.addEventListener('input', () => {
-    previewBox.textContent = testTextInput.value || ' ';
-});
-
-window.onload = initSystem;
