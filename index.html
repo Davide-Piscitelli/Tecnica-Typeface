@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Type Specification Sheet">
+    <title>Tecnica Typeface — Type Specimen</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <table class="iso-table">
+        <tr>
+            <td colspan="2" style="width: 66%;">
+                <span class="sub-label-caps">Type Specimen</span>
+                <h1 class="main-title">Tecnica Typeface</h1>
+                <div class="caption-text" style="margin-top: 8px;">Dot Matrix Typeface</div>
+            </td>
+            <td>
+                <span class="sub-label-caps">Document ID Code // Version</span>
+                <strong class="body-text-p1" style="margin-bottom: 0;">TT-LINE-5355 // V1.0</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="sub-label-caps">Type Designer</span>
+                <span class="body-text-p1" style="margin-bottom: 0;">Davide Piscitelli</span>
+            </td>
+            <td>
+                <span class="sub-label-caps">Release Date</span>
+                <span class="body-text-p1" style="margin-bottom: 0;">2026</span>
+            </td>
+            <td class="theme-zone-cell">
+                <span class="sub-label-caps">Interface Theme</span>
+                <button id="themeToggleBtn" class="sys-btn-theme" aria-label="Toggle interface theme">Theme: Dark</button>
+            </td>
+        </tr>
+    </table>
+
+    <section class="chapter">
+        <h2 class="chapter-title">01 // TYPE SPECIMEN FIELD</h2>
+        
+        <div class="control-panel">
+            <div class="control-group">
+                <label for="fontFamily" class="sub-label-caps">Typeface Weight</label>
+                <select id="fontFamily" class="sys-select">
+                    <option value="Tecnica-53">53</option>
+                    <option value="Tecnica-55" selected>55</option>
+                    <option value="Tecnica-53Line">53 Line</option>
+                    <option value="Tecnica-55Line">55 Line</option>
+                    <option value="Tecnica-Mono">Mono</option>
+                    <option value="Tecnica-MonoLine">Mono Line</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="fontSize" class="sys-slider-label sub-label-caps">Text Size (<span id="fontSizeValue">48</span>pt)</label>
+                <input type="range" id="fontSize" class="sys-slider" min="12" max="144" value="48">
+            </div>
+
+            <div class="control-group">
+                <label for="lineHeight" class="sys-slider-label sub-label-caps">Line Spacing (<span id="lineHeightValue">1.2</span>)</label>
+                <input type="range" id="lineHeight" class="sys-slider" min="0.8" max="2.5" step="0.1" value="1.2">
+            </div>
+
+            <div class="control-group">
+                <label for="testText" class="sub-label-caps">Type here to test the font</label>
+                <input type="text" id="testText" class="sys-input-text" value="Tecnica dot matrix stream and processor core online.">
+            </div>
+        </div>
+
+        <div class="tester-container">
+            <div id="preview-box" contenteditable="true">Tecnica dot matrix stream and processor core online.</div>
+        </div>
+    </section>
+
+    <section class="chapter">
+        <h2 class="chapter-title">02 // TYPE SCALE VIEW</h2>
+        <div class="cascade-table" id="cascadeSpread"></div>
+    </section>
+
+    <section class="chapter">
+        <h2 class="chapter-title">03 // CHARACTER SET</h2>
+        <div id="inventorySpread"></div>
+    </section>
+
+    <section class="chapter">
+        <h2 class="chapter-title">04 // INFORMATION &amp; SPECIFICATIONS</h2>
+        <div class="columns-2">
+            <div class="col body-text-p1">
+                <p>Tecnica 55 and Tecnica 53 are digital writing styles built entirely on structured geometric pixel grids. The project draws clear visual inspiration from the legacy of early technological devices, capturing the precise aesthetic of early computing terminal systems, low-resolution screen displays, and historical dot matrix printers.</p>
+                <p>Built upon robust matrix frameworks, both font systems seamlessly anchor visual consistency, computational balance, and interface clarity.</p>
+            </div>
+            <div class="col body-text-p1">
+                <p>The structured architectural nature of the grid renders clean geometry optimized for digital interfaces, technical readouts, and developer console visualizer nodes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="chapter">
+        <h2 class="chapter-title">05 // SUPPORTED LANGUAGES</h2>
+        <div class="body-text-p1">
+            Afrikaans, Albanian, Asu, Basque, Bemba, Bena, Breton, Catalan, Chiga, Colognian, Cornish, Croatian, Czech, Danish, Dutch, Embu, English, Estonian, Faroese, Filipino, Finnish, French, Friulian, Galician, Ganda, German, Gusii, Hungarian, Icelandic, Inari Sami, Indonesian, Irish, Italian, Jola-Fonyi, Kabuverdianu, Kalenjin, Kamba, Kikuyu, Kinyarwanda, Latvian, Lithuanian, Lower Sorbian, Luo, Luyia, Machame, Makhuwa-Meetto, Makonde, Malagasy, Maltese, Manx, Meru, Morisyen, North Ndebele, Northern Sami, Norwegian Bokmål, Norwegian Nynorsk, Nyankole, Oromo, Polish, Portuguese, Prussian, Quechua, Romanian, Romansh, Rombo, Rundi, Rwa, Samburu, Sango, Sangu (Tanzania), Scottish Gaelic, Sena, Serbian, Shambala, Shona, Slovak, Slovenian, Soga, Somali, Spanish, Swahili, Swedish, Swiss German, Tachelhit, Taita, Tasawaq, Teso, Turkish, Upper Sorbian, Uzbek, Volapük, Vunjo, Walser, Welsh, Western Frisian, Yoruba, Zarma, Zulu.
+        </div>
+    </section>
+
+    <section class="chapter" style="margin-bottom: 32px;">
+        <h2 class="chapter-title">06 // COPYRIGHT &amp; LICENSE</h2>
+        <div class="columns-2 align-top">
+            <div class="col body-text-p1">
+                All font assets are released under the terms of the SIL Open Font License 1.1. Modifying or adding new elements to the core system does not violate the terms of use.
+            </div>
+            <div class="col" style="text-align: right;">
+                <a href="https://github.com/Davide-Piscitelli/Tecnica-Typeface" class="sys-btn" target="_blank">Download the Font</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="caption-text" style="display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border-color);">
+        <span>Designed by Davide Piscitelli</span>
+        <span>Open Source — 2026</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

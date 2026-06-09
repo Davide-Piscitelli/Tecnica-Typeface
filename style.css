@@ -1,0 +1,341 @@
+/* ==========================================================================
+   STYLE.CSS // TECNICA TYPEFACE SPECIMEN CORE
+   MONOCHROME EDITION - STRICT WCAG AND TYPOGRAPHIC SPECIFICATION
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- SYSTEM DESIGN SYSTEM VARIABLE TOKENS --- */
+html[data-theme='light'] {
+    --bg-primary: #FFFFFF;
+    --text-primary: #000000;
+    --text-secondary: #555555;
+    --border-color: #000000;
+    --btn-text: #FFFFFF;
+    --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23000000'/></svg>");
+}
+
+html[data-theme='dark'] {
+    --bg-primary: #000000;
+    --text-primary: #FFFFFF;
+    --text-secondary: #AAAAAA;
+    --border-color: #FFFFFF;
+    --btn-text: #000000;
+    --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23FFFFFF'/></svg>");
+}
+
+/* --- WEBFONT DECLARATIONS --- */
+@font-face {
+    font-family: 'Tecnica-53';
+    src: url('Fonts/webfont/woff2/Tecnica-53.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-55';
+    src: url('Fonts/webfont/woff2/Tecnica-55.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-53Line';
+    src: url('Fonts/webfont/woff2/Tecnica-53Line.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-55Line';
+    src: url('Fonts/webfont/woff2/Tecnica-55Line.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-Mono';
+    src: url('Fonts/webfont/woff2/Tecnica-Mono.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Tecnica-MonoLine';
+    src: url('Fonts/webfont/woff2/Tecnica-MonoLine.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+/* --- TYPOGRAPHIC SCALE & GLOBAL STRUCTURE --- */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Fragment Mono', Monaco, Courier, monospace;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.main-title {
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 32px;
+}
+
+.chapter-title {
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+    line-height: 28px;
+}
+
+.inventory-group-title {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    line-height: 24px;
+}
+
+.sub-label-caps, .caption-text {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.body-text-p1 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: justify;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+.chapter {
+    border-top: 2px solid var(--border-color);
+    padding: 24px 0 48px 0;
+    clear: both;
+}
+
+.columns-2 {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.align-top {
+    align-items: flex-start;
+}
+
+.col {
+    flex: 1;
+}
+
+.col p {
+    margin-bottom: 24px;
+}
+.col p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- CONTROL CONSOLE MODULE --- */
+.control-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.control-panel .control-group:nth-child(4) {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sys-select, .sys-input-text {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 16px;
+    outline: none;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.sys-select {
+    background-image: var(--select-arrow);
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 32px;
+    cursor: pointer;
+}
+
+.sys-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: var(--border-color);
+    outline: none;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.sys-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--text-primary);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    border-radius: 0;
+}
+
+/* --- TESTER CANVAS --- */
+.tester-container {
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    background: var(--bg-primary);
+    min-height: 200px;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+#preview-box {
+    width: 100%;
+    min-height: 150px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-primary);
+    word-break: break-word;
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+/* --- TYPE SCALE CASCADE MODULE --- */
+.cascade-table {
+    width: 100%;
+    border-top: 1px solid var(--border-color); /* Filetto 1px sopra la prima dimensione */
+}
+
+.cascade-row {
+    display: flex;
+    align-items: flex-start; /* Allineamento in alto */
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px 0;
+}
+
+.cascade-meta {
+    width: 120px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    text-align: left; /* Allineamento a sinistra */
+    padding-top: 4px; /* Calibrazione linea base con i nodi grandi */
+}
+
+.cascade-sample-node {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-primary);
+    text-align: left; /* Allineamento testo a sinistra */
+}
+
+/* --- CELL MATRIX GLYPH GRIDS --- */
+.inventory-group {
+    margin-bottom: 32px;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: 8px;
+}
+
+.inventory-cell {
+    border: 1px solid var(--border-color);
+    height: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px; 
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+/* --- ISO INDUSTRIAL TABLE --- */
+.iso-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 32px;
+}
+
+.iso-table td {
+    border: 1px solid var(--border-color); 
+    padding: 16px;
+    vertical-align: top;
+}
+
+/* --- INTERACTIVE ACTION BUTTONS --- */
+.sys-btn, .sys-btn-theme {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 16px; /* Dimensione aumentata a 16px per massima leggibilità */
+    cursor: pointer;
+    text-transform: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sys-btn:hover, .sys-btn-theme:hover {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.sys-btn-theme {
+    width: 100%;
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    body { padding: 16px; }
+    .iso-table tr { display: flex; flex-direction: column; }
+    .iso-table td { width: 100% !important; }
+    .control-panel { grid-template-columns: 1fr; }
+    .columns-2 { flex-direction: column; gap: 24px; }
+}
