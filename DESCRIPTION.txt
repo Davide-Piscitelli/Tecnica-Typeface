@@ -1,8 +1,7 @@
-# Tecnica Typeface
+Tecnica Typeface is a bitmap-inspired typographic system based on precise dot grids, balancing technical accuracy with functional legibility. Built for digital layouts, interfaces, and developer tools, the system offers distinct matrix and line variants.
 
-Tecnica 55 and Tecnica 53 are bitmap-inspired typefaces influenced by the visual language of early dot matrix printers and low-resolution digital displays. Built on structured dot grids, both fonts capture the balance between technical precision, geometric simplicity, and functional readability.
-
-* **Tecnica 55** uses a 5×5 matrix system, creating bold and highly structured letterforms with a strong visual presence. Its balanced proportions and modular construction make it ideal for interfaces, branding, and display applications where clarity and impact are essential.
-* **Tecnica 53** adopts a more compact 5×3 grid, resulting in a narrower and more minimal aesthetic. Designed for efficiency and space-saving layouts, it retains excellent readability while embracing a cleaner, lighter visual rhythm.
-
-Together, Tecnica 55 and Tecnica 53 offer a versatile typographic system suited for digital, technical, and sci-fi-inspired projects. From software interfaces and developer tools to tech branding and pixel-based visuals, both typefaces deliver a distinctive retro-futuristic character rooted in the aesthetics of early computing.
+Key Features:
+- Tecnica 55: Bold 5x5 grid for high-impact UIs and branding.
+- Tecnica 53: Compact 5x3 grid for high-density layouts.
+- Tecnica Mono: Monospaced grid for strict vertical and horizontal alignment.
+- Line Variants: Continuous-line versions (55Line, 53Line, Mono Line) engineered for software interfaces and technical workflows.
