@@ -2,7 +2,7 @@
 Licensed under the SIL Open Font License v1.1. See LICENSE.txt for details.
 
 ## About the Author
-Davide Piscitelli is a STEM teacher and designer focused on experimental and open-source typefaces
+Davide Piscitelli is a STEM teacher and designer focused on experimental and open-source typefaces.
 
 ## Permissions & Usage
 * Free for both personal and commercial projects.
