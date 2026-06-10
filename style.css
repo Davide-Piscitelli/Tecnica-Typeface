@@ -220,13 +220,13 @@ h1, h2, h3 {
   justify-content: space-between;
 }
 
-/* Control panel - flush layout */
+/* Control panel - flush layout, no vertical dividers */
 .control-panel {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: 24px;
   border: 1px solid var(--border-color);
-  padding: 0;
+  padding: 16px;
   margin-bottom: 24px;
 }
 
@@ -234,21 +234,13 @@ h1, h2, h3 {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 16px;
-  border-right: 1px solid var(--border-color);
-}
-
-.control-group:last-of-type:not(.full-width) {
-  border-right: none;
 }
 
 .control-group.full-width {
   grid-column: 1 / -1;
-  padding: 16px;
-  border-right: none;
-  border-top: 1px solid var(--border-color);
   margin-top: 24px;
-  padding-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
 }
 
 .sys-select,
@@ -445,13 +437,12 @@ h1, h2, h3 {
   
   .control-panel {
     grid-template-columns: 1fr;
+    gap: 0;
   }
   
   .control-group {
-    border-right: none;
+    padding: 16px;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 16px;
-    margin-bottom: 0;
   }
   
   .control-group:last-of-type:not(.full-width) {
@@ -459,9 +450,9 @@ h1, h2, h3 {
   }
   
   .control-group.full-width {
+    border-bottom: none;
     border-top: 1px solid var(--border-color);
-    margin-top: 24px;
-    padding-top: 32px;
+    margin-top: 0;
   }
   
   .columns-2 {
