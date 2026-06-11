@@ -5,18 +5,32 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   // --- Load Fonts First ---
   const fontPromises = CONFIG.families.map(function (f) {
-    var font = new FontFace(f.name, 'url(' + CONFIG.fontBaseUrl + '/' + f.name + '.woff2)');
-    return font.load().then(function () {
-      document.fonts.add(font);
+    var fontUrl = CONFIG.fontBaseUrl + '/' + f.name + '.woff2';
+    console.log('Loading font from:', fontUrl);
+    var font = new FontFace(f.name, 'url(' + fontUrl + ')', { 
+      display: 'swap',
+      weight: 'normal',
+      style: 'normal'
+    });
+    return font.load().then(function (loadedFont) {
+      document.fonts.add(loadedFont);
+      console.log('Successfully loaded:', f.name);
+      return true;
     }).catch(function (error) {
       console.error('Font loading error for ' + f.name + ':', error);
+      console.warn('Font URL was:', fontUrl);
+      return false;
     });
   });
 
   // Wait for fonts to load before rendering
-  await Promise.all(fontPromises).catch(function (error) {
+  const fontResults = await Promise.all(fontPromises).catch(function (error) {
     console.error('Font loading failed:', error);
+    return [];
   });
+
+  const loadedCount = fontResults.filter(r => r).length;
+  console.log('Loaded ' + loadedCount + ' out of ' + CONFIG.families.length + ' fonts');
 
   headerTitle.textContent = CONFIG.typeface;
   main.textContent = '';
