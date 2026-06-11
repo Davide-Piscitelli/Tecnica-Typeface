@@ -1,10 +1,10 @@
 const CONFIG = {
   typeface: 'Tecnica Typeface',
   tagline: 'Geometric Sans-Serif',
-  description: 'Tecnica is a geometric sans-serif typeface designed for clarity and precision. Its clean lines and modern proportions make it suitable for a wide range of applications, from user interfaces to display design.',
+  description: 'Tecnica is a geometric sans-serif typeface designed for clarity and precision. Its clean lines and modern proportions make it suitable for a wide range of applications, from user interface design to branding, editorial design, and expressive digital art.',
   repository: 'https://github.com/Davide-Piscitelli/Tecnica-Typeface',
   issueUrl: 'https://github.com/Davide-Piscitelli/Tecnica-Typeface/issues',
-  fontBaseUrl: 'https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts',
+  fontBaseUrl: 'https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/Fonts/webfont/woff2',
   families: [
     { id: 'tecnica-53', name: 'Tecnica-53', displayName: 'Tecnica 53' },
     { id: 'tecnica-55', name: 'Tecnica-55', displayName: 'Tecnica 55' },
@@ -17,7 +17,7 @@ const CONFIG = {
     pangram: 'The quick brown fox jumps over the lazy dog',
     display: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     medium: 'The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.',
-    small: 'Tecnica is a geometric sans-serif typeface designed for clarity and precision. Its clean lines and modern proportions make it suitable for a wide range of applications, from user interfaces to display design. Perfect for web and print.'
+    small: 'Tecnica is a geometric sans-serif typeface designed for clarity and precision. Its clean lines and modern proportions make it suitable for a wide range of applications, from user interface design to branding, editorial design, and expressive digital art.'
   },
   characters: {
     uppercase: 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z',
