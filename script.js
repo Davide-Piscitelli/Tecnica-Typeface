@@ -1,195 +1,330 @@
-/* ============================================================================
-   SCRIPT.JS - TECNICA TYPEFACE SPECIMEN CONTROLLER
-   Automation engine for typeface specimen interaction
-   ============================================================================ */
+document.addEventListener('DOMContentLoaded', async function () {
+  const headerTitle = document.querySelector('.header-title');
+  const nav = document.getElementById('nav');
+  const main = document.getElementById('main');
 
-// DOM Element References
-const DOM = {
-  fontFamily: document.getElementById('fontFamily'),
-  fontSize: document.getElementById('fontSize'),
-  fontSizeValue: document.getElementById('fontSizeValue'),
-  lineHeight: document.getElementById('lineHeight'),
-  lineHeightValue: document.getElementById('lineHeightValue'),
-  testText: document.getElementById('testText'),
-  previewBox: document.getElementById('preview-box'),
-  cascadeSpread: document.getElementById('cascadeSpread'),
-  inventorySpread: document.getElementById('inventorySpread'),
-  themeToggleBtn: document.getElementById('themeToggleBtn')
-};
+  headerTitle.textContent = CONFIG.typeface;
+  main.textContent = '';
 
-// Configuration
-const STANDARD_SIZES = [12, 14, 18, 24, 36, 48, 60, 72, 96, 120];
+  const sectionDefs = [
+    { id: 'overview', title: 'Overview' },
+    { id: 'families', title: 'Families' },
+    { id: 'tester', title: 'Interactive Tester' },
+    { id: 'charset', title: 'Character Set' },
+    { id: 'languages', title: 'Language Support' },
+    { id: 'specimen', title: 'Text Specimen' },
+    { id: 'comparison', title: 'Family Comparison' },
+    { id: 'download', title: 'Download' }
+  ];
 
-const TEST_STRINGS = {
-  12: 'Micro-grid bitmap rendering terminal data channels active.',
-  14: 'High density dot matrix buffer array reference system.',
-  18: 'Low resolution digital interface emulation core online.',
-  24: 'Geometric raster algorithm for typographic constraints.',
-  36: 'Structured dot grid field analysis level nine matrix.',
-  48: 'Monospaced glyph cell bounds calibrated.',
-  60: 'Raw compute stream output validation.',
-  72: 'Tecnica system typeface protocol.',
-  96: 'Raster data channels active.',
-  120: 'Terminal specimen test.'
-};
-
-const GLYPH_GROUPS = {
-  'Uppercase': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  'Lowercase': 'abcdefghijklmnopqrstuvwxyz',
-  'Numbers': '0123456789',
-  'Punctuation': '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~',
-  'Symbols': '±≠≤≥∞∫√°©®™€¥£¢',
-  'Latin Extended': 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ'
-};
-
-/**
- * Initialize theme system
- */
-function initTheme() {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  setTheme(prefersDark ? 'dark' : 'light');
-  DOM.themeToggleBtn.addEventListener('click', toggleTheme);
-}
-
-/**
- * Set theme on document root
- */
-function setTheme(theme) {
-  const isDark = theme === 'dark';
-  document.documentElement.setAttribute('data-theme', theme);
-  DOM.themeToggleBtn.textContent = `Theme: ${isDark ? 'Light' : 'Dark'}`;
-}
-
-/**
- * Toggle between light and dark theme
- */
-function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme');
-  setTheme(current === 'dark' ? 'light' : 'dark');
-}
-
-/**
- * Generate type scale cascade
- */
-function renderTypeScale() {
-  const fragment = document.createDocumentFragment();
-  
-  STANDARD_SIZES.forEach(size => {
-    const row = document.createElement('div');
-    row.className = 'cascade-row';
-    
-    const meta = document.createElement('div');
-    meta.className = 'cascade-meta';
-    meta.textContent = `${size}px (${Math.round(size * 0.75)}pt)`;
-    
-    const sample = document.createElement('div');
-    sample.className = 'cascade-sample-node';
-    sample.style.fontSize = `${size}px`;
-    sample.style.fontFamily = DOM.fontFamily.value;
-    sample.textContent = TEST_STRINGS[size] || TEST_STRINGS[12];
-    
-    row.appendChild(meta);
-    row.appendChild(sample);
-    fragment.appendChild(row);
+  sectionDefs.forEach(function (s) {
+    var a = document.createElement('a');
+    a.href = '#' + s.id;
+    a.textContent = s.title;
+    nav.appendChild(a);
   });
-  
-  DOM.cascadeSpread.appendChild(fragment);
-}
 
-/**
- * Generate character inventory grid
- */
-function renderInventory() {
-  const fragment = document.createDocumentFragment();
-  
-  Object.entries(GLYPH_GROUPS).forEach(([groupName, glyphs]) => {
-    const block = document.createElement('div');
-    block.className = 'inventory-group';
-    
-    const title = document.createElement('h3');
-    title.className = 'inventory-group-title';
-    title.textContent = groupName;
-    
-    const grid = document.createElement('div');
-    grid.className = 'inventory-grid';
-    
-    Array.from(glyphs).forEach(char => {
-      const cell = document.createElement('div');
-      cell.className = 'inventory-cell';
-      cell.style.fontFamily = DOM.fontFamily.value;
-      cell.textContent = char;
-      grid.appendChild(cell);
+  function createSection(id, title) {
+    var section = document.createElement('section');
+    section.className = 'section';
+    section.id = id;
+    var inner = document.createElement('div');
+    inner.className = 'container';
+    var h2 = document.createElement('h2');
+    h2.className = 'section-title';
+    h2.textContent = title;
+    inner.appendChild(h2);
+    section.appendChild(inner);
+    return { section: section, inner: inner };
+  }
+
+  function el(tag, attrs, children) {
+    var e = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        if (k === 'className') e.className = attrs[k];
+        else if (k === 'textContent') e.textContent = attrs[k];
+        else if (k === 'innerHTML') e.innerHTML = attrs[k];
+        else e.setAttribute(k, attrs[k]);
+      });
+    }
+    if (children) {
+      children.forEach(function (c) {
+        if (typeof c === 'string') e.appendChild(document.createTextNode(c));
+        else e.appendChild(c);
+      });
+    }
+    return e;
+  }
+
+  // --- Overview ---
+  (function () {
+    var s = createSection('overview', 'Overview');
+    var content = el('div', { className: 'overview-content' });
+
+    var df = CONFIG.families[0].name;
+    var title = el('h1', { className: 'overview-title', textContent: CONFIG.typeface, style: 'font-family: ' + df + ', sans-serif' });
+    var tagline = el('p', { className: 'overview-tagline', textContent: CONFIG.tagline, style: 'font-family: ' + df + ', sans-serif' });
+    var desc = el('p', { className: 'overview-desc', textContent: CONFIG.description });
+
+    var btnGroup = el('div', { className: 'btn-group' }, [
+      el('a', { className: 'btn', href: CONFIG.repository + '/releases', target: '_blank', textContent: 'Download Fonts' }),
+      el('a', { className: 'btn', href: CONFIG.repository, target: '_blank', textContent: 'View Repository' })
+    ]);
+
+    var meta = el('div', { className: 'overview-meta' }, [
+      el('div', { className: 'overview-meta-item' }, [
+        el('span', { className: 'overview-meta-label', textContent: 'Styles' }),
+        el('span', { className: 'overview-meta-value', textContent: '6' })
+      ]),
+      el('div', { className: 'overview-meta-item' }, [
+        el('span', { className: 'overview-meta-label', textContent: 'Format' }),
+        el('span', { className: 'overview-meta-value', textContent: 'WOFF2' })
+      ]),
+      el('div', { className: 'overview-meta-item' }, [
+        el('span', { className: 'overview-meta-label', textContent: 'Classification' }),
+        el('span', { className: 'overview-meta-value', textContent: 'Geometric Sans-Serif' })
+      ])
+    ]);
+
+    content.appendChild(title);
+    content.appendChild(tagline);
+    content.appendChild(desc);
+    content.appendChild(btnGroup);
+    content.appendChild(meta);
+    s.inner.appendChild(content);
+    main.appendChild(s.section);
+  })();
+
+  // --- Families ---
+  (function () {
+    var s = createSection('families', 'Families');
+    var grid = el('div', { className: 'families-grid' });
+
+    CONFIG.families.forEach(function (f) {
+      var block = el('div', { className: 'family-block' }, [
+        el('div', { className: 'family-name', textContent: f.displayName }),
+        el('div', { className: 'family-sample', textContent: CONFIG.samples.pangram, style: 'font-family: ' + f.name + ', sans-serif' })
+      ]);
+      grid.appendChild(block);
     });
-    
-    block.appendChild(title);
-    block.appendChild(grid);
-    fragment.appendChild(block);
-  });
-  
-  DOM.inventorySpread.appendChild(fragment);
-}
 
-/**
- * Update font weight across all preview areas
- */
-function updateFontWeight() {
-  const fontFamily = DOM.fontFamily.value;
-  
-  DOM.previewBox.style.fontFamily = fontFamily;
-  
-  document.querySelectorAll('.cascade-sample-node').forEach(el => {
-    el.style.fontFamily = fontFamily;
-  });
-  
-  document.querySelectorAll('.inventory-cell').forEach(el => {
-    el.style.fontFamily = fontFamily;
-  });
-}
+    s.inner.appendChild(grid);
+    main.appendChild(s.section);
+  })();
 
-/**
- * Update preview box font size
- */
-function updateFontSize() {
-  const size = DOM.fontSize.value;
-  DOM.previewBox.style.fontSize = `${size}px`;
-  DOM.fontSizeValue.textContent = size;
-}
+  // --- Interactive Tester ---
+  (function () {
+    var s = createSection('tester', 'Interactive Tester');
+    var controls = el('div', { className: 'tester-controls' });
 
-/**
- * Update preview box line height
- */
-function updateLineHeight() {
-  const height = DOM.lineHeight.value;
-  DOM.previewBox.style.lineHeight = height;
-  DOM.lineHeightValue.textContent = height;
-}
+    var familyGroup = el('div', { className: 'tester-control-group' }, [
+      el('label', { textContent: 'Family' })
+    ]);
+    var select = el('select', { id: 'testerFamily' });
+    CONFIG.families.forEach(function (f) {
+      var opt = el('option', { value: f.name, textContent: f.displayName });
+      select.appendChild(opt);
+    });
+    familyGroup.appendChild(select);
 
-/**
- * Update preview text content
- */
-function updatePreviewText() {
-  DOM.previewBox.textContent = DOM.testText.value || ' ';
-}
+    var sizeGroup = el('div', { className: 'tester-control-group' }, [
+      el('label', { textContent: 'Size' }),
+      el('input', { type: 'range', id: 'testerSize', min: '12', max: '96', value: '32' }),
+      el('span', { className: 'tester-value', id: 'testerSizeVal', textContent: '32px' })
+    ]);
 
-/**
- * Attach event listeners
- */
-function attachEventListeners() {
-  DOM.fontFamily.addEventListener('change', updateFontWeight);
-  DOM.fontSize.addEventListener('input', updateFontSize);
-  DOM.lineHeight.addEventListener('input', updateLineHeight);
-  DOM.testText.addEventListener('input', updatePreviewText);
-}
+    var trackGroup = el('div', { className: 'tester-control-group' }, [
+      el('label', { textContent: 'Tracking' }),
+      el('input', { type: 'range', id: 'testerTracking', min: '-10', max: '40', value: '0' }),
+      el('span', { className: 'tester-value', id: 'testerTrackVal', textContent: '0' })
+    ]);
 
-/**
- * Initialize application
- */
-function initialize() {
-  initTheme();
-  renderTypeScale();
-  renderInventory();
-  attachEventListeners();
-}
+    var themeGroup = el('div', { className: 'tester-control-group' }, [
+      el('label', { textContent: 'Theme' }),
+      el('button', { className: 'theme-btn', id: 'testerTheme', textContent: 'Dark' })
+    ]);
 
-// Start on DOM ready
-document.addEventListener('DOMContentLoaded', initialize);
+    controls.appendChild(familyGroup);
+    controls.appendChild(sizeGroup);
+    controls.appendChild(trackGroup);
+    controls.appendChild(themeGroup);
+
+    var preview = el('div', { className: 'tester-preview' }, [
+      el('div', { className: 'tester-text', id: 'testerText', textContent: CONFIG.samples.pangram, style: 'font-family: ' + CONFIG.families[0].name + ', sans-serif' })
+    ]);
+
+    s.inner.appendChild(controls);
+    s.inner.appendChild(preview);
+    main.appendChild(s.section);
+
+    var tText = document.getElementById('testerText');
+    var tFamily = document.getElementById('testerFamily');
+    var tSize = document.getElementById('testerSize');
+    var tSizeVal = document.getElementById('testerSizeVal');
+    var tTrack = document.getElementById('testerTracking');
+    var tTrackVal = document.getElementById('testerTrackVal');
+    var tTheme = document.getElementById('testerTheme');
+
+    tFamily.addEventListener('change', function () {
+      tText.style.fontFamily = tFamily.value + ', sans-serif';
+    });
+
+    tSize.addEventListener('input', function () {
+      tText.style.fontSize = tSize.value + 'px';
+      tSizeVal.textContent = tSize.value + 'px';
+    });
+
+    tTrack.addEventListener('input', function () {
+      tText.style.letterSpacing = tTrack.value + 'px';
+      tTrackVal.textContent = tTrack.value;
+    });
+
+    tTheme.addEventListener('click', function () {
+      var theme = document.documentElement.getAttribute('data-theme');
+      if (theme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        tTheme.textContent = 'Dark';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        tTheme.textContent = 'Light';
+      }
+    });
+  })();
+
+  // --- Character Set ---
+  (function () {
+    var s = createSection('charset', 'Character Set');
+    var groups = [
+      { label: 'Uppercase', chars: CONFIG.characters.uppercase },
+      { label: 'Lowercase', chars: CONFIG.characters.lowercase },
+      { label: 'Numerals', chars: CONFIG.characters.numerals },
+      { label: 'Punctuation', chars: CONFIG.characters.punctuation }
+    ];
+
+    groups.forEach(function (g) {
+      var grp = el('div', { className: 'charset-group' }, [
+        el('div', { className: 'section-subtitle', textContent: g.label }),
+        el('div', { className: 'charset-chars', textContent: g.chars, style: 'font-family: ' + CONFIG.families[0].name + ', sans-serif' })
+      ]);
+      s.inner.appendChild(grp);
+    });
+
+    main.appendChild(s.section);
+  })();
+
+  // --- Language Support ---
+  (function () {
+    var s = createSection('languages', 'Language Support');
+    var grid = el('div', { className: 'languages-grid' });
+
+    CONFIG.languages.forEach(function (lang) {
+      var block = el('div', { className: 'language-block' }, [
+        el('div', { className: 'language-name', textContent: lang.name }),
+        el('div', { className: 'language-sample', textContent: lang.sample })
+      ]);
+      grid.appendChild(block);
+    });
+
+    s.inner.appendChild(grid);
+    main.appendChild(s.section);
+  })();
+
+  // --- Text Specimen ---
+  (function () {
+    var s = createSection('specimen', 'Text Specimen');
+
+    var df = CONFIG.families[0].name;
+    var large = el('div', { className: 'specimen-large', textContent: CONFIG.typeface, style: 'font-family: ' + df + ', sans-serif' });
+    var medium = el('div', { className: 'specimen-medium', textContent: CONFIG.samples.medium, style: 'font-family: ' + df + ', sans-serif' });
+    var small = el('p', { className: 'specimen-small', textContent: CONFIG.samples.small, style: 'font-family: ' + df + ', sans-serif' });
+
+    s.inner.appendChild(large);
+    s.inner.appendChild(medium);
+    s.inner.appendChild(small);
+    main.appendChild(s.section);
+  })();
+
+  // --- Family Comparison ---
+  (function () {
+    var s = createSection('comparison', 'Family Comparison');
+    var grid = el('div', { className: 'comparison-grid' });
+
+    var texts = [
+      CONFIG.samples.pangram,
+      CONFIG.samples.display,
+      '0123456789'
+    ];
+
+    CONFIG.families.forEach(function (f) {
+      texts.forEach(function (txt) {
+        var item = el('div', { className: 'comparison-item' }, [
+          el('div', { className: 'comparison-item-label', textContent: f.displayName }),
+          el('div', { className: 'comparison-item-text', textContent: txt, style: 'font-family: ' + f.name + ', sans-serif' })
+        ]);
+        grid.appendChild(item);
+      });
+    });
+
+    s.inner.appendChild(grid);
+    main.appendChild(s.section);
+  })();
+
+  // --- Download ---
+  (function () {
+    var s = createSection('download', 'Download');
+    var links = el('div', { className: 'btn-group' }, [
+      el('a', { className: 'btn', href: CONFIG.repository + '/releases', target: '_blank', textContent: 'Download Fonts' }),
+      el('a', { className: 'btn', href: CONFIG.repository, target: '_blank', textContent: 'View Repository' }),
+      el('a', { className: 'btn', href: CONFIG.issueUrl, target: '_blank', textContent: 'Report Issue' })
+    ]);
+    s.inner.appendChild(links);
+    main.appendChild(s.section);
+  })();
+
+  // --- Font Loading ---
+  (function () {
+    var allText = main.querySelectorAll('.family-sample, .comparison-item-text, .charset-chars, .specimen-large, .specimen-medium, .specimen-small, .overview-title, .overview-tagline');
+    allText.forEach(function (el) {
+      el.classList.add('font-loading');
+    });
+
+    var promises = CONFIG.families.map(function (f) {
+      var font = new FontFace(f.name, 'url(' + CONFIG.fontBaseUrl + '/' + f.name + '.woff2)');
+      return font.load().then(function () {
+        document.fonts.add(font);
+      });
+    });
+
+    Promise.all(promises).then(function () {
+      allText.forEach(function (el) {
+        el.classList.remove('font-loading');
+        el.classList.add('font-loaded');
+      });
+    }).catch(function () {
+      allText.forEach(function (el) {
+        el.classList.remove('font-loading');
+        el.classList.add('font-loaded');
+      });
+    });
+  })();
+
+  // --- Active Nav ---
+  (function () {
+    var links = nav.querySelectorAll('a');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          var id = entry.target.id;
+          links.forEach(function (l) {
+            if (l.getAttribute('href') === '#' + id) l.classList.add('active');
+          });
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+
+    var sections = main.querySelectorAll('.section');
+    sections.forEach(function (s) { observer.observe(s); });
+  })();
+});
