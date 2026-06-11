@@ -301,7 +301,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         el.classList.remove('font-loading');
         el.classList.add('font-loaded');
       });
-    }).catch(function () {
+    }).catch(function (error) {
+      console.error('Font loading error:', error);
       allText.forEach(function (el) {
         el.classList.remove('font-loading');
         el.classList.add('font-loaded');

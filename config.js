@@ -1,7 +1,7 @@
 const CONFIG = {
   typeface: 'Tecnica Typeface',
   tagline: 'Geometric Sans-Serif',
-  description: 'Tecnica is a geometric sans-serif typeface designed for clarity and precision. Its clean lines and modern proportions make it suitable for a wide range of applications, from user interfaces to editorial design. The family includes six styles: three weights in both regular and line variants, plus a monospace counterpart.',
+  description: 'Tecnica is a geometric sans-serif typeface designed for clarity and precision. Its clean lines and modern proportions make it suitable for a wide range of applications, from user interfaces to display design.',
   repository: 'https://github.com/Davide-Piscitelli/Tecnica-Typeface',
   issueUrl: 'https://github.com/Davide-Piscitelli/Tecnica-Typeface/issues',
   fontBaseUrl: 'https://raw.githubusercontent.com/Davide-Piscitelli/Tecnica-Typeface/main/fonts',
@@ -17,7 +17,7 @@ const CONFIG = {
     pangram: 'The quick brown fox jumps over the lazy dog',
     display: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     medium: 'The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.',
-    small: 'Tecnica is a geometric sans-serif typeface designed for clarity and precision. Its clean lines and modern proportions make it suitable for a wide range of applications, from user interfaces to editorial design. The family includes six styles: three weights in both regular and line variants, plus a monospace counterpart.'
+    small: 'Tecnica is a geometric sans-serif typeface designed for clarity and precision. Its clean lines and modern proportions make it suitable for a wide range of applications, from user interfaces to display design. Perfect for web and print.'
   },
   characters: {
     uppercase: 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z',
@@ -29,9 +29,9 @@ const CONFIG = {
     { name: 'English', sample: 'The quick brown fox jumps over the lazy dog.' },
     { name: 'Italian', sample: 'Che la volpe marrone salti sopra il cane pigro.' },
     { name: 'French', sample: 'Portez ce vieux whisky au juge blond qui fume.' },
-    { name: 'German', sample: 'Victor jagt zw\u00f6lf Boxk\u00e4mpfer quer \u00fcber den gro\u00dfen Sylter Deich.' },
-    { name: 'Spanish', sample: 'El veloz murci\u00e9lago hind\u00fa com\u00eda feliz cardillo y kiwi.' },
-    { name: 'Portuguese', sample: 'Lu\u00eds arg\u00fcia \u00e0 J\u00falia quebra o fr\u00e1gil vaso de \u00e1gata.' },
+    { name: 'German', sample: 'Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich.' },
+    { name: 'Spanish', sample: 'El veloz murciélago hindú comía feliz cardillo y kiwi.' },
+    { name: 'Portuguese', sample: 'Luís argúcia à Júlia quebra o frágil vaso de ágata.' },
     { name: 'Dutch', sample: 'Pa\'s wijze lynx bezag vroom het fikse aquaduct.' }
   ]
 };
