@@ -1,140 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tecnica Typeface — Type Specimen Sheet">
-    <title>Tecnica Typeface — Type Specimen</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnica Typeface — Type Specimen</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="header-info-grid">
-        <!-- Box 1: Type Specimen -->
-        <div class="info-box">
-            <span class="info-label">Type Specimen</span>
-            <h1 class="info-title">Tecnica Typeface</h1>
-        </div>
-        
-        <!-- Box 2: Categories -->
-        <div class="info-box">
-            <span class="info-label">Categories</span>
-            <div class="info-value">Dot Matrix Typeface</div>
-        </div>
-        
-        <!-- Box 3: License -->
-        <div class="info-box">
-            <span class="info-label">License</span>
-            <strong class="info-value">SIL OFL 1.1</strong>
-        </div>
-        
-        <!-- Box 4: Type Designer -->
-        <div class="info-box">
-            <span class="info-label">Type Designer</span>
-            <span class="info-value">Davide Piscitelli</span>
-        </div>
-        
-        <!-- Box 5: Release Date -->
-        <div class="info-box">
-            <span class="info-label">Release Date</span>
-            <span class="info-value">2026</span>
-        </div>
-        
-        <!-- Box 6: Theme -->
-        <div class="info-box theme-box">
-            <span class="info-label">Interface Theme</span>
-            <button id="themeToggleBtn" class="sys-btn-theme" aria-label="Toggle interface theme">Theme: Dark</button>
-        </div>
+  <header class="header" id="header">
+    <div class="header-inner container">
+      <span class="header-title">Tecnica Typeface</span>
+      <nav class="nav" id="nav"></nav>
     </div>
-
-    <section class="chapter">
-        <h2 class="chapter-title">01 // TYPE SPECIMEN FIELD</h2>
-        
-        <div class="control-panel">
-            <div class="control-group">
-                <label for="fontFamily" class="sub-label-caps">Typeface Weight</label>
-                <select id="fontFamily" class="sys-select">
-                    <option value="Tecnica-53">53</option>
-                    <option value="Tecnica-55" selected>55</option>
-                    <option value="Tecnica-53Line">53 Line</option>
-                    <option value="Tecnica-55Line">55 Line</option>
-                    <option value="Tecnica-Mono">Mono</option>
-                    <option value="Tecnica-MonoLine">Mono Line</option>
-                </select>
-            </div>
-
-            <div class="control-group">
-                <label for="fontSize" class="sub-label-caps">Text Size <span id="fontSizeValue">48</span>pt</label>
-                <input type="range" id="fontSize" class="sys-slider" min="12" max="144" value="48">
-            </div>
-
-            <div class="control-group">
-                <label for="lineHeight" class="sub-label-caps">Line Spacing <span id="lineHeightValue">1.2</span></label>
-                <input type="range" id="lineHeight" class="sys-slider" min="0.8" max="2.5" step="0.1" value="1.2">
-            </div>
-
-            <div class="control-group full-width">
-                <label for="testText" class="sub-label-caps">Type here to test the font</label>
-                <input type="text" id="testText" class="sys-input-text" value="Tecnica dot matrix stream and processor core online.">
-            </div>
-        </div>
-
-        <div class="tester-container">
-            <div id="preview-box" contenteditable="true">Tecnica dot matrix stream and processor core online.</div>
-        </div>
-    </section>
-
-    <section class="chapter">
-        <h2 class="chapter-title">02 // TYPE SCALE VIEW</h2>
-        <div class="cascade-table" id="cascadeSpread"></div>
-    </section>
-
-    <section class="chapter">
-        <h2 class="chapter-title">03 // CHARACTER SET</h2>
-        <div id="inventorySpread"></div>
-    </section>
-
-    <section class="chapter">
-        <h2 class="chapter-title">04 // INFORMATION &amp; SPECIFICATIONS</h2>
-        <div class="columns-2">
-            <div class="col body-text-p1">
-                <p>Tecnica 55 and Tecnica 53 are digital writing styles built entirely on structured geometric pixel grids. The project draws clear visual inspiration from the legacy of early tec[...]</p>
-                <p>Built upon robust matrix frameworks, both font systems seamlessly anchor visual consistency, computational balance, and interface clarity.</p>
-            </div>
-            <div class="col body-text-p1">
-                <p>The structured architectural nature of the grid renders clean geometry optimized for digital interfaces, technical readouts, and developer console visualizer nodes.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="chapter">
-        <h2 class="chapter-title">05 // SUPPORTED LANGUAGES</h2>
-        <div class="body-text-p1">
-            Afrikaans, Albanian, Asu, Basque, Bemba, Bena, Breton, Catalan, Chiga, Colognian, Cornish, Croatian, Czech, Danish, Dutch, Embu, English, Estonian, Faroese, Filipino, Finnish, French,[...]
-        </div>
-    </section>
-
-    <section class="chapter">
-        <h2 class="chapter-title">06 // COPYRIGHT &amp; LICENSE</h2>
-        <div class="columns-2">
-            <div class="col body-text-p1">
-                All font assets are released under the terms of the SIL Open Font License 1.1. Modifying or adding new elements to the core system does not violate the terms of use.
-            </div>
-            <div class="col footer-action">
-                <a href="https://github.com/Davide-Piscitelli/Tecnica-Typeface" class="sys-btn" target="_blank">Download the Font</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="footer-credit">
-        <span>Designed by Davide Piscitelli</span>
-        <span>Open Source — 2026</span>
+  </header>
+  <main id="main">
+    <div class="container" id="loading">
+      <p style="padding: 64px 0; color: var(--muted);">Loading type specimen…</p>
     </div>
-
-    <script src="script.js"></script>
+  </main>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
