@@ -3,6 +3,21 @@ document.addEventListener('DOMContentLoaded', async function () {
   const nav = document.getElementById('nav');
   const main = document.getElementById('main');
 
+  // --- Load Fonts First ---
+  const fontPromises = CONFIG.families.map(function (f) {
+    var font = new FontFace(f.name, 'url(' + CONFIG.fontBaseUrl + '/' + f.name + '.woff2)');
+    return font.load().then(function () {
+      document.fonts.add(font);
+    }).catch(function (error) {
+      console.error('Font loading error for ' + f.name + ':', error);
+    });
+  });
+
+  // Wait for fonts to load before rendering
+  await Promise.all(fontPromises).catch(function (error) {
+    console.error('Font loading failed:', error);
+  });
+
   headerTitle.textContent = CONFIG.typeface;
   main.textContent = '';
 
@@ -280,34 +295,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     ]);
     s.inner.appendChild(links);
     main.appendChild(s.section);
-  })();
-
-  // --- Font Loading ---
-  (function () {
-    var allText = main.querySelectorAll('.family-sample, .comparison-item-text, .charset-chars, .specimen-large, .specimen-medium, .specimen-small, .overview-title, .overview-tagline');
-    allText.forEach(function (el) {
-      el.classList.add('font-loading');
-    });
-
-    var promises = CONFIG.families.map(function (f) {
-      var font = new FontFace(f.name, 'url(' + CONFIG.fontBaseUrl + '/' + f.name + '.woff2)');
-      return font.load().then(function () {
-        document.fonts.add(font);
-      });
-    });
-
-    Promise.all(promises).then(function () {
-      allText.forEach(function (el) {
-        el.classList.remove('font-loading');
-        el.classList.add('font-loaded');
-      });
-    }).catch(function (error) {
-      console.error('Font loading error:', error);
-      allText.forEach(function (el) {
-        el.classList.remove('font-loading');
-        el.classList.add('font-loaded');
-      });
-    });
   })();
 
   // --- Active Nav ---
