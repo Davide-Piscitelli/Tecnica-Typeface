@@ -6,14 +6,23 @@ The project features distinct matrix variants designed for diverse digital layou
 
 ---
 
-## Font Family & Grid System
+## Font Family & Sub-Families
 
-* **Tecnica 55**: Utilizes a 5x5 grid system to produce bold, highly structured letterforms with a powerful visual presence. Ideal for user interfaces, branding, and high-impact display applications.
-* **Tecnica 53**: Adopts a compact 5x3 grid for a narrower, minimalist aesthetic. Optimized for high-density, space-saving layouts, it retains excellent readability with a lighter visual rhythm.
-* **Tecnica Mono**: A new monospaced variant engineered for strict vertical and horizontal alignment, providing consistent character width across data-heavy environments.
+### Tecnica A
 
-### Line Variants
-Both standard and monospace variants include specialized Line versions (`Tecnica-53Line`, `Tecnica-55Line`, and `Tecnica-MonoLine`). These variants connect the dot matrix into continuous lines, expanding the system's utility for programming environments and technical interfaces.
+Designed for high-resolution screens, low text density, and medium to large text sizes.
+
+* **Tecnica 53 / 53 Scan**: Adopts a compact 5x3 grid for a narrower, minimalist aesthetic.
+* **Tecnica 55 / 55 Scan**: Utilizes a 5x5 grid system to produce bold, highly structured letterforms.
+* **Tecnica Fixed / Fixed Scan**: Monospaced variants engineered for strict vertical and horizontal alignment.
+
+### Tecnica B
+
+Designed for low-resolution screens, high text density, small to medium text sizes, and technical printed materials.
+
+* **Tecnica 73 / 73 Scan**: Adopts a compact 7x3 grid optimized for high-density layouts.
+* **Tecnica 75 / 75 Scan**: Utilizes a 7x5 grid system for balanced structural legibility.
+* **Tecnica Fixed / Fixed Scan**: Monospaced variants engineered for strict data alignment in dense environments.
 
 ---
 
@@ -22,6 +31,9 @@ Both standard and monospace variants include specialized Line versions (`Tecnica
 * **UI/UX Design**: Optimized for high-density layouts, software interfaces, and terminal applications.
 * **Developer Tools**: Ideal for text editors, IDEs, and environments requiring monospaced accuracy.
 * **Branding & Graphic Design**: Designed for technical branding, sci-fi visual designs, and retro-futuristic layouts.
+* **Sub-Family Specifics**:
+  * **Tecnica A**: High-resolution screens, low text density, and medium/large text sizes.
+  * **Tecnica B**: Low-resolution screens, high text density, small/medium text sizes, and technical printed materials.
 
 ---
 
