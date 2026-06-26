@@ -1,8 +1,6 @@
 Tecnica Typeface is a bitmap-inspired typographic system based on precise dot grids, balancing technical accuracy with functional legibility. Built for digital layouts, interfaces, and developer workflows.
 
-Key Features:
+The system consists of two distinct sub-families:
 
-- Tecnica 55: Bold 5x5 grid for high-impact UIs and branding
-- Tecnica 53: Compact 5x3 grid for high-density layouts
-- Tecnica Mono: Monospaced grid for strict vertical and horizontal alignment
-- Line Variants: Continuous-line versions (55Line, 53Line, MonoLine) engineered for software interfaces and technical workflows
+- Tecnica A: Optimized for high-resolution screens, low text density, and medium to large text sizes. It features weights 53, 53 Scan, 55, 55 Scan, Fixed and Fixed Scan.
+- Tecnica B: Optimized for low-resolution screens, high text density, small to medium text sizes, and technical print media. It features weights 73, 73 Scan, 75, 75 Scan, Fixed and Fixed Scan.
