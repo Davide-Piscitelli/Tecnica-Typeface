@@ -31,9 +31,13 @@ Designed for low-resolution screens, high text density, small to medium text siz
 * **UI/UX Design**: Optimized for high-density layouts, software interfaces, and terminal applications.
 * **Developer Tools**: Ideal for text editors, IDEs, and environments requiring monospaced accuracy.
 * **Branding & Graphic Design**: Designed for technical branding, sci-fi visual designs, and retro-futuristic layouts.
-* **Sub-Family Specifics**:
-  * **Tecnica A**: High-resolution screens, low text density, and medium/large text sizes.
-  * **Tecnica B**: Low-resolution screens, high text density, small/medium text sizes, and technical printed materials.
+
+---
+
+## Sub-Family Specifics
+
+* **Tecnica A**: High-resolution screens, low text density, and medium/large text sizes.
+* **Tecnica B**: Low-resolution screens, high text density, small/medium text sizes, and technical printed materials.
 
 ---
 
