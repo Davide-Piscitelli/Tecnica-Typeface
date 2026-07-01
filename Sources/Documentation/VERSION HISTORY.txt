@@ -1,0 +1,25 @@
+Version 1.000
+- Initial release.
+- Introduced Tecnica 53 and Tecnica 55.
+
+Version 1.200
+- Added Tecnica 53 Line.
+- Added Tecnica 55 Line.
+- Added Tecnica Mono.
+- Added Tecnica Mono Line.
+
+Version 1.300
+- Added Tecnica 73.
+- Added Tecnica 73 Line.
+- Redesigned Tecnica 55.
+- Redesigned Tecnica 55 Line.
+
+Version 1.350
+- Improved glyph construction and font metrics.
+- Expanded the Tecnica typeface into two sub-families:
+  - Tecnica A
+  - Tecnica B
+
+Version 1.400
+- Added the basic Greek alphabet.
+- Optimized glyph drawings across the typeface.
